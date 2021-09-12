@@ -1,31 +1,33 @@
-import React from 'react'
-import '../Navbar.css'
+import React from "react";
+import '../css/Navbar.css'
+import {Link} from 'react-router-dom'
+import logo from '../assets/favicon-32x32.png'
 
-
-const Navbar = () => {
+function Navbar() {
+    const logoStyle = {
+        textDecoration: 'none',
+        color: 'whitesmoke',
+        fontFamily: 'Roboto sans-serif',
+        fontSize: '20px'
+    }
+    
+    const navStyle = {
+        color: 'whitesmoke',
+        textDecoration: 'none'
+    }
     
     return (
-        
-        <div className='navbar'>
-            <div className="logo-heading">
-            <a href='../index.html'>
-                <h1>Fetchbook</h1>
-            </a>
-            </div>
-        
-            <div className='navbar-redirect'>
-            <ul>
-                <a className='navbar-links'><li>HOT! Deals</li></a>
-                <a className='navbar-links'><li>My Favourites</li></a>
-                <a className='navbar-links'><li>Seller Program</li></a>
-                <a className='navbar-links'><li>Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i></li></a>
-            </ul>
-            </div>
-            
-            <a href='../loginPage.html'><button className='btn-black'>Login/Signup</button></a>
-            
-        </div>
-    )
-}
-
-export default Navbar
+      <nav>
+          <Link to='/'><img src={logo} className='logo-img' alt='Logo' /></Link>
+          <Link style={logoStyle} to='/'>
+              <h3 className='logo'>FetchBook</h3>
+          </Link>
+          <span className='navbarLinks'>
+              <Link style={navStyle} to='/about'><button className='btn btn-black'>About</button></Link>
+              <Link style={navStyle} to='/login'><button className='btn btn-black'>Login</button></Link>
+          </span>
+      </nav>
+    );
+  }
+  
+  export default Navbar;

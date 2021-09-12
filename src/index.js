@@ -1,23 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import Login from './components/Login.jsx';
-import Navbar from './components/Navbar.jsx';
+import './css/index.css';
+import App from './App.jsx';
+import reportWebVitals from './reportWebVitals';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <div className="topBar">
-    <Navbar />
-    </div>
-    <Login />
-    
-    
+    <App />
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-
-
-
-
+reportWebVitals();
