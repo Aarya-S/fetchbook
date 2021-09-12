@@ -1,0 +1,47 @@
+.loginForm {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+  align-items: center;
+  background-color: beige;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.mainForm {
+  padding: 10px;
+  flex: 3;
+  align-items: flex-start;
+}
+
+.mainForm label {
+  font-family: Poppins, sans-serif;
+}
+
+.mainForm input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+.formArt {
+  flex: 3;
+  align-items: flex-end;
+  overflow: hidden;
+}
+.formArt img {
+  height: 150px;
+  width: 150px;
+  animation: spin 10s infinite linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

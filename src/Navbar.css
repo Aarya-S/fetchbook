@@ -1,0 +1,91 @@
+@import url("https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/*LOGO*/
+.logo-heading {
+  font-family: "Rampart One", cursive;
+  justify-content: flex-start;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: inherit;
+  width: 57%;
+}
+
+.logo-heading a,
+a::before,
+a::after {
+  text-decoration: none;
+}
+
+.logo-heading a:link,
+a:visited {
+  color: black;
+}
+
+.logo-heading a:hover {
+  color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+/*RIGHT SIDE BAR*/
+.navbar-redirect {
+  justify-content: flex-end;
+  align-items: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+}
+
+.navbar-links {
+  color: black;
+  cursor: pointer;
+}
+
+.navbar-links:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.navbar ul {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: row;
+  list-style: none;
+  font-family: Poppins, sans-serif;
+  font-weight: 300;
+}
+
+.navbar ul li {
+  padding: 15px;
+}
+
+/*BUTTON STYLE*/
+.btn-black {
+  background: #000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: Poppins, sans-serif;
+}
+.btn-black:focus {
+  outline: none;
+}
+
+.btn-black:active {
+  transform: scale(0.98);
+}
