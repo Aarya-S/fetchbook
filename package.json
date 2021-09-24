@@ -37,5 +37,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "A digital catalog of books, both new and used.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aarya-S/fetchbook.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Aarya-S/fetchbook/issues"
+  },
+  "homepage": "/"
 }
