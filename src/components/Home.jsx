@@ -41,6 +41,7 @@ const data = [
 {image:'https://images-na.ssl-images-amazon.com/images/I/71e5m7xQd0L._AC_UL200_SR200,200_.jpg'},
 {image:'https://images-na.ssl-images-amazon.com/images/I/71e5m7xQd0L._AC_UL200_SR200,200_.jpg'}]
 
+
 class populate extends Component{
   state={
     data,
@@ -49,9 +50,9 @@ class populate extends Component{
     return (
       <div>
         <ImageSlider slides={Sliderdata}/>
-      <text>Feartured Products </text>
+      <text style={{ fontWeight: 'bold',color: 'red'}}>'  Featured Products </text>
       <RenderBooks/>
-      <text>We Offer</text>
+      <text style={{ fontWeight: 'bold',color: 'red'}}>'   We Offer</text>
       <RenderBooks/>
       <button>Show more</button>
       </div>

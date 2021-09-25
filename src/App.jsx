@@ -15,16 +15,22 @@ function App() {
     <Router>
 
     <div className='App'>
-      <Navbar />
+      
       <Switch>
-        <Route component={Home} path='/' exact />
-        <Route component={About} path='/about' exact />
         <Route component={Login} path='/login' exact />
-        <Route component={Details} path='/details'/>
-        <Route component={Offers} path='/offers'/>
-        <Route component={Cart} path='/incart'/>
+        <div>
+          <Navbar />
+
+          <Route component={Home} path='/' exact />
+          <Route component={About} path='/about' exact />
+        
+          <Route component={Details} path='/details' exact />
+          <Route component={Offers} path='/offers' exact />
+          <Route component={Cart} path='/incart' exact />
+        </div>
       </Switch>
-    </div>
+      </div>
+    
 
     </Router>
 
