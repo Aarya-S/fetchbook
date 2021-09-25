@@ -2,6 +2,7 @@ import React from "react";
 import '../css/Navbar.css'
 import {Link} from 'react-router-dom'
 import logo from '../assets/favicon-32x32.png'
+import { Icon, TextField } from "@material-ui/core";
 
 function Navbar() {
     const logoStyle = {
@@ -22,8 +23,12 @@ function Navbar() {
           <Link style={logoStyle} to='/'>
               <h3 className='logo'>FetchBook</h3>
           </Link>
+          <Icon ></Icon>
+          <TextField placeholder="search"/>
           <span className='navbarLinks'>
+              <Link style={navStyle} to='/offers'><button className='btn btn-black'>Offers</button></Link>              
               <Link style={navStyle} to='/about'><button className='btn btn-black'>About</button></Link>
+              <Link style={navStyle} to='/cart'><button className='btn btn-black'>Cart</button></Link>
               <Link style={navStyle} to='/login'><button className='btn btn-black'>Login</button></Link>
           </span>
       </nav>
