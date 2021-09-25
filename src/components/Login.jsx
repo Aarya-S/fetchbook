@@ -40,6 +40,9 @@ function Login() {
               Log in
             </Button>
           </Grid>
+          <Button color="primary" fullWidth type="submit" variant="text">
+              New here?Sign up
+            </Button>
         </Grid>
       </form>
     </Container>
