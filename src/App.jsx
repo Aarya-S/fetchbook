@@ -8,6 +8,7 @@ import Details from './components/detail_page';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Offers from './components/Offers';
 import Cart from './components/Cart';
+import Hero from '../components/Hero';
 
 function App() {
   return (
@@ -15,7 +16,11 @@ function App() {
     <Router>
 
     <div className='App'>
-      
+      <Navbar />
+      <Hero
+  imgSrc="https://source.unsplash.com/random/"
+  imgAlt="satified woman eating in restaurant"
+/>
       <Switch>
         <Route component={Login} path='/login' exact />
         <div>
