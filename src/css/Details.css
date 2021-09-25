@@ -1,14 +1,18 @@
 .slider_book {
-    position: absolute;
-    height: 40vh;
-    width: 60vh;
-    justify-content: left;
-    align-items: center;
+  position: absolute;
+  height: 80vh;
+  width: 80vh;
+  padding: 10px;
+  padding-top: 50px;
+  padding-left: 50px;
+  justify-content: left;
+  align-items: center;
 }
 
 .image_book {
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 400px;
+  border: rgb(52, 142, 148);
   border-radius: 10px;
 }
 
@@ -44,4 +48,3 @@
   transition-duration: 1s;
   transform: scale(1.08);
 }
-

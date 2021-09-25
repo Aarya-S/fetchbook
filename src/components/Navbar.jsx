@@ -9,7 +9,8 @@ function Navbar() {
         textDecoration: 'none',
         color: 'whitesmoke',
         fontFamily: 'Roboto sans-serif',
-        fontSize: '20px'
+        fontSize: '20px',
+        paddingLeft: '5px'
     }
     
     const navStyle = {
@@ -19,7 +20,7 @@ function Navbar() {
     
     return (
       <nav>
-          <Link to='/'><img src={logo} className='logo-img' alt='Logo' /></Link>
+          <Link to='/'><img src={logo} style={{ marginLeft: '1rem' }}  className='logo-img' alt='Logo' /></Link>
           <Link style={logoStyle} to='/'>
               <h3 className='logo'>FetchBook</h3>
           </Link>

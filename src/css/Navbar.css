@@ -6,8 +6,8 @@ nav {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: rgb(241, 29, 178);
-  color: whitesmoke;
+  background-color: rgb(29, 163, 241, 0.4);
+  color: white;
 }
 
 .navbarLinks {
@@ -15,12 +15,12 @@ nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  list-style-type: none;
+  list-style-type: circle;
 }
 
 /*BUTTON STYLE*/
 .btn-black {
-  background: #000;
+  background: rgb(19, 53, 107);
   color: #fff;
   border: none;
   padding: 10px 20px;
