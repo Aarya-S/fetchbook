@@ -43,29 +43,30 @@ const data = [
 
 class populate extends Component{
   state={
-    data
-  }
+    data,
+  };
   render(){
     return (
       <div>
         <ImageSlider slides={Sliderdata}/>
       <text>Feartured Products </text>
-      <div className='booklist'>
-        {this.state.data.map((book, index) => {
-          console.log(book)
-        return <Link to='/details'><Book_card key={book.id} {...book}></Book_card></Link>;
-      })}
-      </div>
+      <RenderBooks/>
       <text>We Offer</text>
-      <div className='booklist'>
-        {this.state.data.map((book, index) => {
-          console.log(book)
-        return <Link to='/details'><Book_card key={book.id} {...book}></Book_card></Link>;
-      })}
-      </div>
+      <RenderBooks/>
+      <button>Show more</button>
       </div>
     );
   }
+}
+
+const RenderBooks=(state)=>{
+  return(
+  <div className='booklist'>
+  {data.map((book, index) => {
+    
+  return <Link to='/details'><Book_card key={book.id} {...book}></Book_card></Link>;
+})}</div>
+  )
 }
 
 const ImageSlider = ({ slides }) => {
