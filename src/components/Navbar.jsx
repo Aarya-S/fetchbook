@@ -29,7 +29,7 @@ function Navbar() {
           <span className='navbarLinks'>
               <Link style={navStyle} to='/offers'><button className='btn btn-black'>Offers</button></Link>              
               <Link style={navStyle} to='/about'><button className='btn btn-black'>About</button></Link>
-              <Link style={navStyle} to='/cart'><button className='btn btn-black'>Cart</button></Link>
+              <Link style={navStyle} to='/incart'><button className='btn btn-black'>Cart</button></Link>
               <Link style={navStyle} to='/login'><button className='btn btn-black'>Login</button></Link>
           </span>
       </nav>

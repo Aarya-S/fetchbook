@@ -8,7 +8,7 @@ class Offers extends Component{
     render(){
         return(
             <div>
-                
+                Offers page
             </div>
         )
     }

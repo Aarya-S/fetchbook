@@ -2,6 +2,7 @@ import React from "react";
 import '../css/Login.css';
 import {Grid, TextField, Button, Container} from '@material-ui/core'
 import {makeStyles} from '@material-ui/core/styles'
+import { Link } from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -40,9 +41,10 @@ function Login() {
               Log in
             </Button>
           </Grid>
+          <Link to='/signup'>
           <Button color="primary" fullWidth type="submit" variant="text">
               New here?Sign up
-            </Button>
+            </Button></Link>
         </Grid>
       </form>
     </Container>

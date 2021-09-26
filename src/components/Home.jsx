@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import '../css/Home.css';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import Details from'./detail_page'
+import background from '../assets/10.jpg'
 //import {bookdata} from '../dummydata/dummy.js'
 const data = [
   {
@@ -48,7 +49,7 @@ class populate extends Component{
   };
   render(){
     return (
-      <div>
+      <div style={{backgroundImage: `url(${background})`}}>
         <ImageSlider slides={Sliderdata}/>
       <text style={{ fontWeight: 'bold',color: 'red'}}>'  Featured Products </text>
       <RenderBooks/>
@@ -97,7 +98,7 @@ const ImageSlider = ({ slides }) => {
             key={index}
           >
             {index === current && (
-              <img src={slide.image} alt='travel image' className='image' />
+              <Link to='/offers'><img src={slide.image} alt='travel image' className='image' /></Link>
             )}
           </div>
         );
