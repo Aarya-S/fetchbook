@@ -1,7 +1,7 @@
 import React, { Component, useState  } from "react";
 import { Link } from "react-router-dom";
-import '../css/Home.css';
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
+import '../css/Home.css';
 import Details from'./detail_page'
 import background from '../assets/10.jpg'
 //import {bookdata} from '../dummydata/dummy.js'
@@ -39,7 +39,7 @@ const data = [
  const Sliderdata=[
 {image:'https://images-na.ssl-images-amazon.com/images/I/71e5m7xQd0L._AC_UL200_SR200,200_.jpg'},
 {image: 'https://images-na.ssl-images-amazon.com/images/I/71aLultW5EL._AC_UL200_SR200,200_.jpg'},
-{image:'https://images-na.ssl-images-amazon.com/images/I/71e5m7xQd0L._AC_UL200_SR200,200_.jpg'},
+{image:'https://images-na.ssl-images-amazon.com/images/I/71aLultW5EL._AC_UL200_SR200,200_.jpg'},
 {image:'https://images-na.ssl-images-amazon.com/images/I/71e5m7xQd0L._AC_UL200_SR200,200_.jpg'}]
 
 
