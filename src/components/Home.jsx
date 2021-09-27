@@ -49,7 +49,7 @@ class populate extends Component{
   };
   render(){
     return (
-      <div style={{backgroundImage: `url(${background})`}}>
+      <div style={{backgroundImage: `url()`}}>
         <ImageSlider slides={Sliderdata}/>
       <text style={{ fontWeight: 'bold',color: 'white'}}>'  Featured Products </text>
       <RenderBooks/>
