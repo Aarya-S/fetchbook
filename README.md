@@ -3,9 +3,9 @@ A digital catalog of books, both new and used.<br>
 <code>1.npm init</code><br>
 <code>2.npm install</code><br>
 
-## separate card into individual component
+### File Management
 
-things to do
+## Things to do
 <h3>1. Signup Page</h3>
 <h3>2. Details Page</h3>
 <h3>3. Dashboard</h3>
