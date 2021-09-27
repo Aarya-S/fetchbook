@@ -16,3 +16,6 @@ A digital catalog of books, both new and used.<br>
 <h3>8. Login Page</h3>
 <h3>9. Search Bar</h3>
 <h3>10. Filter</h3>
+<h3>11. Footer</h3>
+<h3>12. Logo</h3>
+<h3>13. Navbar</h3>
