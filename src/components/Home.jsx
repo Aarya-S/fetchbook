@@ -51,9 +51,9 @@ class populate extends Component{
     return (
       <div style={{backgroundImage: `url(${background})`}}>
         <ImageSlider slides={Sliderdata}/>
-      <text style={{ fontWeight: 'bold',color: 'red'}}>'  Featured Products </text>
+      <text style={{ fontWeight: 'bold',color: 'white'}}>'  Featured Products </text>
       <RenderBooks/>
-      <text style={{ fontWeight: 'bold',color: 'red'}}>'   We Offer</text>
+      <text style={{ fontWeight: 'bold',color: 'white'}}>'   We Offer</text>
       <RenderBooks/>
       <button>Show more</button>
       </div>
