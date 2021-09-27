@@ -25,25 +25,25 @@ body {
   }
 }
 
-.book {
+.bookcard_container {
   background: #fff;
   border-radius: 1rem;
   padding: 1rem 2rem;
   opacity: 1;
 }
-.book h1 {
+.bookcard_container h1 {
   margin-top: 0.5rem;
 }
-.book h4 {
+.bookcard_container h4 {
   color: #617d98;
   font-size: 0.75rem;
   margin-top: 0.25rem;
 }
-.book p {
+.bookcard_container p {
   margin-top: 0.5rem;
 }
 
-.book:hover {
+.bookcard_container:hover {
   opacity: 0.8;
 }
 
@@ -61,8 +61,8 @@ body {
 }
 
 .image {
-  width: 1500px;
-  height: 300px;
+  width: auto;
+  height: auto;;
   border-radius: 10px;
 }
 

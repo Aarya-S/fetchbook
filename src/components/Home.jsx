@@ -12,6 +12,7 @@ const data = [
     'https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg',
    title: 'I Love You to the Moon and Back',
    author: 'Amelia Hepworth',
+   price_tag:"$30"
   },
   {
    id: 2,
@@ -19,6 +20,7 @@ const data = [
     'https://images-na.ssl-images-amazon.com/images/I/71aLultW5EL._AC_UL200_SR200,200_.jpg',
    title: 'Our Class is a Family',
    author: 'Shannon Olsen',
+   price_tag:"$80"
   },
   {
    id: 3,
@@ -26,6 +28,7 @@ const data = [
     'https://images-na.ssl-images-amazon.com/images/I/71e5m7xQd0L._AC_UL200_SR200,200_.jpg',
    title: 'The Vanishing Half: A Novel',
    author: 'Brit',
+   price_tag:"$60"
   },
   {
     id: 1,
@@ -33,11 +36,12 @@ const data = [
      'https://images-na.ssl-images-amazon.com/images/I/81eB%2B7%2BCkUL._AC_UL200_SR200,200_.jpg',
     title: 'I Love You to the Moon and Back',
     author: 'Amelia Hepworth',
+    price_tag:"$50"
    }
  ]
 
  const Sliderdata=[
-{image:'https://images-na.ssl-images-amazon.com/images/I/71e5m7xQd0L._AC_UL200_SR200,200_.jpg'},
+{image:'https://m.media-amazon.com/images/I/61bH1sP5DGL._SX1500_.jpg'},
 {image: 'https://images-na.ssl-images-amazon.com/images/I/71aLultW5EL._AC_UL200_SR200,200_.jpg'},
 {image:'https://images-na.ssl-images-amazon.com/images/I/71aLultW5EL._AC_UL200_SR200,200_.jpg'},
 {image:'https://images-na.ssl-images-amazon.com/images/I/71e5m7xQd0L._AC_UL200_SR200,200_.jpg'}]
@@ -49,11 +53,11 @@ class populate extends Component{
   };
   render(){
     return (
-      <div style={{backgroundImage: `url()`}}>
+      <div style={{backgroundImage: `url(https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)`}}>
         <ImageSlider slides={Sliderdata}/>
-      <text style={{ fontWeight: 'bold',color: 'white'}}>'  Featured Products </text>
+      <text style={{ fontWeight: 'bold',color: 'black',textAlign :'center'}}>'  Featured Products </text>
       <RenderBooks/>
-      <text style={{ fontWeight: 'bold',color: 'white'}}>'   We Offer</text>
+      <text style={{ fontWeight: 'bold',color: 'black'}}>'   We Offer</text>
       <RenderBooks/>
       <button>Show more</button>
       </div>
@@ -109,7 +113,7 @@ const ImageSlider = ({ slides }) => {
 
 
 
-const Book_card = ({ img, title, author }) => {
+const Book_card = ({ img, title, author,price_tag }) => {
   // attribute, eventHandler
   // onClick, onMouseOver
   const clickHandler = (e) => {
@@ -122,17 +126,12 @@ const Book_card = ({ img, title, author }) => {
   };
   return (
    <article
-    className='book'
+    className='bookcard_container'
    >
-    <img src={img} alt='' />
-    <h1 onClick={() => console.log(title)}>{title}</h1>
+    <img src={img} alt='book_image' />
+    <h1>{title}</h1>
     <h4>{author}</h4>
-    <button type='button' onClick={clickHandler}>
-     reference example
-       </button>
-    <button type='button' onClick={() => complexExample(author)}>
-     more complex example
-       </button>
+    <h4>{price_tag}</h4>
    </article>
   );
  };
