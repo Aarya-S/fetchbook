@@ -2,6 +2,8 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
 @import url("https://code.jquery.com/jquery-3.5.1.min.js");
 @import url("https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
 body {
   background: #dfe7e9;
   font-family: "Roboto", sans-serif;
@@ -83,12 +85,12 @@ body {
   z-index: 1;
 }
 .social-btn .btn {
-  color: #fff;
+  color: rgb(0, 0, 0);
   margin: 10px 0 0 15px;
   font-size: 15px;
   border-radius: 50px;
   font-weight: normal;
-  border: none;
+  border: 2px solid black;
   transition: all 0.4s;
 }
 .social-btn .btn:first-child {
@@ -98,7 +100,7 @@ body {
   opacity: 0.8;
 }
 .social-btn .btn-primary {
-  background: #507cc0;
+  background: #ffffff;
 }
 .social-btn .btn-info {
   background: #64ccf1;
@@ -108,6 +110,10 @@ body {
 }
 .social-btn .btn i {
   float: left;
-  margin: 3px 10px;
+  margin: 3px 5px;
   font-size: 20px;
+}
+
+.signup-btn {
+  left: 50%;
 }

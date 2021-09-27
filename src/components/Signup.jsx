@@ -7,7 +7,7 @@ class SignUP extends Component{
     }
     render(){
         return(
-            <div>  
+            <>  
                 <div className="signup-form">
                     <form action="/examples/actions/confirmation.php" method="post">
 		<h2>Create an Account</h2>
@@ -34,7 +34,7 @@ class SignUP extends Component{
     </form>
     <div className="text-center">Already have an account? <a href="#">Login here</a></div>
             </div>
-            </div>
+            </>
         )
     }
 }
