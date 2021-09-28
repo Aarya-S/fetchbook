@@ -5,6 +5,8 @@
 }
 
 body {
+  border: 5px solid rgb(4, 91, 102);
+
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background: #f1f5f8;
@@ -12,10 +14,8 @@ body {
 }
 
 .booklist {
-  width: 90vw;
-  max-width: 1000px;
-  margin: 70px;
   display: grid;
+  margin: 70px;
   gap: 20px;
 }
 @media screen and (min-width: 768px) {
@@ -32,14 +32,18 @@ body {
   display: grid;
 }
 .slider {
+  width: auto;
   position: relative;
   height: 60vh;
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
   opacity: 1;
-}
+  border-bottom: 3px solid rgb(9, 105, 105);
+  padding-right: 10px;
 
+  bottom: 10px;
+}
 .slider:hover {
   opacity: 0.8;
 }
@@ -47,7 +51,6 @@ body {
 .image {
   width: auto;
   height: auto;
-  border-radius: 10px;
 }
 
 .right-arrow {
@@ -55,7 +58,7 @@ body {
   top: 50%;
   right: 32px;
   font-size: 3rem;
-  color: rgb(204, 121, 121);
+  color: rgb(36, 148, 139);
   z-index: 10;
   cursor: pointer;
   user-select: none;
@@ -66,7 +69,7 @@ body {
   top: 50%;
   left: 32px;
   font-size: 3rem;
-  color: rgb(204, 121, 121);
+  color: rgb(36, 148, 139);
   z-index: 10;
   cursor: pointer;
   user-select: none;
