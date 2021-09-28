@@ -85,3 +85,8 @@ body {
   transition-duration: 1s;
   transform: scale(1.08);
 }
+.title{
+   font-weight: bold;
+   color : black;
+   text-align : center;
+  }

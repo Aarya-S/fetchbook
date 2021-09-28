@@ -3,9 +3,6 @@ import { Link } from "react-router-dom";
 import '../css/signup.css';
 
 class SignUP extends Component{
-    state={
-
-    }
     render(){
         return(
             <>  
