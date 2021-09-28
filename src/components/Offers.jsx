@@ -1,6 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import { Link } from "react-router-dom";
+import BookCard from "./Bookcard";
 
 const data = [
     {
@@ -50,38 +51,11 @@ const RenderBooks=(state)=>{
     <div className='booklist'>
     {data.map((book, index) => {
       
-    return <Link to='/details'><Book_card key={book.id} {...book}></Book_card></Link>;
+    return <Link to='/details'><BookCard key={book.id} {...book}></BookCard></Link>;
   })}</div>
     )
   }
 
-  const Book_card = ({ img, title, author }) => {
-    // attribute, eventHandler
-    // onClick, onMouseOver
-    const clickHandler = (e) => {
-     console.log(e);
-     console.log(e.target);
-     alert('hello world');
-    };
-    const complexExample = (author) => {
-     console.log(author);
-    };
-    return (
-     <article
-      className='book'
-     >
-      <img src={img} alt='' />
-      <h1 onClick={() => console.log(title)}>{title}</h1>
-      <h4>{author}</h4>
-      <button type='button' onClick={clickHandler}>
-       reference example
-         </button>
-      <button type='button' onClick={() => complexExample(author)}>
-       more complex example
-         </button>
-     </article>
-    );
-   };
-  
+ 
 
 export default Offers

@@ -2,6 +2,7 @@ import React, { Component, useState  } from "react";
 import { Link } from "react-router-dom";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import '../css/Home.css';
+import BookCard from './Bookcard'
 import Details from'./detail_page'
 import background from '../assets/10.jpg'
 //import {bookdata} from '../dummydata/dummy.js'
@@ -53,10 +54,10 @@ class populate extends Component{
   };
   render(){
     return (
-      <div style={{backgroundImage: `url(https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940)`}}>
+      <div className='parentHome'>
         <ImageSlider slides={Sliderdata}/>
       <text style={{ fontWeight: 'bold',color: 'black',textAlign :'center'}}>'  Featured Products </text>
-      <RenderBooks/>
+      <RenderBooks />
       <text style={{ fontWeight: 'bold',color: 'black'}}>'   We Offer</text>
       <RenderBooks/>
       <button>Show more</button>
@@ -70,7 +71,7 @@ const RenderBooks=(state)=>{
   <div className='booklist'>
   {data.map((book, index) => {
     
-  return <Link to='/details'><Book_card key={book.id} {...book}></Book_card></Link>;
+  return <Link to='/details'><BookCard key={book.id} {...book}></BookCard></Link>;
 })}</div>
   )
 }
@@ -113,28 +114,6 @@ const ImageSlider = ({ slides }) => {
 
 
 
-const Book_card = ({ img, title, author,price_tag }) => {
-  // attribute, eventHandler
-  // onClick, onMouseOver
-  const clickHandler = (e) => {
-   console.log(e);
-   console.log(e.target);
-   alert('hello world');
-  };
-  const complexExample = (author) => {
-   console.log(author);
-  };
-  return (
-   <article
-    className='bookcard_container'
-   >
-    <img src={img} alt='book_image' />
-    <h1>{title}</h1>
-    <h4>{author}</h4>
-    <h4>{price_tag}</h4>
-   </article>
-  );
- };
 
 
 

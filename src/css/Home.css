@@ -25,28 +25,12 @@ body {
   }
 }
 
-.bookcard_container {
-  background: #fff;
-  border-radius: 1rem;
-  padding: 1rem 2rem;
-  opacity: 1;
+.parentHome {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  display: grid;
 }
-.bookcard_container h1 {
-  margin-top: 0.5rem;
-}
-.bookcard_container h4 {
-  color: #617d98;
-  font-size: 0.75rem;
-  margin-top: 0.25rem;
-}
-.bookcard_container p {
-  margin-top: 0.5rem;
-}
-
-.bookcard_container:hover {
-  opacity: 0.8;
-}
-
 .slider {
   position: relative;
   height: 60vh;
@@ -62,7 +46,7 @@ body {
 
 .image {
   width: auto;
-  height: auto;;
+  height: auto;
   border-radius: 10px;
 }
 
