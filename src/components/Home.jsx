@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import '../css/Home.css';
 import BookCard from './Bookcard'
+import Navbar from './Navbar';
 //import {bookdata} from '../dummydata/dummy.js'
 const data = [
   {
@@ -53,6 +54,7 @@ class populate extends Component{
   render(){
     return (
       <div className='parentHome'>
+        <Navbar/>
         <ImageSlider slides={Sliderdata}/>
       <text style={{ fontWeight: 'bold',color: 'black',textAlign :'center'}}>'  Featured Products </text>
       <RenderBooks />
