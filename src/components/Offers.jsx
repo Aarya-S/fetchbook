@@ -3,6 +3,7 @@ import { Component } from "react";
 import { Link } from "react-router-dom";
 import BookCard from "./Bookcard";
 import Navbar from './Navbar';
+import '../css/Offers.css'
 
 const data = [
     {
@@ -41,7 +42,7 @@ class Offers extends Component{
     }
     render(){
         return(
-            <div>
+            <div className="parentOffers">
               <Navbar/>
                 <RenderBooks/>
             </div>

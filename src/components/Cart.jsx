@@ -1,6 +1,7 @@
 import React from "react";
 import { Component } from "react";
 import Navbar from './Navbar';
+import '../css/Cart.css'
 
 class Cart extends Component{
     state={
@@ -8,7 +9,7 @@ class Cart extends Component{
     }
     render(){
         return(
-            <div>
+            <div className='parentCart'>
                 <Navbar/>
                 Cart Page
             </div>
