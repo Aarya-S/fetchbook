@@ -56,9 +56,9 @@ class populate extends Component{
       <div className='parentHome'>
         <Navbar/>
         <ImageSlider slides={Sliderdata}/>
-      <text style={{ fontWeight: 'bold',color: 'black',textAlign :'center'}}> Featured Products </text>
+      <text className='title'> Featured Products </text>
       <RenderBooks />
-      <text style={{ fontWeight: 'bold',color: 'black' ,textAlign :'center'}}> We Offer </text>
+      <text className='title'> We Offer </text>
       <RenderBooks/>
       <button>Show more</button>
       </div>
