@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 import logo from '../assets/favicon-32x32.png'
 import { Icon, TextField } from "@material-ui/core";
 
-function Navbar() {
+function Navbar(props) {
     const logoStyle = {
         textDecoration: 'none',
         color: 'whitesmoke',
