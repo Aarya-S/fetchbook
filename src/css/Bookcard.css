@@ -1,21 +1,21 @@
 .bookcard_container {
-    background: #fff;
-    border-radius: 1rem;
-    padding: 1rem 2rem;
-    opacity: 1;
-  }
-  .bookcard_container h1 {
-    margin-top: 0.5rem;
-  }
-  .bookcard_container h4 {
-    color: #617d98;
-    font-size: 0.75rem;
-    margin-top: 0.25rem;
-  }
-  .bookcard_container p {
-    margin-top: 0.5rem;
-  }
-  
-  .bookcard_container:hover {
-    opacity: 0.8;
-  }
+  background: #fff;
+  border: 10px #03223f;
+  padding: 1rem 2rem;
+  opacity: 1;
+}
+.bookcard_container h1 {
+  margin-top: 0.5rem;
+}
+.bookcard_container h4 {
+  color: #617d98;
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+}
+.bookcard_container p {
+  margin-top: 0.5rem;
+}
+
+.bookcard_container:hover {
+  opacity: 0.8;
+}
