@@ -4,7 +4,7 @@ import Navbar from './Navbar';
 
 function About() {
     return (
-      <div className='about-test'>
+      <div className='parentAbout'>
         <Navbar/>
         About page
       </div>

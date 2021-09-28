@@ -5,6 +5,7 @@
 }
 
 .parentOffers {
+    width: 100%;
     position: relative;
     justify-content: center;
     align-items: center;

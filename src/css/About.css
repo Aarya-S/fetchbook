@@ -1,3 +1,13 @@
-.about-test {
-  color: whitesmoke;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.parentAbout {
+  width: 100%;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  display: grid;
 }

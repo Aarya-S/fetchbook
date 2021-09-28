@@ -31,7 +31,7 @@ function Navbar(props) {
               <Link style={navStyle} to='/about'><button className='btn btn-black'>About</button></Link>
               <Link style={navStyle} to='/incart'><button className='btn btn-black'>Cart</button></Link>
               <Link style={navStyle} to='/login'><button className='btn btn-black'>Login</button></Link>
-              <Link style={navStyle} to='/signup'><button className='btn btn-black'>Become a member</button></Link>
+              <Link style={navStyle} to='/membersignup'><button className='btn btn-black'>Become a member</button></Link>
           </span>
       </nav>
     );

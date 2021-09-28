@@ -10,6 +10,7 @@ import Details from './components/detail_page';
 import Offers from './components/Offers';
 import Cart from './components/Cart';
 import SignUP from './components/Signup';
+import MemberSignUp from './components/BecomeMember';
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route component={Details} path='/details' exact />
           <Route component={Offers} path='/offers' exact />
           <Route component={Cart} path='/incart' exact />
+          <Route component={MemberSignUp} path='/membersignup' exact />
         </div>
       </Switch>
       </div>
