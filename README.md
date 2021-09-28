@@ -6,7 +6,7 @@ A digital catalog of books, both new and used.<br>
 ### File Management
 
 ## Things to do
-<h3>1. Signup Page</h3>
+<h3>1. Signup Page(done with from spliting)</h3>
 <h3>2. Details Page</h3>
 <h3>3. Dashboard</h3>
 <h3>4. Membership Page</h3>
