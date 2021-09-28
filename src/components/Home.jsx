@@ -40,7 +40,7 @@ const data = [
  ]
 
  const Sliderdata=[
-{image:'https://m.media-amazon.com/images/I/61bH1sP5DGL._SX1500_.jpg'},
+
 {image: 'https://images-na.ssl-images-amazon.com/images/I/71aLultW5EL._AC_UL200_SR200,200_.jpg'},
 {image:'https://images-na.ssl-images-amazon.com/images/I/71aLultW5EL._AC_UL200_SR200,200_.jpg'},
 {image:'https://images-na.ssl-images-amazon.com/images/I/71e5m7xQd0L._AC_UL200_SR200,200_.jpg'}]
@@ -53,10 +53,11 @@ class populate extends Component{
   render(){
     return (
       <div className='parentHome'>
+    
         <ImageSlider slides={Sliderdata}/>
-      <text style={{ fontWeight: 'bold',color: 'black',textAlign :'center'}}>'  Featured Products </text>
+      <text style={{ fontWeight: 'bold',color: 'black',textAlign :'center'}}> Featured Products </text>
       <RenderBooks />
-      <text style={{ fontWeight: 'bold',color: 'black'}}>'   We Offer</text>
+      <text style={{ fontWeight: 'bold',color: 'black' ,textAlign :'center'}}> We Offer </text>
       <RenderBooks/>
       <button>Show more</button>
       </div>
