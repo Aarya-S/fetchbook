@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import '../css/Home.css';
 import BookCard from './Bookcard'
-import Details from'./detail_page'
-import background from '../assets/10.jpg'
 //import {bookdata} from '../dummydata/dummy.js'
 const data = [
   {
