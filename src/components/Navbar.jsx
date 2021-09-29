@@ -3,7 +3,7 @@ import '../css/Navbar.css'
 import {Link} from 'react-router-dom'
 import logo from '../assets/favicon-32x32.png'
 import { Icon, TextField } from "@material-ui/core";
-
+import { logout } from "../firebaseconfig";
 function Navbar(props) {
     const logoStyle = {
         textDecoration: 'none',
@@ -31,6 +31,7 @@ function Navbar(props) {
               <Link style={navStyle} to='/about'><button className='btn btn-black'>About</button></Link>
               <Link style={navStyle} to='/incart'><button className='btn btn-black'>Cart</button></Link>
               <Link style={navStyle} to='/login'><button className='btn btn-black'>Login</button></Link>
+              <button onClick={logout} className='btn btn-black'>Logout</button>
               <Link style={navStyle} to='/membersignup'><button className='btn btn-black'>Become a member</button></Link>
           </span>
       </nav>

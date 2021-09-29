@@ -1,9 +1,11 @@
 import React,{ Component } from "react";
 import { Link } from "react-router-dom";
 import '../css/signup.css';
+import { signInWithGoogle } from "../firebaseconfig";
 
 class SignUP extends Component{
     render(){
+
         return(
             <>  
                 <div className="signup-form">
@@ -11,11 +13,10 @@ class SignUP extends Component{
 		<h2>Login</h2>
 		<p className="hint-text">Sign in with your social media account or email address</p>
 		<div className="social-btn text-center">
-			<a href="#" class="btn btn-primary btn-lg"><i class="fa fa-google"></i> Google</a>
+			<a onClick={signInWithGoogle} class="btn btn-primary btn-lg"><i class="fa fa-google"></i> Google</a>
 		</div>
 		<div className="or-seperator"><b>or</b></div>
-        
-		    <div className="form-group">
+		<div className="form-group">
             <input type="text" class="form-control input-lg" name="Login ID" placeholder="Login ID" required="required"/>
         </div>  
         <div className="form-group">

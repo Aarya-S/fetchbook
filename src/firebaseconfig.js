@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import firebase from "firebase";
+import {useState} from 'react'
+import { getAuth, GoogleAuthProvider,signOut,signInWithPopup  } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -13,73 +14,79 @@ const firebaseConfig = {
   messagingSenderId: "265483738954",
   appId: "1:265483738954:web:80c047f283cf74ad1eabb3"
 };
-
-const app = firebase.initializeApp(firebaseConfig);
-const auth = app.auth();
-const db = app.firestore();
-const googleProvider = new firebase.auth.GoogleAuthProvider();
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app)
+const Provider = new GoogleAuthProvider();
+let isLogin = null
 const signInWithGoogle = async () => {
-  try {
-    const res = await auth.signInWithPopup(googleProvider);
-    const user = res.user;
-    const query = await db
-      .collection("users")
-      .where("uid", "==", user.uid)
-      .get();
-    if (query.docs.length === 0) {
-      await db.collection("users").add({
-        uid: user.uid,
-        name: user.displayName,
-        authProvider: "google",
-        email: user.email,
-      });
-    }
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  }
+  if(isLogin == null){
+  signInWithPopup(auth, Provider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    isLogin = token
+    // The signed-in user info.
+    console.log('Token :- ' + token)
+    const user = result.user;
+    console.log('user : - ' + user.email +'\n'+ user.photoURL +'\n' +user.displayName)
+    // ...
+  }).catch((error) => {
+    // Handle Errors here.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage)
+    // The email of the user's account used.
+    const email = error.email;
+    console.log('email :- ' + email)
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    console.log('creds : - ' + credential)
+    // ...
+  })}else{alert('already Logged IN')}
 };
-const signInWithEmailAndPassword = async (email, password) => {
-  try {
-    await auth.signInWithEmailAndPassword(email, password);
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  }
-};
-const registerWithEmailAndPassword = async (name, email, password) => {
-  try {
-    const res = await auth.createUserWithEmailAndPassword(email, password);
-    const user = res.user;
-    await db.collection("users").add({
-      uid: user.uid,
-      name,
-      authProvider: "local",
-      email,
-    });
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  }
-};
-const sendPasswordResetEmail = async (email) => {
-  try {
-    await auth.sendPasswordResetEmail(email);
-    alert("Password reset link sent!");
-  } catch (err) {
-    console.error(err);
-    alert(err.message);
-  }
-};
+// const signInWithEmailAndPassword = async (email, password) => {
+//   try {
+//     await auth.signInWithEmailAndPassword(email, password);
+//   } catch (err) {
+//     console.error(err);
+//     alert(err.message);
+//   }
+// };
+// const registerWithEmailAndPassword = async (name, email, password) => {
+//   try {
+//     const res = await auth.createUserWithEmailAndPassword(email, password);
+//     const user = res.user;
+//     await db.collection("users").add({
+//       uid: user.uid,
+//       name,
+//       authProvider: "local",
+//       email,
+//     });
+//   } catch (err) {
+//     console.error(err);
+//     alert(err.message);
+//   }
+// };
+// const sendPasswordResetEmail = async (email) => {
+//   try {
+//     await auth.sendPasswordResetEmail(email);
+//     alert("Password reset link sent!");
+//   } catch (err) {
+//     console.error(err);
+//     alert(err.message);
+//   }
+// };
 const logout = () => {
-  auth.signOut();
+  signOut(auth).then(() => {
+    // Sign-out successful.
+    isLogin=null;
+  }).catch((error) => {
+    // An error happened.
+    alert(error)
+  });
 };
 export {
-  auth,
-  db,
   signInWithGoogle,
-  signInWithEmailAndPassword,
-  registerWithEmailAndPassword,
-  sendPasswordResetEmail,
   logout,
 };
