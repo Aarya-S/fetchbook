@@ -90,3 +90,27 @@ body {
    color : black;
    text-align : center;
   }
+  .showmore {
+    background: rgb(19, 53, 107);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 15px;
+    font-family: Poppins, sans-serif;
+  }
+  .showmore:focus {
+    outline: none;
+  }
+  
+  .showmore:active {
+    transform: scale(0.98);
+  }
+  .showmore:hover{
+    color: orange;
+    background-color: rgb(61, 1, 1);
+    transition: inherit;
+  }
