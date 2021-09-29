@@ -4,6 +4,7 @@ import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import '../css/Home.css';
 import BookCard from './Bookcard'
 import Navbar from './Navbar';
+import Footer from './Footer';
 //import {bookdata} from '../dummydata/dummy.js'
 const data = [
   {
@@ -56,11 +57,12 @@ class populate extends Component{
       <div className='parentHome'>
         <Navbar/>
         <ImageSlider slides={Sliderdata}/>
-      <text className='title'> Featured Products </text>
+      <text className='title'> <b>Featured Products</b> </text>
       <RenderBooks />
-      <text className='title'> We Offer </text>
+      <text className='title'><b> We Offer </b> </text>
       <RenderBooks/>
       <button>Show more</button>
+       <Footer/>
       </div>
     );
   }

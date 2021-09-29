@@ -6,7 +6,7 @@ function About() {
     return (
       <div className='parentAbout'>
         <Navbar/>
-        About page
+        About page123
       </div>
     );
   }
