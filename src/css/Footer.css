@@ -1,10 +1,8 @@
-.main-footer{
-    color:white;
-    background-color: rgb(4, 91, 102);
-    padding-top: 3em;
-    bottom: 0;
-    position: relative;
-    width:100%;
-
-
+.main-footer {
+  color: white;
+  background-color: rgb(36, 141, 132);
+  padding-top: 3em;
+  bottom: 0;
+  position: relative;
+  width: 100%;
 }
