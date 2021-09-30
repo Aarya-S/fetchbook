@@ -108,6 +108,7 @@ const logout = () => {
   });
 };
 export {
+  auth,
   signInWithGoogle,
   signUpWithEmailAndPassword,
   signInWithEmailnPassword,

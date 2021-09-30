@@ -1,7 +1,8 @@
 import React,{useState} from "react";
 import { Link } from "react-router-dom";
-import { signUpWithEmailAndPassword } from "../firebaseconfig";
+import { signUpWithEmailAndPassword ,signInWithGoogle} from "../firebaseconfig";
 import '../css/signup.css';
+
 
 const SignUP=()=>{
         const [userid, setuserid] = useState()
@@ -23,7 +24,7 @@ const SignUP=()=>{
 		<h2>Create an Account</h2>
 		<p className="hint-text">Sign up with your social media account or email address</p>
 		<div className="social-btn text-center">
-			<a href="#" class="btn btn-primary btn-lg"><i class="fa fa-google"></i> Google</a>
+			<a onClick={signInWithGoogle} class="btn btn-primary btn-lg"><i class="fa fa-google"></i> Google</a>
 		</div>
 		<div className="or-seperator"><b>or</b></div>   
         <div className="form-group">
