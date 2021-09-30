@@ -11,6 +11,7 @@ import Offers from './components/Offers';
 import Cart from './components/Cart';
 import SignUP from './components/Signup';
 import MemberSignUp from './components/BecomeMember';
+import Forgotpwd from './components/Forgotpwd';
 
 
 function App() {
@@ -19,18 +20,16 @@ function App() {
     <Router>
 
     <div className='App'>
-      
       <Switch>
         <Route component={Login} path='/login' exact />
         <Route component={SignUP} path='/signup' exact/>
-        <div>
-          <Route component={Home} path='/' exact />
-          <Route component={About} path='/about' exact />
-          <Route component={Details} path='/details' exact />
-          <Route component={Offers} path='/offers' exact />
-          <Route component={Cart} path='/incart' exact />
-          <Route component={MemberSignUp} path='/membersignup' exact />
-        </div>
+        <Route component={Home} path='/' exact />
+        <Route component={About} path='/about' exact />
+        <Route component={Details} path='/details' exact />
+        <Route component={Offers} path='/offers' exact />
+        <Route component={Cart} path='/incart' exact />
+        <Route component={MemberSignUp} path='/membersignup' exact />
+        <Route component={Forgotpwd} path = '/forgotpassword' exact/>
       </Switch>
       </div>
     

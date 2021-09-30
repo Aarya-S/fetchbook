@@ -17,11 +17,12 @@ class SignUP extends Component{
 		</div>
 		<div className="or-seperator"><b>or</b></div>
 		<div className="form-group">
-            <input type="text" class="form-control input-lg" name="Login ID" placeholder="Login ID" required="required"/>
+            <input type="text" class="form-control input-lg" name="Login ID" placeholder="Email ID" required="required"/>
         </div>  
         <div className="form-group">
             <input type="password" class="form-control input-lg" name="password" placeholder="password" required="required"/>
         </div> 
+        <Link to='/forgotpassword'><p>forgot password</p></Link>
         <div className="form-group">
             <button type="submit" class="btn btn-success btn-lg btn-block signup-btn">Sign in</button>
         </div>
