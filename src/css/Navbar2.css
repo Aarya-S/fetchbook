@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap");
+
+/* Background styles */
+/* body {
+  background-image: url("https://images.unsplash.com/photo-1519681393784-d120267933ba?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1124&q=100");
+  background-position: center;
+} */
+
+/* Glassmorphism card effect
+.card {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+} */
+
+.searchbox {
+  margin: 5px;
+  width: 350px;
+  height: 50px;
+}
+
+.searchbutton {
+  height: 50px;
+  margin: 5px;
+}
+
+.nav-links-custom {
+  margin-right: 30px;
+  font-size: large;
+}
