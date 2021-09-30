@@ -39,7 +39,7 @@ function Navbar2() {
                 </Container>
                 <Nav>
                 <Nav.Link href="/offers" className="nav-links-custom">Offers</Nav.Link>
-                <Nav.Link href="/about" className="nav-links-custom">Link</Nav.Link>
+                <Nav.Link href="/about" className="nav-links-custom">About</Nav.Link>
                 <Nav.Link href="/cart" className="nav-links-custom"><nobr><i className="fa fa-shopping-cart"></i>    Cart</nobr></Nav.Link>
                 <Nav.Link href="/login" className="nav-links-custom"><nobr><i className="fa fa-user"></i>    Login</nobr></Nav.Link>
                 </Nav>
