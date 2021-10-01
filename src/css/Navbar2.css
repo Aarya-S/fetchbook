@@ -18,15 +18,15 @@
 .searchbox {
   margin: 5px;
   width: 350px;
-  height: 50px;
+  height: 40px;
 }
 
 .searchbutton {
-  height: 50px;
+  height: 40px;
   margin: 5px;
 }
 
 .nav-links-custom {
   margin-right: 30px;
-  font-size: large;
+  font-size: medium;
 }

@@ -33,7 +33,7 @@ function Navbar2() {
                     
                 
                 
-                    <Navbar.Text style={{color: "rgba(255,255,255, 0.6)", marginRight:"50px", fontSize: "large"}}><nobr>A platform for the book lover</nobr></Navbar.Text>
+                    <Navbar.Text style={{color: "rgba(255,255,255, 0.6)", marginRight:"50px", fontSize: "medium"}}><nobr>A platform for the book lover</nobr></Navbar.Text>
                 
                 <Container>
                     <Form className="d-flex">
@@ -44,7 +44,7 @@ function Navbar2() {
                             aria-label="Search"
                         />
                         
-                        <Button variant="outline-primary" className="btn-lg searchbutton"><nobr><i className="fa fa-search"></i> Search</nobr></Button>
+                        <Button variant="outline-primary" className="btn-md searchbutton"><nobr><i className="fa fa-search"></i> Search</nobr></Button>
                     </Form>
                 </Container>
                 <Nav>
