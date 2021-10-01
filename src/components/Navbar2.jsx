@@ -33,37 +33,7 @@ function Navbar2() {
                     
                 
                 
-                    <Navbar.Text style={{color: "rgba(255,255,255, 0.6)", marginRight:"50px", fontSize: "large"}}><nobr className="platform">
-                        
-                        <span>A</span>
-                        <span> </span>
-                        <span>p</span>
-                        <span>l</span>
-                        <span>a</span>
-                        <span>t</span>
-                        <span>f</span>
-                        <span>o</span>
-                        <span>r</span>
-                        <span>m</span>
-                        <span> </span>
-                        <span>f</span>
-                        <span>o</span>
-                        <span>r</span>
-                        <span> </span>
-                        <span>b</span>
-                        <span>o</span>
-                        <span>o</span>
-                        <span>k</span>
-                        <span> </span>
-                        <span>l</span>
-                        <span>o</span>
-                        <span>v</span>
-                        <span>e</span>
-                        <span>r</span>
-                        
-                        
-                        
-                        </nobr></Navbar.Text>
+                    <Navbar.Text style={{color: "rgba(255,255,255, 0.6)", marginRight:"50px", fontSize: "large"}}><nobr>A platform for the book lover</nobr></Navbar.Text>
                 
                 <Container>
                     <Form className="d-flex">
