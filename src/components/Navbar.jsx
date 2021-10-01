@@ -4,6 +4,20 @@ import {Link} from 'react-router-dom'
 import logo from '../assets/favicon-32x32.png'
 import { Icon, TextField } from "@material-ui/core";
 import { logout } from "../firebaseconfig";
+
+
+const Search = () => {
+    return (
+    <div class="wrap">
+    <div class="search">
+       <input type="text" class="searchTerm" placeholder="What are you looking for?"/>
+       <button type="submit" class="searchButton">
+         <i class="fa fa-search"></i>
+      </button>
+    </div>
+ </div>
+ )
+}
 function Navbar(props) {
     const logoStyle = {
         textDecoration: 'none',
@@ -24,8 +38,7 @@ function Navbar(props) {
           <Link style={logoStyle} to='/'>
               <h3 className='logo'>FetchBook</h3>
           </Link>
-          <Icon ></Icon>
-          <TextField placeholder="search"/>
+          <Search />
           <span className='navbarLinks'>
               <Link style={navStyle} to='/offers'><button className='btn btn-black'>Offers</button></Link>              
               <Link style={navStyle} to='/about'><button className='btn btn-black'>About</button></Link>

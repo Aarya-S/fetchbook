@@ -5,6 +5,7 @@ import '../css/Home.css';
 import BookCard from './Bookcard'
 import Navbar from './Navbar';
 import Footer from './Footer';
+import Navbar2 from "./Navbar2";
 //import {bookdata} from '../dummydata/dummy.js'
 const data = [
   {
@@ -55,7 +56,7 @@ class populate extends Component{
   render(){
     return (
       <div className='parentHome'>
-        <Navbar/>
+        <Navbar2 />
         <ImageSlider slides={Sliderdata}/>
       <text className='title'> <b>Featured Products</b> </text>
       <RenderBooks />

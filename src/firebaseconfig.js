@@ -1,7 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import {useState} from 'react'
-import { getAuth, GoogleAuthProvider,signOut,signInWithPopup  } from "firebase/auth";
+import { getAuth, GoogleAuthProvider,signOut,signInWithPopup,createUserWithEmailAndPassword,signInWithEmailAndPassword,sendPasswordResetEmail } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -17,7 +16,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 const Provider = new GoogleAuthProvider();
-let isLogin = null
+let isLogin = auth.currentUser
 const signInWithGoogle = async () => {
   if(isLogin == null){
   signInWithPopup(auth, Provider)
@@ -25,7 +24,6 @@ const signInWithGoogle = async () => {
     // This gives you a Google Access Token. You can use it to access the Google API.
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
-    isLogin = token
     // The signed-in user info.
     console.log('Token :- ' + token)
     const user = result.user;
@@ -45,29 +43,52 @@ const signInWithGoogle = async () => {
     // ...
   })}else{alert('already Logged IN')}
 };
-// const signInWithEmailAndPassword = async (email, password) => {
-//   try {
-//     await auth.signInWithEmailAndPassword(email, password);
-//   } catch (err) {
-//     console.error(err);
-//     alert(err.message);
-//   }
-// };
-// const registerWithEmailAndPassword = async (name, email, password) => {
-//   try {
-//     const res = await auth.createUserWithEmailAndPassword(email, password);
-//     const user = res.user;
-//     await db.collection("users").add({
-//       uid: user.uid,
-//       name,
-//       authProvider: "local",
-//       email,
-//     });
-//   } catch (err) {
-//     console.error(err);
-//     alert(err.message);
-//   }
-// };
+
+const signUpWithEmailAndPassword = async (email,password)=>{
+  if(isLogin==null){
+  createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    console.log('user :- ' + user.email +'\n' + user.displayName + '\n' )
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage)
+  });}
+}
+
+const signInWithEmailnPassword = async (email,password) =>{
+  if(isLogin == null ){
+  signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    
+    console.log('user :- ' + user.email +'\n' + user.displayName + '\n' )
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage)
+  });}
+}
+const sendPasswordResetinEmail = async(email) => {
+  if(isLogin == null){
+    sendPasswordResetEmail(auth, email)
+  .then(() => {
+
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert(errorMessage)
+  });
+  }
+}
+
 // const sendPasswordResetEmail = async (email) => {
 //   try {
 //     await auth.sendPasswordResetEmail(email);
@@ -87,6 +108,10 @@ const logout = () => {
   });
 };
 export {
+  auth,
   signInWithGoogle,
+  signUpWithEmailAndPassword,
+  signInWithEmailnPassword,
+  sendPasswordResetinEmail,
   logout,
 };
