@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import { signUpWithEmailAndPassword ,signInWithGoogle} from "../firebaseconfig";
-import '../css/signup.css';
+import '../css/Signup.css';
 
 
 const SignUP=()=>{
@@ -11,6 +11,7 @@ const SignUP=()=>{
         const submit = ()=>{
             console.log(password+'\n'+cnfrmpwd)
             if(password == cnfrmpwd){
+                // Remove
                 console.log('this is uid : -'+userid+'this is password'+ password)
                 signUpWithEmailAndPassword(userid,password)
             }
@@ -20,7 +21,9 @@ const SignUP=()=>{
         }
         return(
             <>  
+            <div><Link to="/"><button size="lg" className="btn btn-outline-dark back-btn"><i className="fa fa-angle-double-left"></i>  Back to home</button></Link></div>
         <div className="signup-form">
+            <div className="form-box">
 		<h2>Create an Account</h2>
 		<p className="hint-text">Sign up with your social media account or email address</p>
 		<div className="social-btn text-center">
@@ -40,6 +43,7 @@ const SignUP=()=>{
             <button  onClick={submit} class="btn btn-success btn-lg btn-block signup-btn">Sign Up</button>
         </div>
         <div className="text-center">Already have an account?<Link to='/login'> <a>Login here</a></Link></div>
+        </div>
         </div>
             </>
         )

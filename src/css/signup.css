@@ -26,7 +26,7 @@ body {
   margin: 0 auto;
   padding: 30px 0;
 }
-.signup-form form {
+.form-box {
   border-radius: 5px;
   margin-bottom: 20px;
   background: #fff;
@@ -116,4 +116,9 @@ body {
 
 .signup-btn {
   left: 50%;
+}
+
+.back-btn {
+  margin-top: 20px;
+  margin-left: 20px;
 }

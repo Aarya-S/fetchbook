@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Navbar, Container, Form, Button, FormControl, Nav} from 'react-bootstrap'
+import { Navbar, Container, Form, Button, FormControl, Nav, NavDropdown} from 'react-bootstrap'
 import LogoWhite from "../assets/FetchBookWhite.svg"
 import { auth,logout } from '../firebaseconfig'
 
@@ -9,7 +9,7 @@ import '../css/Navbar2.css'
 
 
 function Navbar2() {
-    const [loginicon, setloginicon] = useState('login')
+    const [loginicon, setloginicon] = useState('Login')
     const user = auth.currentUser
     if(user){setloginicon(user.displayName)}
     
@@ -51,6 +51,12 @@ function Navbar2() {
                 <Nav.Link href="/offers" className="nav-links-custom">Offers</Nav.Link>
                 <Nav.Link href="/about" className="nav-links-custom">About</Nav.Link>
                 <Nav.Link href="/cart" className="nav-links-custom"><nobr><i className="fa fa-shopping-cart"></i>    Cart</nobr></Nav.Link>
+                <NavDropdown title="Username" className="nav-links-custom">
+                    <NavDropdown.Item href="/">Dashboard</NavDropdown.Item>
+                    <NavDropdown.Item href="/about">About Us</NavDropdown.Item>
+                    <NavDropdown.Divider />
+                    <NavDropdown.Item href="/">Logout</NavDropdown.Item>
+                </NavDropdown>
                 <Nav.Link href="/login" onClick={check} className="nav-links-custom"><nobr><i className="fa fa-user"></i> {loginicon}</nobr></Nav.Link>
                 </Nav>
             </Navbar>
