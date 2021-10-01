@@ -19,8 +19,8 @@ function Navbar2() {
         }
     }
     return (
-        <header>
-            <Navbar bg="dark" expand="lg" variant="dark">
+        <>
+            <Navbar bg="dark" expand="lg" variant="dark" sticky="top">
             
                     <Navbar.Brand className="float-start" href="/" style={{marginLeft: "30px"}}>
                     <img
@@ -60,7 +60,7 @@ function Navbar2() {
                 <Nav.Link href="/login" onClick={check} className="nav-links-custom"><nobr><i className="fa fa-user"></i> {loginicon}</nobr></Nav.Link>
                 </Nav>
             </Navbar>
-        </header>
+        </>
     )
 }
 
