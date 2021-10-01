@@ -5,7 +5,7 @@
 }
 
 body {
-  border: 5px solid rgb(4, 91, 102);
+  border: 20px solid rgb(15, 15, 10);
 
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -14,6 +14,8 @@ body {
 }
 
 .booklist {
+  
+  color: #222;
   display: grid;
   margin: 70px;
   gap: 20px;
@@ -39,7 +41,7 @@ body {
   justify-content: center;
   align-items: center;
   opacity: 1;
-  border-bottom: 3px solid rgb(9, 105, 105);
+  border-bottom: 3px solid rgb(37, 37, 37);
   padding-right: 10px;
 
   bottom: 10px;
@@ -58,7 +60,7 @@ body {
   top: 50%;
   right: 32px;
   font-size: 3rem;
-  color: rgb(36, 148, 139);
+  color: rgb(37, 37, 37);
   z-index: 10;
   cursor: pointer;
   user-select: none;
@@ -69,7 +71,7 @@ body {
   top: 50%;
   left: 32px;
   font-size: 3rem;
-  color: rgb(36, 148, 139);
+  color: rgb(37, 37, 37);
   z-index: 10;
   cursor: pointer;
   user-select: none;
@@ -86,12 +88,16 @@ body {
   transform: scale(1.08);
 }
 .title{
+   background-color:rgb(37, 37, 37) ;
    font-weight: bold;
-   color : black;
+   color : rgb(211, 209, 209);
    text-align : center;
   }
+  .title:hover{
+    color: rgb(255, 70, 70);
+  }
   .showmore {
-    background: rgb(19, 53, 107);
+    background: rgb(37, 37, 37);
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -100,7 +106,8 @@ body {
     cursor: pointer;
     text-decoration: none;
     font-size: 15px;
-    font-family: Poppins, sans-serif;
+    
+  
   }
   .showmore:focus {
     outline: none;
@@ -110,7 +117,7 @@ body {
     transform: scale(0.98);
   }
   .showmore:hover{
-    color: orange;
-    background-color: rgb(61, 1, 1);
+    color: rgb(255, 70, 70);
+    background-color: rgb(37, 37, 37);
     transition: inherit;
   }

@@ -1,6 +1,6 @@
 .bookcard_container {
-  background: #fff;
-  border: 10px #03223f;
+  background: rgb(37, 37, 37);
+  border: 10px #807b7b;
   zoom: 80%;
   padding: 1rem 2rem;
   opacity: 1;
@@ -8,11 +8,12 @@
   height: fit-content;
 }
 .bookcard_container h1 {
+  color: #c0c0c0;
   font-size: 2rem;
   margin-top: 0.5rem;
 }
 .bookcard_container h4 {
-  color: #617d98;
+  color: #ff2020;
   font-size: 1rem;
   margin-top: 0.25rem;
 }

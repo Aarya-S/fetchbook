@@ -58,11 +58,11 @@ class populate extends Component{
       <div className='parentHome'>
         <Navbar2 />
         <ImageSlider slides={Sliderdata}/>
-      <text className='title'> <b>Featured Products</b> </text>
+      <text className='title'> Featured Products </text>
       <RenderBooks />
-      <text className='title'><b> We Offer </b> </text>
+      <text className='title'> We Offer  </text>
       <RenderBooks/>
-      <Link ><button className='showmore'>Show More</button></Link>
+      <Link ><button className='showmore'> <b> Show More </b> </button></Link>
        <Footer/>
       </div>
     );
