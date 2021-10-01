@@ -1,6 +1,6 @@
 import React from "react";
 import { Component } from "react";
-import Navbar from './Navbar';
+import Navbar2 from './Navbar2';
 import '../css/Cart.css'
 
 class Cart extends Component{
@@ -10,7 +10,7 @@ class Cart extends Component{
     render(){
         return(
             <div className='parentCart'>
-                <Navbar/>
+                <Navbar2 />
                 Cart Page
             </div>
         )

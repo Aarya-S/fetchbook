@@ -1,7 +1,7 @@
 import React, { Component, useState  } from "react";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import '../css/Details.css';
-import Navbar from './Navbar';
+import Navbar2 from './Navbar2';
 
 const Sliderdata=[
     {image:'https://images-na.ssl-images-amazon.com/images/I/71e5m7xQd0L._AC_UL200_SR200,200_.jpg'},
@@ -16,7 +16,7 @@ class Details extends Component{
     render(){
         return(
             <div>
-                <Navbar/>
+                <Navbar2 />
                 <Book_imgs slides={Sliderdata}/>
                 <button>Add to cart</button>
             </div>

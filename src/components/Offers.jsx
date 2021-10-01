@@ -2,7 +2,7 @@ import React from "react";
 import { Component } from "react";
 import { Link } from "react-router-dom";
 import BookCard from "./Bookcard";
-import Navbar from './Navbar';
+import Navbar2 from './Navbar2';
 import '../css/Offers.css'
 
 const data = [
@@ -43,7 +43,7 @@ class Offers extends Component{
     render(){
         return(
             <div className="parentOffers">
-              <Navbar/>
+              <Navbar2 />
                 <RenderBooks/>
             </div>
         )

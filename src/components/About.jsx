@@ -1,11 +1,11 @@
 import React from "react";
 import '../css/About.css'
-import Navbar from './Navbar';
+import Navbar2 from './Navbar2';
 
 function About() {
     return (
       <div className='parentAbout'>
-        <Navbar/>
+        <Navbar2 />
         About page
       </div>
     );
