@@ -1,22 +1,35 @@
 import React,{useState} from "react";
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import { signUpWithEmailAndPassword ,signInWithGoogle} from "../firebaseconfig";
-import '../css/Signup.css';
+import '../css/signup.css';
 
 
 const SignUP=()=>{
         const [userid, setuserid] = useState()
         const [password, setpassword] = useState()
         const [cnfrmpwd, setcnfrmpwd] = useState()
-        const submit = ()=>{
-            console.log(password+'\n'+cnfrmpwd)
-            if(password == cnfrmpwd){
-                // Remove
+        let history = useHistory()
+        const submit = async ()=>{
+            try{if(password == cnfrmpwd){
                 console.log('this is uid : -'+userid+'this is password'+ password)
-                signUpWithEmailAndPassword(userid,password)
+                await signUpWithEmailAndPassword(userid,password)
+                history.push('/login')
+                
             }
             else{
                 alert('Password missmatch Check the Password')
+            }}
+            catch(e){
+                alert(e)
+            }
+        }
+        const googlesubmit = async ()=>{
+            try{
+                await signInWithGoogle()
+                history.push('/login')
+            }
+            catch(e){
+                alert('Error Occured'+ e)
             }
         }
         return(
@@ -27,7 +40,7 @@ const SignUP=()=>{
 		<h2>Create an Account</h2>
 		<p className="hint-text">Sign up with your social media account or email address</p>
 		<div className="social-btn text-center">
-			<a onClick={signInWithGoogle} class="btn btn-primary btn-lg"><i class="fa fa-google"></i> Google</a>
+			<a onClick={googlesubmit} class="btn btn-primary btn-lg"><i class="fa fa-google"></i> Google</a>
 		</div>
 		<div className="or-seperator"><b>or</b></div>   
         <div className="form-group">
