@@ -1,27 +1,42 @@
 import React,{ useState } from "react";
-import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
+
 import '../css/Login.css';
 import { signInWithGoogle,signInWithEmailnPassword,auth } from "../firebaseconfig";
 
-const SignUP =()=>{
+const Login =()=>{
         const [loginid, setloginid] = useState('')
         const [pwd, setpwd] = useState('')
-        const [logedin,setlogedin] = useState('')
-        const submit = ()=>{
-            signInWithEmailnPassword(loginid,pwd)
-            setlogedin(auth.currentUser)
+        let history = useHistory()
+        const submit = async (e)=>{
+            try{
+                e.preventDefault()
+            await signInWithEmailnPassword(loginid,pwd)
+            history.push('/')}
+            catch(e){
+                alert('Error Occured '+ e)
+            }
+    
+        }
+        const googlesubmit = async ()=>{
+            try{
+                await signInWithGoogle()
+                history.push('/')
+            }
+            catch(e){
+                alert('Error Occured'+ e)
+            }
         }
         return(
-            <>  
-                <div><Link to="/"><button size="lg" className="btn btn-outline-dark back-btn"><i className="fa fa-angle-double-left"></i>  Back to home</button></Link></div>
+            <>      
+                <Link to='/'><button size="lg" className="btn btn-outline-dark back-btn"><i className="fa fa-angle-double-left"></i>Back to home</button></Link>
                 
                 <div className="signup-form">
                     <div className="form-box">
                     <h2>Login</h2>
                     <p className="hint-text">Sign in with your social media account or email address</p>
                     <div className="social-btn text-center">
-                        <a onClick={signInWithGoogle} class="btn btn-primary btn-lg"><i class="fa fa-google"></i>  Google</a>
+                        <a onClick={googlesubmit} class="btn btn-primary btn-lg"><i class="fa fa-google"></i>  Google</a>
                     </div>
                     <div className="or-seperator"><b>or</b></div>
                     <div className="form-group">
@@ -42,4 +57,4 @@ const SignUP =()=>{
 }
 
 
-export default SignUP
+export default Login

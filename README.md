@@ -6,9 +6,6 @@ A digital catalog of books, both new and used.<br>
 ### File Management
 
 ## Things to do
-<h3>2. add navbar to every component</h3>
-<h3>2. Registration me symbol dalo bc</h3>
-<h3>1. Signup Page(seller sign up)</h3>
 <h3>2. Details Page</h3>
 <h3>3. Dashboard</h3>
 <h3>4. Membership Page</h3>
@@ -16,7 +13,5 @@ A digital catalog of books, both new and used.<br>
 <h3>6. Book Card</h3>
 <h3>7. Offers Page</h3>
 <h3>8. Login Page</h3>
-<h3>9. Search Bar</h3>
+<h3>9. Search Bar(connect to db)</h3>
 <h3>10. Filter</h3>
-<h3>12. Logo</h3>
-<h3>13. Navbar</h3>

@@ -17,77 +17,25 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 const Provider = new GoogleAuthProvider();
 let isLogin = auth.currentUser
-const signInWithGoogle = async () => {
-  if(isLogin == null){
-  signInWithPopup(auth, Provider)
-  .then((result) => {
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    console.log('Token :- ' + token)
-    const user = result.user;
-    console.log('user : - ' + user.email +'\n'+ user.photoURL +'\n' +user.displayName)
-    // ...
-  }).catch((error) => {
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    alert(errorMessage)
-    // The email of the user's account used.
-    const email = error.email;
-    console.log('email :- ' + email)
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-    console.log('creds : - ' + credential)
-    // ...
-  })}else{alert('already Logged IN')}
-};
+const signInWithGoogle = () => {
+  if(isLogin === null){
+    console.log('in firebase '+isLogin)
+  return signInWithPopup(auth, Provider)
+}}
 
-const signUpWithEmailAndPassword = async (email,password)=>{
-  if(isLogin==null){
-  createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    console.log('user :- ' + user.email +'\n' + user.displayName + '\n' )
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    alert(errorMessage)
-  });}
-}
+const signUpWithEmailAndPassword = (email,password)=>{
+  if(isLogin===null){
+  return createUserWithEmailAndPassword(auth, email, password)
+}}
 
-const signInWithEmailnPassword = async (email,password) =>{
-  if(isLogin == null ){
-  signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    
-    console.log('user :- ' + user.email +'\n' + user.displayName + '\n' )
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    alert(errorMessage)
-  });}
-}
-const sendPasswordResetinEmail = async(email) => {
-  if(isLogin == null){
-    sendPasswordResetEmail(auth, email)
-  .then(() => {
-
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    alert(errorMessage)
-  });
-  }
-}
+const signInWithEmailnPassword = (email,password) =>{
+  if(isLogin === null ){
+  return signInWithEmailAndPassword(auth, email, password)
+}}
+const sendPasswordResetinEmail = (email) => {
+  if(isLogin === null){
+  return  sendPasswordResetEmail(auth, email)
+}}
 
 // const sendPasswordResetEmail = async (email) => {
 //   try {
@@ -99,13 +47,7 @@ const sendPasswordResetinEmail = async(email) => {
 //   }
 // };
 const logout = () => {
-  signOut(auth).then(() => {
-    // Sign-out successful.
-    isLogin=null;
-  }).catch((error) => {
-    // An error happened.
-    alert(error)
-  });
+  return signOut(auth)
 };
 export {
   auth,

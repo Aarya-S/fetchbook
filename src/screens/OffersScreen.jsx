@@ -1,8 +1,8 @@
 import React from "react";
 import { Component } from "react";
 import { Link } from "react-router-dom";
-import BookCard from "./Bookcard";
-import Navbar2 from './Navbar2';
+import BookCard from "../components/Bookcard";
+import Navbar2 from '../components/Navbar2';
 import '../css/Offers.css'
 
 const data = [

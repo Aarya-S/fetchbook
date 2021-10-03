@@ -1,12 +1,20 @@
 import { sendPasswordResetinEmail } from "../firebaseconfig";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useHistory } from "react-router-dom";
 import '../css/Login.css';
 
 
 const Forgotpwd = ()=>{
     const [email, setemail] = useState('')
-    const submit = ()=>{sendPasswordResetinEmail(email)}
+    let history = useHistory()
+    const submit = async ()=>{
+        try{
+            await sendPasswordResetinEmail(email);
+            history.push('/login')
+        }catch(e){
+            alert(e)
+        }
+    }
     return(
         <>
         <div><Link to="/login"><button size="lg" className="btn btn-outline-dark back-btn"><i className="fa fa-angle-double-left"></i>  Back </button></Link></div>  
