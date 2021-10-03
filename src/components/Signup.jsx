@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import { signUpWithEmailAndPassword ,signInWithGoogle} from "../firebaseconfig";
-import '../css/Signup.css';
+import '../css/signup.css';
 
 
 const SignUP=()=>{
