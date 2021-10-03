@@ -1,7 +1,7 @@
 import React, { Component, useState  } from "react";
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa';
 import '../css/Details.css';
-import Navbar2 from './Navbar2';
+import Navbar2 from '../components/Navbar2';
 
 const Sliderdata=[
     {image:'https://images-na.ssl-images-amazon.com/images/I/71e5m7xQd0L._AC_UL200_SR200,200_.jpg'},
