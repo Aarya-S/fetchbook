@@ -1,7 +1,7 @@
 import React,{useState} from "react";
 import { Link,useHistory } from "react-router-dom";
 import { signUpWithEmailAndPassword ,signInWithGoogle} from "../firebaseconfig";
-import '../css/signup.css';
+import '../css/Signup.css';
 import validator from "../helper/password";
 
 

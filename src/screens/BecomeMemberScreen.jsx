@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import { Link,useHistory } from "react-router-dom";
-import '../css/signup.css';
+import '../css/Signup.css';
 import { signInWithEmailnPassword,signInWithGoogle } from "../firebaseconfig";
 const MemberSignUp=()=>{
     const [sellername, setsellername] = useState('')
