@@ -2,6 +2,7 @@ import React,{useState} from "react";
 import { Link,useHistory } from "react-router-dom";
 import { signUpWithEmailAndPassword ,signInWithGoogle} from "../firebaseconfig";
 import '../css/signup.css';
+import validator from "../helper/password";
 
 
 const SignUP=()=>{
@@ -12,8 +13,13 @@ const SignUP=()=>{
         const submit = async ()=>{
             try{if(password == cnfrmpwd){
                 console.log('this is uid : -'+userid+'this is password'+ password)
+                const stats = validator(password)
+                if(stats == true){
                 await signUpWithEmailAndPassword(userid,password)
-                history.push('/login')
+                history.push('/login')}
+                else{
+                    alert('Invalid Password (oneof means special char)' + stats)
+                }
                 
             }
             else{
