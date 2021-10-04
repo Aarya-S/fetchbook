@@ -1,14 +1,22 @@
 import '../css/Bookcard.css';
+import React from 'react'
+import { Card } from 'react-bootstrap';
+
+
 const BookCard=({ img, title, author,price_tag }) => {
     return (
-     <article
-      className='bookcard_container'
-     >
-      <img src={img} alt='book_image' />
-      <h1>{title}</h1>
-      <h4>{author}</h4>
-      <h4>{price_tag}</h4>
-     </article>
+     <Card style={{width: "18rem", height:"30rem"}}>
+        <Card.Img variant="top" src={img}></Card.Img>
+        <Card.Body>
+            <Card.Title>{title}</Card.Title>
+            <Card.Text>
+                {author}
+            </Card.Text>
+            <Card.Text>
+                {price_tag}
+            </Card.Text>
+        </Card.Body>
+     </Card>
     );
 };
 export default BookCard

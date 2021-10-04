@@ -20,7 +20,7 @@ body {
 @media screen and (min-width: 768px) {
   .booklist {
     grid-template-columns: repeat(4, 1fr);
-    /* align-items: start; */
+    align-items: start;
   }
 }
 
@@ -40,12 +40,10 @@ body {
   opacity: 1;
   border-bottom: 3px solid rgb(37, 37, 37);
   padding-right: 10px;
-
-  bottom: 10px;
 }
-.slider:hover {
+/* .slider:hover {
   opacity: 0.8;
-}
+} */
 
 .image {
   width: auto;
