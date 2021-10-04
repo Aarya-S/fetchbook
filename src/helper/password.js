@@ -1,50 +1,21 @@
-const checkpwd = (password)=>{
-    const SpecialSym =['!','@','#','$','%','^','&','*','-','_'] 
-    const val = true
-      
-    if (password.length < 1){ 
-        val = false}
-          
-    if (password.length > 8){
-        val = false
-    }
-          
-    if(!stringContainsNumber(password)){
-        val = false
-    }
-          
-    if(!isUpper(password)){
-        val = false
-    }
-        return val
-}
-function stringContainsNumber(_input){
-    let string1 = String(_input);
-    for( let i = 0; i < string1.length; i++){
-        if(!isNaN(string1.charAt(i)) && !(string1.charAt(i) === " ") ){
-          return true;
-        }
-    }
-    return false;
-  }
+import PasswordValidator from "password-validator";
 
-  function isUpper(_input){
-      for(let i = 0;i<String(_input).length;i++){
-        if(startsWithCapital(String(_input),i)){
-            return true;
-        }
-      }
-  }
-  function isLower(_input){
-    for(let i = 0;i<String(_input).length;i++){
-        if(startsWithLower(String(_input),i)){
-            return true;
-        }
-      }
-  }
-  function startsWithCapital(word,i){
-    return word.charAt(i) === word.charAt(i).toUpperCase()
+
+function validator (password){
+let schema = new PasswordValidator()
+schema
+.is().min(8)                                    // Minimum length 8
+.is().max(100)                                  // Maximum length 100
+.has().uppercase()                              // Must have uppercase letters
+.has().lowercase()                              // Must have lowercase letters
+.has().digits(1)                                // Must have at least 2 digits
+.has().not().spaces()                           // Should not have spaces
+.is().not().oneOf(['Passw0rd', 'Password123'])  //blacklist
+.is(['!','@','#','$','%','^','&','*','-','_']) //special char
+if( schema.validate(password))
+{return true;}
+else{
+   return schema.validate(password, { list: true })
 }
-function startsWithLower(word,i){
-    return word.charAt(i) === word.charAt(i).toLowerCase()
 }
+export default validator
