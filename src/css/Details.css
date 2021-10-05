@@ -1,10 +1,25 @@
+.parent {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr) 0.1fr;
+  grid-template-rows: repeat(3, 1fr) 0.5fr 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.div1 {
+  grid-area: 1 / 1 / 4 / 4;
+}
+.div2 {
+  grid-area: 1 / 4 / 6 / 6;
+}
+
 .slider_book {
-  position: absolute;
+  position: inherit;
   height: 80vh;
   width: 80vh;
   padding: 10px;
-  padding-top: 50px;
-  padding-left: 50px;
+  padding-top: 5px;
+  padding-left: none;
   justify-content: left;
   align-items: center;
 }
@@ -47,4 +62,16 @@
   opacity: 1;
   transition-duration: 1s;
   transform: scale(1.08);
+}
+
+.text {
+  text-align: justify;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bolder;
+  font-size: 20px;
+}
+.span {
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  font-weight: bold;
 }
