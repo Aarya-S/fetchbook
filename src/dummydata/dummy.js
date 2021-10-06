@@ -68,5 +68,24 @@ const userdata = {
     address : "sadad sadadad adadadadada adadadadada adadadadad adadad ",
     email : "xyz@mail.com",
 }
+const seller = {
+    sellerid : 101,
+    sellername : "Cloudtail India",
+    address : "Renaissance Industrial Smart City, Kalyan-Sape Rd, Vashere, Maharashtra 421302",
+    experience : 10, //(eg:-10 years)
+    certificates : "https://images-eu.ssl-images-amazon.com/images/I/51PV2vaUraL._SY264_BO1,204,203,200_QL40_FMwebp_.jpg",
+    phoneno : "123456789",
+    email : "abc@xyz.com",
+    books : [1, 2],
+    orders : [
+        {
+            bookid:123,
+            userid:122,
+        },
+        {
+            bookid:124,
+            userid:123,
+        }]
+}
   
-module.exports = {data,userdata}
+module.exports = {data,userdata,seller}

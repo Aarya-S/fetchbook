@@ -33,10 +33,16 @@ const setuser =async (name,dpimg,memail,maddress)=>{
     return res
 }
 
+const getuser = async(name,email)=>{
+
+}
 
 const UserAction=(action,data)=>{
     switch(action){
-    case USER_UPDATE_REQUEST : return setuser(data.name,data.dpimg,data.email,data.address);break;
+    case USER_UPDATE_REQUEST : return setuser(data.name,data.dpimg,data.email,data.address);
+    case USER_DELETE_REQUEST : break;
+    case USER_DETAILS_REQUEST: break;
+    case USER_LIST_REQUEST: break;
 }}
 
 

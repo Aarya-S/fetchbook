@@ -5,6 +5,7 @@ import { auth,logout } from '../firebaseconfig'
 import '../css/Navbar2.css'
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
+import { LinkContainer } from 'react-router-bootstrap'
 
 
 function Navbar2() {
@@ -30,14 +31,15 @@ function Navbar2() {
         <>
             <Navbar bg="dark" expand="lg" variant="dark" sticky="top">
                     {/* logo */}
-                    <Link to='/'><Navbar.Brand className="float-start" style={{marginLeft: "30px"}}>
+                    <LinkContainer to="/">
+                    <Navbar.Brand className="float-start" style={{marginLeft: "30px"}}>
                     <img
                         src={LogoWhite}
                         height="70px"
                         className="d-inline-block align-top"
                         alt="FetchBook Logo"
                     />
-                    </Navbar.Brand></Link>
+                    </Navbar.Brand></LinkContainer>
                     
                 
                 
@@ -55,19 +57,20 @@ function Navbar2() {
                         <Button onClick={search} variant="outline-primary" className="btn-md searchbutton"><nobr><i className="fa fa-search"></i> Search</nobr></Button>
                     </Form>
                 </Container>
+                
 
                 <Nav>
-                <Link to='/offers' className="nav-links-custom">Offers</Link>
-                <Link to="/about" className="nav-links-custom">About</Link>
-                <Link to="/cart" className="nav-links-custom"><nobr><i className="fa fa-shopping-cart"></i>    Cart</nobr></Link>
+                <LinkContainer to="/offers"><Nav.Link className="nav-links-custom">Offers</Nav.Link></LinkContainer>
+                <LinkContainer to="/about"><Nav.Link className="nav-links-custom">About</Nav.Link></LinkContainer>
+                <LinkContainer to="/cart"><Nav.Link  className="nav-links-custom"><nobr><i className="fa fa-shopping-cart"></i> Cart</nobr></Nav.Link></LinkContainer>
                 {auth.currentUser!=null?
                 <NavDropdown title={auth.currentUser.displayName} className="nav-links-custom">
                     <NavDropdown.Item><Link to='/userdashboard'>Dashboard</Link></NavDropdown.Item>
-                    <Link><NavDropdown.Item >About Us</NavDropdown.Item></Link>
+                    <NavDropdown.Item><Link>About Us</Link></NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item onClick={check}>Logout</NavDropdown.Item>
                 </NavDropdown>
-                :<Nav.Link href="/login" className="nav-links-custom"><nobr><i className="fa fa-user"></i> {loginicon}</nobr></Nav.Link>}
+                :<LinkContainer to="/login" ><Nav.Link className="nav-links-custom"><nobr><i className="fa fa-user"></i>{loginicon}</nobr></Nav.Link></LinkContainer>}
                 </Nav>
             </Navbar>
         </>
