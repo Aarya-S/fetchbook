@@ -12,6 +12,11 @@ import Cart from './screens/CartScreen';
 import SignUP from './screens/SignupScreen';
 import MemberSignUp from './screens/BecomeMemberScreen';
 import Forgotpwd from './screens/ForgotpwdScreen';
+import AfterSearch from './screens/afterSearch';
+import Checkout from './screens/checkoutScreen';
+import Sellerui from './screens/sellerScreen';
+import Dashboard from './screens/dashboard';
+
 
 
 function App() {
@@ -29,6 +34,10 @@ function App() {
         <Route component={Cart} path='/cart' exact />
         <Route component={MemberSignUp} path='/membersignup' exact />
         <Route component={Forgotpwd} path = '/forgotpassword' exact/>
+        <Route component={AfterSearch} path='/search' exact/>
+        <Route component={Sellerui} path='/sellerui' exact/>
+        <Route component={AfterSearch} path='/checkout' exact/>
+        <Route component={Dashboard} path='/userdashboard' exact/>
       </Switch>
       </div>
     

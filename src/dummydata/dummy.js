@@ -56,5 +56,17 @@ const data = [{
             instock : "2",}
 },
 ]
+
+const userdata = {
+    userid : 1234,
+    username : "dummy name",
+    dp_img : "https://images-eu.ssl-images-amazon.com/images/I/51PV2vaUraL._SY264_BO1,204,203,200_QL40_FMwebp_.jpg",
+    order_history : {
+        time : 1233,
+        book_id : 12334
+    },
+    address : "sadad sadadad adadadadada adadadadada adadadadad adadad ",
+    email : "xyz@mail.com",
+}
   
-module.exports = {data}
+module.exports = {data,userdata}
