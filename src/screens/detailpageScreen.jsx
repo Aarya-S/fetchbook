@@ -36,21 +36,23 @@ const Details =()=>{
                 </div>
                 <div class="div2"> 
                 <br/>
-                <h1>{product.bookname}</h1>
-                <hr/>
+                <h1 style={{fontFamily:"Bahnschrift SemiBold"}}>{product.bookname}</h1>
+                <hr/><hr/>
                 <div class="text">
-                <h4> <span  class="span">Seller</span> : {product.sellername}</h4><hr/>
-                <h4><span class="span">Description</span> : <br/>{product.description}</h4><hr/>
-                <h4><span class="span">Author</span> : {product.auther}</h4><hr/>
-                <h4><span class="span">Publisher</span> : {product.publisher}</h4><hr/>
-                <h4><span class="span">Products Available</span> : {product.stock}</h4><hr/>
-                <h4><span class="span">Seller Address</span> : {product.tag.address}</h4><hr/>
-                <h4><span class="span">Category</span> : {product.tag.category}</h4><hr/>
+                <h4> <span  class="span">Seller</span> : {product.sellername}</h4><hr/><hr/>
+                <h4><span class="span">Description</span> : <br/>{product.description}</h4><hr/><hr/>
+                <h4><span class="span">Author</span> : {product.auther}</h4>
+                <h4><span class="span">Publisher</span> : {product.publisher}</h4>
+                <h4><span class="span">Seller Address</span> : {product.tag.address}</h4>
+                <hr/><hr/>
+              
+                <h4><span class="span">Category</span> : {product.tag.category}</h4>
                 <h4><span class="span">Condition of Book</span> : {product.tag.condition}</h4><hr/>
                 <h4>{product.tag.delivery_status}</h4><hr/>
+                <h4><span class="span">Products Available</span> : {product.stock}</h4>
                 <h4><span class="span">Product in stock</span> : {product.tag.instock}</h4><hr/>
                 <h4>{product.tag.new}</h4><hr/>
-                <h4><span class="span">Price </span>: {product.tag.price}</h4>
+                <h4><span class="span">Price </span>: {product.tag.price}</h4><hr/><hr/>
                 </div>
                 </div>
                 
@@ -58,8 +60,10 @@ const Details =()=>{
             
             </div>
             </div>
+      
         )
-}
+
+             }
 
 
 
