@@ -28,8 +28,8 @@ html {
 
 .column {
   float: left;
-  width: 95%;
-  margin-left: 30px;
+  width: 85%;
+  margin-left: 0px;
   margin-bottom: 16px;
   padding: 0 8px;
 }
@@ -58,9 +58,15 @@ html {
   display: table;
 }
 
-.title {
+.titles {
   color: aliceblue;
-  font-family: MV Boli;
+  margin-left: 25%;
+  width: 50%;
+  border-radius: 10px;
+  font-family: Bahnschrift;
+  background-color: rgb(37, 37, 37);
+  font-weight: bold;
+  text-align: center;
 }
 
 .button {

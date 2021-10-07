@@ -10,22 +10,22 @@ function About() {
 
 <div className="about-section" >
   <h1>About Us</h1>
-  <h4 >We are a book website and we make buyer's and seller's life easy.<br/><br/>Our aim is to create a platform for book sellers and buyers that will act as a virtual catalogue for new and used books , which will also in turn help the local sellers in the market to increase their sales with ease based on multiple factors like location of shop, availability of books ,customer ratings.<br/><br/>We provide you with the luxury of shopping for books and checking book availability with the comfort of your home.</h4>
+  <h4 >We are a book website and we make buyer's and seller's life easy.<br/><br/>Our aim is to create a platform for book sellers and buyers that will act as a virtual catalogue for new and used books , which will also in turn help the local sellers in the market to increase their sales with ease based on multiple factors like location of shop, availability of books ,customer ratings.<br/><br/>We provide you with the luxury of shopping for books and checking book availability with the comfort of your home.<br/></h4>
 </div>
 
-<h2 style={{textAlign:'center'}}>Our Team</h2>
+<h2 style={{textAlign:'center'}}><br/>Our Team</h2>
 <div className="row">
   <div className="column">
     <div className="card">
       <div className="container" style={{textAlign:'center'}}>
         <br/>
-        <h4 className="title" >Pranav Yede</h4>
+        <h4 className="titles" >Pranav Yede</h4>
         <br/>
-        <h4 className="title">Rohit Vichare</h4>
+        <h4 className="titles">Rohit Vichare</h4>
         <br/>
-        <h4 className="title">Aarya Shelar</h4>
+        <h4 className="titles">Aarya Shelar</h4>
         <br/>
-        <h4 className="title">Kshitij Wani</h4>
+        <h4 className="titles">Kshitij Wani</h4>
       </div>
     </div>
   </div>
@@ -33,7 +33,7 @@ function About() {
   <div className="column">
     <div className="card">
       <div className="container">
-        <h2>Terms of Service</h2>
+        <h2><br/>Terms of Service</h2>
         <z>Terms of Use<br/>
 You are welcome to Fetchbook.com. You can avail the services offered here or through its affiliates, but prior to that you need to agree to the terms and conditions. If you browse our site or visit our shop, you have to accept these conditions.<br/>
 
@@ -117,7 +117,7 @@ The complete site is provided by Fetchbook.com on the basis of as is and as avai
   <div className="column">
     <div className="card">
       <div className="container">
-        <h2>Privacy</h2>
+        <h2><br/>Privacy</h2>
         <p>Fetchbook.com website strictly focuses on the privacy of our customers’ and our loyalty towards our commitment. The policy discloses the practice by which we gather the necessary information through our website.<br/><hr/>
 
         <div className="bold">The Information that is collected</div><br/>
