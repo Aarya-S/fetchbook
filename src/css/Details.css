@@ -12,7 +12,7 @@
 .div2 {
   grid-area: 1 / 4 / 6 / 6;
 }
-.slider {
+.sliders {
   width: auto;
   position: relative;
   height: 60vh;

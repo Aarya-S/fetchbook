@@ -1,7 +1,7 @@
 import React from "react";
 import '../css/Details.css';
 import Navbar2 from '../components/Navbar2';
-import ImageSlider from "../components/ImageSlider";
+import ImageSliderdetails from "../components/ImageSliderdetails";
 import { data } from "../dummydata/dummy";
 import '../css/addtocartbutton.css';
 const Sliderdata=[
@@ -17,7 +17,7 @@ const Details =()=>{
             <Navbar2 />
             <div class="parent">
             <div class="div1">
-                <ImageSlider slides = {Sliderdata}/>
+                <ImageSliderdetails slides = {Sliderdata}/>
                 <h2></h2>
                 <div class="wrapper">
   <a class="cta" href="#">
@@ -39,17 +39,17 @@ const Details =()=>{
                 <h1>{product.bookname}</h1>
                 <hr/>
                 <div class="text">
-                <h4> <span  class="span">Seller</span> : {product.sellername}</h4>
-                <h4><span class="span">Description</span> : <br/>{product.description}</h4>
-                <h4><span class="span">Author</span> : {product.auther}</h4>
-                <h4><span class="span">Publisher</span> : {product.publisher}</h4>
-                <h4><span class="span">Products Available</span> : {product.stock}</h4>
-                <h4><span class="span">Seller Address</span> : {product.tag.address}</h4>
-                <h4><span class="span">Category</span> : {product.tag.category}</h4>
-                <h4><span class="span">Condition of Book</span> : {product.tag.condition}</h4>
-                <h4>{product.tag.delivery_status}</h4>
-                <h4><span class="span">Product in stock</span> : {product.tag.instock}</h4>
-                <h4>{product.tag.new}</h4>
+                <h4> <span  class="span">Seller</span> : {product.sellername}</h4><hr/>
+                <h4><span class="span">Description</span> : <br/>{product.description}</h4><hr/>
+                <h4><span class="span">Author</span> : {product.auther}</h4><hr/>
+                <h4><span class="span">Publisher</span> : {product.publisher}</h4><hr/>
+                <h4><span class="span">Products Available</span> : {product.stock}</h4><hr/>
+                <h4><span class="span">Seller Address</span> : {product.tag.address}</h4><hr/>
+                <h4><span class="span">Category</span> : {product.tag.category}</h4><hr/>
+                <h4><span class="span">Condition of Book</span> : {product.tag.condition}</h4><hr/>
+                <h4>{product.tag.delivery_status}</h4><hr/>
+                <h4><span class="span">Product in stock</span> : {product.tag.instock}</h4><hr/>
+                <h4>{product.tag.new}</h4><hr/>
                 <h4><span class="span">Price </span>: {product.tag.price}</h4>
                 </div>
                 </div>

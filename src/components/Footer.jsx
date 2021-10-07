@@ -12,7 +12,6 @@ return(
             <div className="row">
                 {/* Column1 */}
                 <div className="col">
-                    <Link to='/membersignup'><h4>Sell here</h4></Link>
                     <h4>Contact Us</h4>
                     <ul className="list-unstyled">
                         <li ><a href="tel:9004960511">+919004960511</a></li>
@@ -24,9 +23,9 @@ return(
                 <div className="col">
                     <h4>Our Company</h4>
                     <ul className="list-unstyled">
-                        <li><a>Our Team</a></li>
-                        <li><a>FAQ</a></li>
-                        <li><a>Jobs/Career</a></li>
+                        <li><a href="/About">Our Team</a></li>
+                        <li><a href="/About">FAQ</a></li>
+                        <li><a href="/About">Jobs/Career</a></li>
                     </ul>
                 </div>
                 {/* Column3 */}
@@ -39,10 +38,13 @@ return(
                     </ul>
                 </div>
             </div>
+            <div className="col">
+            <Link to='/membersignup'><h4><button>SELL HERE</button></h4></Link>
+            </div>
             <hr />
             <div className="row">
                 <p className="col-sm">
-                    &copy;{new Date().getFullYear()} <Link to='/'>fetchbook.com </Link>|<Link to='/About'> All rights reserved</Link> |<Link to='/About'> Terms of Service </Link>| <Link to='/About'>Privacy</Link>
+                    &copy;{new Date().getFullYear()} fetchbook.com | All rights reserved |<Link to='/About'> Terms of Service </Link>| <Link to='/About'>Privacy</Link>
                 </p>
             </div>
 
