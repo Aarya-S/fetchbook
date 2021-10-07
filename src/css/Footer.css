@@ -30,12 +30,12 @@ a:focus {
   background: #bae498;
 }
 
-a:hover {
+/* a:hover {
   border-bottom: 1px solid;
   background: rgb(119, 119, 119);
-}
+} */
 
-a:active {
+/* a:active {
   background: #531801;
   color: #fec9aa;
-}
+} */

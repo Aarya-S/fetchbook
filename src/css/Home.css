@@ -16,6 +16,7 @@ body {
   display: grid;
   margin: 70px;
   gap: 20px;
+  padding: 20px;
 }
 @media screen and (min-width: 768px) {
   .booklist {
@@ -28,7 +29,7 @@ body {
   position: relative;
   justify-content: center;
   align-items: center;
-  display: grid;
+  /* display: grid; */
 }
 .slider {
   width: auto;

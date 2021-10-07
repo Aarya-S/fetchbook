@@ -55,15 +55,15 @@ class populate extends Component{
   };
   render(){
     return (
-      <div className='parentHome'>
+      <>
         <Navbar2 />
         <ImageSlider slides={Sliderdata}/>
-      <text className='title'> Featured Products </text>
+      <div className='title'> Featured Products </div>
       <RenderBooks />
-      <text className='title'> We Offer  </text>
-      <RenderBooks/>
+      <div className='title'> We Offer  </div>
+      <RenderBooks />
        <Footer/>
-      </div>
+      </>
     );
   }
 }

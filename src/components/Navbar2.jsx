@@ -35,7 +35,7 @@ function Navbar2() {
                     <Navbar.Brand className="float-start" style={{marginLeft: "30px"}}>
                     <img
                         src={LogoWhite}
-                        height="70px"
+                        height="50px"
                         className="d-inline-block align-top"
                         alt="FetchBook Logo"
                     />

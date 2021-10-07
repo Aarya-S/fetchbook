@@ -27,7 +27,7 @@ const MemberSignUp=()=>{
                 else{
                     alert('Invalid Password (oneof means special char !,@,#,$,%,^,&,*,-)' + stats)
             }}else{
-                alert('conform your password')
+                alert('Confirm your password')
             }
         }
             catch(e){
@@ -44,9 +44,15 @@ const MemberSignUp=()=>{
         }
         return(
             <>  
+            <Link to='/'><button size="lg" className="btn btn-outline-dark back-btn"><i className="fa fa-angle-double-left"></i>Back to home</button></Link>
                 <div className="signup-form">
-            <h2>Create an Account</h2>
-		<div className="or-seperator"></div>   
+                    <div className="form-box">
+		<h2>Create an Account</h2>
+		<p className="hint-text">Sign up with your social media account or email address</p>
+		<div className="social-btn text-center">
+			<a onClick={googlesubmit} class="btn btn-primary btn-lg"><i class="fa fa-google"></i> Google</a>
+		</div>
+		<div className="or-seperator"><b>or</b></div>   
         <div className="form-group">
         	<input type="text" class="form-control input-lg" value={sellername} name="sellername" placeholder="sellername" onChange={(e)=>{setsellername(e.target.value)}} required="required"/>
         </div>
@@ -73,6 +79,7 @@ const MemberSignUp=()=>{
             <button onClick={submit} class="btn btn-success btn-lg btn-block signup-btn">Sign Up</button>
         </div>
     <div className="text-center">Already have an account?<Link to='/login'> <a>Login here</a></Link></div>
+            </div>
             </div>
             </>
         )
