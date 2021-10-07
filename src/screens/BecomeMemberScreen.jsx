@@ -48,11 +48,8 @@ const MemberSignUp=()=>{
                 <div className="signup-form">
                     <div className="form-box">
 		<h2>Create an Account</h2>
-		<p className="hint-text">Sign up with your social media account or email address</p>
-		<div className="social-btn text-center">
-			<a onClick={googlesubmit} class="btn btn-primary btn-lg"><i class="fa fa-google"></i> Google</a>
-		</div>
-		<div className="or-seperator"><b>or</b></div>   
+		
+		<div className="or-seperator"></div>   
         <div className="form-group">
         	<input type="text" class="form-control input-lg" value={sellername} name="sellername" placeholder="sellername" onChange={(e)=>{setsellername(e.target.value)}} required="required"/>
         </div>
