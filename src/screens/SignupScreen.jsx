@@ -11,10 +11,10 @@ const SignUP=()=>{
         const [cnfrmpwd, setcnfrmpwd] = useState()
         let history = useHistory()
         const submit = async ()=>{
-            try{if(password == cnfrmpwd){
+            try{if(password === cnfrmpwd){
                 //console.log('this is uid : -'+userid+'this is password'+ password)
                 const stats = validator(password)
-                if(stats == true){
+                if(stats === true){
                 await signUpWithEmailAndPassword(userid,password)
                 history.push('/login')}
                 else{
