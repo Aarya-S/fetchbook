@@ -65,6 +65,22 @@ const Cart = () => {
                         </Row>
                     </Container>
                 </Card>
+                
+                <Container>
+                    <Row>
+                        <Col sm={{span: 2, offset: 10}}>
+                            <b>TOTAL:</b> 
+                            <text className="total-amount"><i className="fa fa-inr"></i>{" "}800</text>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col sm={{span: 10, offset: 1}}>
+                        <div className="checkout-btn-row">
+                        <button className="checkout-btn">Proceed to Checkout</button>
+                        </div>
+                        </Col>
+                    </Row>
+                </Container>
                 </div>
 
                 {/* Order History Section */}

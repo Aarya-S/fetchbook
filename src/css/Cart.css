@@ -45,7 +45,31 @@
   cursor: pointer;
 }
 
+.total-amount {
+  margin-left: 15px;
+}
+
 /* Order History Section */
 .order-history {
   margin: 100px 80px 20px 80px;
+}
+
+.checkout-btn-row {
+  margin-top: 35px;
+}
+
+/* Buttons */
+.checkout-btn {
+  border: 1px solid black;
+  background-color: white;
+  border-radius: 20px;
+  padding: 7px;
+  margin-top: 30px;
+  width: 100%;
+  transition: all 0.5s ease;
+}
+
+.checkout-btn:hover {
+  background-color: black;
+  color: white;
 }
