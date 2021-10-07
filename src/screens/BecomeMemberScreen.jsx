@@ -1,22 +1,31 @@
 import React,{useState} from "react";
 import { Link,useHistory } from "react-router-dom";
 import '../css/Signup.css';
-import { signInWithEmailnPassword,signInWithGoogle } from "../firebaseconfig";
+import { signUpWithEmailAndPassword,signInWithGoogle } from "../firebaseconfig";
+import validator from "../helper/password";
+
 const MemberSignUp=()=>{
     const [sellername, setsellername] = useState('')
     const [email, setemail] = useState('')
     const [phoneno, setphoneno] = useState('')
     const [exp, setexp] = useState('')
+    const [address,setaddress] = useState('')
     const [password, setpassword] = useState('')
     const [cnfrmpwd, setcnfrmpwd] = useState('')
     let history = useHistory()
         const submit=async ()=> {
             try{
-            if(password == cnfrmpwd){
-                await signInWithEmailnPassword(email,password)
-            }else{
-                alert('password mismatch')
-            }}
+                if(password===cnfrmpwd){
+                const stats = validator(password)
+                if(stats == true){
+                await signUpWithEmailAndPassword(email,password)
+                history.push('/login')}
+                else{
+                    alert('Invalid Password (oneof means special char !,@,#,$,%,^,&,*,-)' + stats)
+            }}else{
+                alert('conform your password')
+            }
+        }
             catch(e){
                 alert(e)
             }
@@ -51,6 +60,10 @@ const MemberSignUp=()=>{
         </div> 
         <div className="form-group">
             <input type="number" class="form-control input-lg" value={exp} name="Experience " onChange={(e)=>{setexp(e.target.value)}} placeholder="Experience in selling (years)"/>
+        </div>
+         
+        <div className="form-group">
+            <input type="number" class="form-control input-lg" value={address} name="Address " onChange={(e)=>{setaddress(e.target.value)}} placeholder="Seller Address"/>
         </div>
         <div className="form-group">
             <input type="password" class="form-control input-lg" value={password} name="password" onChange={(e)=>{setpassword(e.target.value)}} placeholder="Password" required="required"/>

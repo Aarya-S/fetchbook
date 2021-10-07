@@ -62,7 +62,6 @@ class populate extends Component{
       <RenderBooks />
       <text className='title'> We Offer  </text>
       <RenderBooks/>
-      <Link ><button className='showmore'> <b> Show More </b> </button></Link>
        <Footer/>
       </div>
     );

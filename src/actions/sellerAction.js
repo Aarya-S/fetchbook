@@ -1,20 +1,13 @@
 import axios from 'axios'
 import {
     SELLER_DETAILS_REQUEST,
-    SELLER_DETAILS_SUCCESS,
     SELLER_DETAILS_FAIL,
-    SELLER_DETAILS_RESET,
-    SELLER_ORDER_LIST_SUCCESS,
     SELLER_ORDER_LIST_REQUEST,
     SELLER_ORDER_LIST_FAIL,
-    SELLER_ORDER_LIST_RESET,
     SELLER_DELETE_REQUEST,
     SELLER_DELETE_SUCCESS,
     SELLER_DELETE_FAIL,
     SELLER_PROFILE_UPDATE_REQUEST,
-    SELLER_PROFILE_UPDATE_SUCCESS,
-    SELLER_PROFILE_UPDATE_FAIL,
-    SELLER_PROFILE_UPDATE_RESET,
     ADD_SELLER_DETAILS_REQUEST,
     ADD_SELLER_DETAILS_FAIL,
     ADD_SELLER_DETAILS_SUCCESS,
@@ -46,10 +39,10 @@ const getSeller = async (data)=>{
   return result
 }
 
-const getSellerorders = async (data)=>{
+const addorder = async (data)=>{
   const result = null;
   try{
-    await axios.get(`${BASE_URL}/sellerorders/?id=${data}`)
+    await axios.get(`${BASE_URL}/addorders?email=${data}`)
     .then((responce)=>{responce.status===200?result=responce.data:result=SELLER_ORDER_LIST_FAIL})
   }catch(e){
     result = SELLER_ORDER_LIST_FAIL + e
@@ -60,20 +53,21 @@ const getSellerorders = async (data)=>{
 const deleteorder = async (data)=>{
   const result = null;
   try{
-    await axios.delete(`${BASE_URL}/deleteorder/?bookname=${data.bookid}&sellerid=${data.sellerid}`)
-    .then((responce)=>{responce.status===200?result=SELLER_DELETE_SUCCESS:SELLER_DETAILS_FAIL})
+    await axios.delete(`${BASE_URL}/deleteorder?userid=${data}`)
+    .then((responce)=>{responce.status===200?result=SELLER_DELETE_SUCCESS:SELLER_DELETE_FAIL})
   }catch(e){
-    result = SELLER_DETAILS_FAIL
+    result = SELLER_DELETE_FAIL + e
   }
+  return result;
 }
 
 const sellerAction = (Action,data)=>{
   switch(Action){
     case SELLER_DETAILS_REQUEST : return getSeller(data) ;break;
-    case SELLER_ORDER_LIST_REQUEST : return getSellerorders(data); break;
-    case SELLER_DELETE_REQUEST: break;
-    case SELLER_PROFILE_UPDATE_REQUEST: break;
-    case ADD_SELLER_DETAILS_REQUEST : return setSeller(data); 
+    case SELLER_ORDER_LIST_REQUEST : return addorder(data); break;
+    case SELLER_DELETE_REQUEST: return deleteorder(data); break;
+    case SELLER_PROFILE_UPDATE_REQUEST:return setSeller(data); break;
+    case ADD_SELLER_DETAILS_REQUEST : return setSeller(data); break;
     default : alert(`you requested Action - ${Action}`)
   }
 }

@@ -12,6 +12,7 @@ return(
             <div className="row">
                 {/* Column1 */}
                 <div className="col">
+                    <Link to='/membersignup'><h4>Sell here</h4></Link>
                     <h4>Contact Us</h4>
                     <ul className="list-unstyled">
                         <li ><a href="tel:9004960511">+919004960511</a></li>
