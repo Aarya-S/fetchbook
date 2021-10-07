@@ -70,7 +70,7 @@ function Navbar2() {
                     <NavDropdown.Divider />
                     <NavDropdown.Item onClick={check}>Logout</NavDropdown.Item>
                 </NavDropdown>
-                :<LinkContainer to="/login" ><Nav.Link className="nav-links-custom"><nobr><i className="fa fa-user"></i>{loginicon}</nobr></Nav.Link></LinkContainer>}
+                :<LinkContainer to="/login" ><Nav.Link className="nav-links-custom"><nobr><i className="fa fa-user"></i>{" "}{loginicon}</nobr></Nav.Link></LinkContainer>}
                 </Nav>
             </Navbar>
         </>
