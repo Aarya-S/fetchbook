@@ -12,7 +12,19 @@
 .div2 {
   grid-area: 1 / 4 / 6 / 6;
 }
-
+.slider {
+  width: auto;
+  position: relative;
+  height: 60vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  border-bottom: 3px solid rgb(37, 37, 37);
+  margin-right: 20px;
+  border-right: 3px solid rgb(37, 37, 37);
+  padding-right: 10px;
+}
 .slider_book {
   position: inherit;
   height: 80vh;

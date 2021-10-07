@@ -43,7 +43,7 @@ function Navbar2() {
                     
                 
                 
-                    <Navbar.Text style={{color: "rgba(255,255,255, 0.6)", marginRight:"50px", fontSize: "medium"}}><nobr>A platform for the book lover</nobr></Navbar.Text>
+                    <Navbar.Text style={{color: "rgba(255,255,255, 0.6)", marginRight:"200px", fontSize: "medium"}}><nobr>A platform for the book lover</nobr></Navbar.Text>
                 {/* searach bar */}
                 <Container>
                     <Form className="d-flex">
