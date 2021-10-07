@@ -99,11 +99,11 @@ const Cart = () => {
 
                             <Col sm={2}>
                                 {/* Status of Order */}
-                                <text>
+                                <div className="text-center">
                                     {/* Delivered, Processing, Out for Delivery */}
-                                    Delivered <br />
-                                    <text>ORDER ID: {orderID}</text>
-                                </text>
+                                    <b>Delivered</b> <br />
+                                    <text><b>ORDER ID:</b> {orderID}</text>
+                                </div>
                             </Col>
 
                         </Row>

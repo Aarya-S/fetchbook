@@ -36,15 +36,15 @@ function Navbar2() {
                     <img
                         src={LogoWhite}
                         height="50px"
-                        className="d-inline-block align-top"
+                        className="align-top"
                         alt="FetchBook Logo"
                     />
                     </Navbar.Brand></LinkContainer>
                     
                 
                 
-                    <Navbar.Text style={{color: "rgba(255,255,255, 0.6)", marginRight:"200px", fontSize: "medium"}}><nobr>A platform for the book lover</nobr></Navbar.Text>
-                {/* searach bar */}
+                    <text style={{color: "rgba(255,255,255, 0.6)", marginRight: "35px", fontSize: "medium"}}><nobr>A platform for the book lover</nobr></text>
+                {/* search bar */}
                 <Container>
                     <Form className="d-flex">
                         <FormControl
