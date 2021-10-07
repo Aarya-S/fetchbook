@@ -67,7 +67,6 @@ function Navbar2() {
                 {auth.currentUser!=null?
                 <NavDropdown title={auth.currentUser.displayName} className="nav-links-custom">
                     <NavDropdown.Item><Link to='/userdashboard'>Dashboard</Link></NavDropdown.Item>
-                    <NavDropdown.Item><Link>About Us</Link></NavDropdown.Item>
                     <NavDropdown.Divider />
                     <NavDropdown.Item onClick={check}>Logout</NavDropdown.Item>
                 </NavDropdown>

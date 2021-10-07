@@ -21,7 +21,6 @@ import Dashboard from './screens/dashboard';
 
 function App() {
   return (
-    
     <Router>
     <div className='App'>
       <Switch>
@@ -36,7 +35,7 @@ function App() {
         <Route component={Forgotpwd} path = '/forgotpassword' exact/>
         <Route component={AfterSearch} path='/search' exact/>
         <Route component={Sellerui} path='/sellerui' exact/>
-        <Route component={AfterSearch} path='/checkout' exact/>
+        <Route component={Checkout} path='/checkout' exact/>
         <Route component={Dashboard} path='/userdashboard' exact/>
       </Switch>
       </div>
