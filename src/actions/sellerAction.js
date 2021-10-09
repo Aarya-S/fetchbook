@@ -17,8 +17,6 @@ import {
 
 const setSeller = async (data)=>{
   let result = null
-  
-    console.log('hii')
     await axios.post(`${BASE_URL}/seller/addseller`,{
       "sellername":data.sellername,
       "address" : data.address,
