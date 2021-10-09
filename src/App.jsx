@@ -16,6 +16,7 @@ import AfterSearch from './screens/afterSearch';
 import Checkout from './screens/checkoutScreen';
 import Sellerui from './screens/sellerScreen';
 import Dashboard from './screens/dashboard';
+import AddBookScreen from './screens/AddbookScreen';
 
 
 
@@ -37,6 +38,7 @@ function App() {
         <Route component={Sellerui} path='/sellerui' exact/>
         <Route component={Checkout} path='/checkout' exact/>
         <Route component={Dashboard} path='/userdashboard' exact/>
+        <Route component={AddBookScreen} path='/AddBookScreen' exact/>
       </Switch>
       </div>
     

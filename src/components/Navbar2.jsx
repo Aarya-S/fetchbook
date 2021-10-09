@@ -10,7 +10,6 @@ import { LinkContainer } from 'react-router-bootstrap'
 
 function Navbar2() {
     const [loginicon, setloginicon] = useState('Login')
-    //if(auth.currentUser!=null){setloginicon(auth.currentUser.displayName)}
     const history = useHistory()
     const check = async ()=>{
         try{if(auth.currentUser){
