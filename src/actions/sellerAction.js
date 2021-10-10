@@ -31,7 +31,7 @@ const setSeller = async (data)=>{
 const getSeller = async (data)=>{
   let result = null;
   
-    await axios.get(`${BASE_URL}/getuser?email="${data}"`)
+    await axios.get(`${BASE_URL}/seller/getuser?email="${data}"`)
     .then((responce)=>{responce.status===200?result=responce.data:result=SELLER_DETAILS_FAIL})
     .catch((responce)=>{console.log(responce);result=SELLER_DETAILS_FAIL})
   return result
@@ -40,7 +40,7 @@ const getSeller = async (data)=>{
 const addorder = async (data)=>{
   let result = null;
   try{
-    await axios.get(`${BASE_URL}/addorders?email=${data}`)
+    await axios.get(`${BASE_URL}/seller/addorders?email=${data}`)
     .then((responce)=>{responce.status===200?result=responce.data:result=SELLER_ORDER_LIST_FAIL})
     .catch((responce)=>{console.log(responce)})
   }catch(e){
@@ -52,7 +52,7 @@ const addorder = async (data)=>{
 const deleteorder = async (data)=>{
   let result = null;
   try{
-    await axios.delete(`${BASE_URL}/deleteorder?userid=${data}`)
+    await axios.delete(`${BASE_URL}/seller/deleteorder?userid=${data}`)
     .then((responce)=>{responce.status===200?result=SELLER_DELETE_SUCCESS:result=SELLER_DELETE_FAIL})
     .catch((responce)=>{console.log(responce)})
   }catch(e){

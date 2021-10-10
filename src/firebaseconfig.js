@@ -1,5 +1,7 @@
 // Import the functions you need from the SDKs you need
+import { getStorage } from "@firebase/storage";
 import { initializeApp } from "firebase/app";
+
 import { getAuth, GoogleAuthProvider,signOut,signInWithPopup,createUserWithEmailAndPassword,signInWithEmailAndPassword,sendPasswordResetEmail } from "firebase/auth";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -13,8 +15,10 @@ const firebaseConfig = {
   messagingSenderId: "265483738954",
   appId: "1:265483738954:web:80c047f283cf74ad1eabb3"
 };
+
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
+const storage  = getStorage(app)
 const Provider = new GoogleAuthProvider();
 let isLogin = auth.currentUser
 const signInWithGoogle = () => {
@@ -37,15 +41,7 @@ const sendPasswordResetinEmail = (email) => {
   return  sendPasswordResetEmail(auth, email)
 }}
 
-// const sendPasswordResetEmail = async (email) => {
-//   try {
-//     await auth.sendPasswordResetEmail(email);
-//     alert("Password reset link sent!");
-//   } catch (err) {
-//     console.error(err);
-//     alert(err.message);
-//   }
-// };
+
 const logout = () => {
   return signOut(auth)
 };
@@ -56,4 +52,5 @@ export {
   signInWithEmailnPassword,
   sendPasswordResetinEmail,
   logout,
+  storage,
 };
