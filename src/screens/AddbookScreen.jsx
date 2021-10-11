@@ -115,7 +115,7 @@ const AddBookScreen = ()=>{
         <div className="signup-form">
             <div className="form-box">
 		<h2>Add Book Details</h2>
-		<div className="or-seperator"></div>   
+        <hr/><br />
         <div className="form-group">
             <input type="text" class="form-control input-lg" name="bookname" value={bookname} onChange={(e)=>{setBookname(e.target.value)}} placeholder="Book Name" required="required"/>
         </div>
