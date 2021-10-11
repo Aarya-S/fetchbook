@@ -7,6 +7,7 @@ import '../css/SellerScreen.css'
 import { seller } from "../dummydata/dummy";
 import { auth } from "../firebaseconfig";
 
+
 const selleracc = seller 
 const SellerScreen = ()=>{   
         const [display, setdisplay] = useState('')
@@ -20,25 +21,27 @@ const SellerScreen = ()=>{
                    alert(result)
                }
             }else{
-                alert('unautherized access')
+                alert('Unauthorized access')
             }
         }
 
         return(
             <div>
-                <Navbar2/>
-                <h1>Name : - </h1>
-                <input value={selleracc.sellername}/>
-                <h1>Seller Address : - </h1>
-                <input value={selleracc.address}/>
-                <h1>Experience : - </h1>
-                <input value={selleracc.experience}/>
-                <button onClick={()=>{history.push('/AddBookScreen')}}>add book</button>
-                <button onClick={getsellerorderhandle}>get added books</button>
-                <button>remove book</button>
-                <button onClick={()=>{
+                <Navbar2 />
+                <div className="dashboard">
+                <label className="label-dash">Name: </label><br />
+                <input value={selleracc.sellername} className="textfield" /><br /><br />
+                <label className="label-dash">Seller Address: </label><br />
+                <input value={selleracc.address} className="textfield" /><br /><br />
+                <label className="label-dash">Experience: </label><br />
+                <input value={selleracc.experience} className="textfield" /><br /><br />
+                <button className="change-pwd" onClick={()=>{history.push('/AddBookScreen')}}>Add Book</button><br />
+                <button className="change-pwd" onClick={getsellerorderhandle}>Get added books</button><br />
+                <button className="change-pwd" >Remove book</button><br />
+                <button className="change-pwd" onClick={()=>{
                     setdisplay(seller.orders)
-                }}>orders</button>
+                }}>Orders</button><br />
+                </div>
                 
                 <p>{display}</p>
                 
