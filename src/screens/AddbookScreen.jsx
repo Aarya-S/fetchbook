@@ -6,6 +6,7 @@ import { storage,auth } from "../firebaseconfig";
 import {ref,uploadBytesResumable,getDownloadURL } from "firebase/storage"
 import ProductAction from "../actions/productActions";
 import '../css/Signup.css';
+import '../css/AddBookScreen.css'
 const AddBookScreen = ()=>{   
         const [bookname, setBookname] = useState('');
         const [file, setFile] = useState(null);
@@ -116,54 +117,57 @@ const AddBookScreen = ()=>{
 		<h2>Add Book Details</h2>
 		<div className="or-seperator"></div>   
         <div className="form-group">
-            <input type="text" class="form-control input-lg" name="bookname" value={bookname} onChange={(e)=>{setBookname(e.target.value)}} placeholder="BookName" required="required"/>
+            <input type="text" class="form-control input-lg" name="bookname" value={bookname} onChange={(e)=>{setBookname(e.target.value)}} placeholder="Book Name" required="required"/>
         </div>
 		<div className="form-group">
-            <input type="text" class="form-control input-lg" name="auther" value={auther} onChange={(e)=>{setAuther(e.target.value)}} placeholder="auther" required="required"/>
+            <input type="text" class="form-control input-lg" name="auther" value={auther} onChange={(e)=>{setAuther(e.target.value)}} placeholder="Author" required="required"/>
         </div>
 		<div className="form-group">
-            <input type="text" class="form-control input-lg" name="sellername" value={sellername} onChange={(e)=>{setSellername(e.target.value)}} placeholder="sellername" required="required"/>
+            <input type="text" class="form-control input-lg" name="sellername" value={sellername} onChange={(e)=>{setSellername(e.target.value)}} placeholder="Seller Name" required="required"/>
         </div>
 		<div className="form-group">
-            <input type="text" class="form-control input-lg" name="description" value={description} onChange={(e)=>{setDescription(e.target.value)}} placeholder="description" required="required"/>
+            <input type="text" class="form-control input-lg" name="description" value={description} onChange={(e)=>{setDescription(e.target.value)}} placeholder="Description" required="required"/>
         </div>
 		<div className="form-group">
-            <input type="text" class="form-control input-lg" name="publisher" value={publisher} onChange={(e)=>{setPublisher(e.target.value)}} placeholder="publisher" required="required"/>
+            <input type="text" class="form-control input-lg" name="publisher" value={publisher} onChange={(e)=>{setPublisher(e.target.value)}} placeholder="Publisher" required="required"/>
         </div>
 		<div className="form-group">
-            <input type="text" class="form-control input-lg" name="category" value={category} onChange={(e)=>{setCategory(e.target.value)}} placeholder="category" required="required"/>
+            <input type="text" class="form-control input-lg" name="category" value={category} onChange={(e)=>{setCategory(e.target.value)}} placeholder="Category" required="required"/>
         </div>
         <div className="form-group">
-            <input type="number" class="form-control input-lg" name="price" value={price} onChange={(e)=>{setPrice(e.target.value)}} placeholder="price(Rs)" required="required"/>
+            <input type="number" class="form-control input-lg" name="price" value={price} onChange={(e)=>{setPrice(e.target.value)}} placeholder="Price(Rs)" required="required"/>
         </div>
         <div className="form-group">
-            <input type="text" class="form-control input-lg" name="address" value={address} onChange={(e)=>{setAddress(e.target.value)}} placeholder="Seller address" required="required"/>
+            <input type="text" class="form-control input-lg" name="address" value={address} onChange={(e)=>{setAddress(e.target.value)}} placeholder="Seller Address" required="required"/>
         </div>
         <div className="form-group">
-            <input type="number" class="form-control input-lg" name="stock" value={stock} onChange={(e)=>{setStock(e.target.value)}} placeholder="stock" required="required"/>
+            <input type="number" class="form-control input-lg" name="stock" value={stock} onChange={(e)=>{setStock(e.target.value)}} placeholder="No. of products" required="required"/>
+        </div>
+        <br />
+        <div>
+            <input type="checkbox" name="delivery_status" checked={deliverystatus} onClick={deliveryhandle} id={"delivery_status"} className="check-box" />
+            <label for="delivery_status" className="label-check">Do you have delivery Service?</label><br />
+            <input type="checkbox" name="new_book" checked={newbook} onClick={newbookhandle} id={"new_book"} className="check-box" />
+            
+            <label for="new_book" className="label-check">New Book</label>
+            <br />
+            <input type="checkbox" name="offers" checked={offered} onClick={offeredhandle} id={"offers"} className="check-box" />
+            <label for="offers" className="label-check">On sale</label><br />
         </div>
         <div>
-            <input type="checkbox" name="delivery_status" checked={deliverystatus} onClick={deliveryhandle} id={"delivery_status"}/>
-            <label for="delivery_status">Do you have delivery Service?</label>
-            <input type="checkbox" name="new_book" checked={newbook} onClick={newbookhandle} id={"new_book"}/>
-            <label for="new_book">New Book?</label>
-            <input type="checkbox" name="offers" checked={offered} onClick={offeredhandle} id={"offers"}/>
-            <label for="offers">is this offered product?</label>
-        </div>
-        <div>
-            <label>Book Condition?</label>
-            <select name="condition" id="condition" onChange={(e)=>{setBookcondition(e.target.value)}}  required="required">
-                <option value="good">good</option>
-                <option value="better">better</option>
-                <option value="best">best</option>
+            <label className="label-check">Book Condition?</label>
+            <select name="condition" id="condition" onChange={(e)=>{setBookcondition(e.target.value)}}  required="required" className="selection">
+                <option value="good">Good</option>
+                <option value="better">Better</option>
+                <option value="best">Best</option>
             </select>
         </div>
         <div>
-            <input type="file" onChange={handleChange} />
-            <button disabled={!file} onClick={handleUpload}>upload</button>
+            <input type="file" onChange={handleChange} className="uploader" />
+            <button disabled={!file} onClick={handleUpload} className="upload-btn">Upload</button>
         </div>
         <div className="form-group">
-            <button onClick={onsubmit} class="btn btn-success btn-lg btn-block signup-btn">Add Book</button>
+            <button onClick={onsubmit} class="btn btn-success btn-lg btn-block signup-btn btn-end">Add Book</button>
         </div>
         </div>
         </div>

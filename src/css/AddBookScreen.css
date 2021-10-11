@@ -1,0 +1,24 @@
+.check-box {
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.label-check {
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
+.selection {
+  margin-left: 10px;
+  width: 25%;
+}
+
+.uploader {
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-end {
+  margin-top: 25px;
+}
