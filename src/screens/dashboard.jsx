@@ -8,14 +8,20 @@ const Dashboard = ()=>{
         return(
             <div>
                 <Navbar2 />
-                <h1>Name :</h1>
-                <input value={userdata.username} />
-                <h1>email address :</h1>
-                <input value={userdata.email}/>
-                <h1>address :</h1>
-                <input value={userdata.address}/>
-                <Link to='/forgotpassword'>change password</Link>
-                <h1>incart :</h1>
+                <br />
+                <div className="dashboard">
+                <h3>Dashboard</h3>
+                <hr />
+                <label for="name" className="label-dash">Name:</label><br />
+                <input value={userdata.username} id="name" className="textfield" /><br /><br />
+                <label for="email" className="label-dash">Email ID:</label><br />
+                <input value={userdata.email} id="email" className="textfield" /><br /><br />
+                <label for="address" className="label-dash">Address: </label><br />
+                <input value={userdata.address} id="address" className="textfield" /><br /><br />
+                <Link to='/forgotpassword'><button className="change-pwd">Change password</button></Link><br /> <br /><br />
+                <h3>Incart:</h3>
+                <hr />
+                </div>
             </div>
         )
     

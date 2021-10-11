@@ -17,7 +17,7 @@ const Forgotpwd = ()=>{
     }
     return(
         <>
-        <div><Link to="/login"><button size="lg" className="btn btn-outline-dark back-btn"><i className="fa fa-angle-double-left"></i>  Back </button></Link></div>  
+        <div><Link to="/"><button size="lg" className="btn btn-outline-dark back-btn"><i className="fa fa-angle-double-left"></i>  Back </button></Link></div>  
         <div className="signup-form">
          <div className="form-box">
                 <h2>Forgot Password</h2>
