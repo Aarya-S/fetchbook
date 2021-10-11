@@ -59,6 +59,7 @@ function Navbar2() {
                 
 
                 <Nav>
+                <LinkContainer to=""><Nav.Link className="nav-links-custom">Home</Nav.Link></LinkContainer>    
                 <LinkContainer to="/offers"><Nav.Link className="nav-links-custom">Offers</Nav.Link></LinkContainer>
                 <LinkContainer to="/about"><Nav.Link className="nav-links-custom">About</Nav.Link></LinkContainer>
                 {/* <LinkContainer to="/membersignup"><Nav.Link className="nav-links-custom">Become Seller</Nav.Link></LinkContainer> */}
