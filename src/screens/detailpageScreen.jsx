@@ -1,15 +1,8 @@
 import React from "react";
 import '../css/Details.css';
 import Navbar2 from '../components/Navbar2';
-import ImageSliderdetails from "../components/ImageSliderdetails";
 import { data } from "../dummydata/dummy";
 import '../css/addtocartbutton.css';
-const Sliderdata=[
-    {image:'https://images-na.ssl-images-amazon.com/images/I/71e5m7xQd0L._AC_UL200_SR200,200_.jpg'},
-    {image: 'https://images-na.ssl-images-amazon.com/images/I/71aLultW5EL._AC_UL200_SR200,200_.jpg'},
-    {image:'https://images-na.ssl-images-amazon.com/images/I/71e5m7xQd0L._AC_UL200_SR200,200_.jpg'}]
-
-
 const product  = data[0];
 const Details =()=>{
         return(
@@ -17,7 +10,7 @@ const Details =()=>{
             <Navbar2 />
             <div class="parent">
             <div class="div1">
-                <ImageSliderdetails slides = {Sliderdata}/>
+              <img src={product.img} alt="product image"/>
                 <h2></h2>
                 <div class="wrapper">
   <a class="cta" href="#">
