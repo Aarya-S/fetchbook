@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../css/Details.css';
 import Navbar2 from '../components/Navbar2';
 import { data } from "../dummydata/dummy";
 import '../css/addtocartbutton.css';
-const product  = data[0];
+import { useLocation, useParams } from "react-router";
+
+
 const Details =()=>{
+    let {bookid} = useParams();
+    let Location = useLocation();
+    const product  = Location.state;
         return(
             <div>
             <Navbar2 />

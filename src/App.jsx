@@ -29,12 +29,12 @@ function App() {
         <Route component={SignUP} path='/signup' exact/>
         <Route component={Home} path='/' exact />
         <Route component={About} path='/about' exact />
-        <Route component={Details} path='/details' exact />
+        <Route component={Details} path='/details/:bookid' exact />
         <Route component={Offers} path='/offers' exact />
         <Route component={Cart} path='/cart' exact />
         <Route component={MemberSignUp} path='/membersignup' exact />
         <Route component={Forgotpwd} path = '/forgotpassword' exact/>
-        <Route component={AfterSearch} path='/search' exact/>
+        <Route component={AfterSearch} path='/search/:searchedbook' exact/>
         <Route component={Sellerui} path='/sellerui' exact/>
         <Route component={Checkout} path='/checkout' exact/>
         <Route component={Dashboard} path='/userdashboard' exact/>

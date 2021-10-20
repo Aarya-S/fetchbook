@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Card, Col, Container, Row } from "react-bootstrap";
 import Navbar2 from '../components/Navbar2';
 import '../css/Cart.css'
+import returnCart from "../helper/CartList";
 
 
 const productCount = 1;
@@ -23,7 +24,11 @@ const prod ={
         address : " ausdiasndiu asondoasnc owcnownco incwoiwn"
     }
 }
+
+
 const Cart = () => {   
+    const List = returnCart.returnCart()
+    console.log(List)
         return(
             <div>
                 <Navbar2 />
@@ -36,14 +41,11 @@ const Cart = () => {
 
                 {/* Add condition for no items in cart */}
                 {/* If no items, show this */}
+                {List.isEmpty || List.length===0?
                 <div className="no-items">Items you add to your cart will appear here!</div>
-                <CartCard product={prod}/>
-                
-                {/* Dynamically add any number of items */}
-                
-
-                
-                <Container>
+                :<div>
+                    <CartCard product={prod}/>
+                    <Container>
                     <Row>
                         <Col sm={{span: 10, offset: 1}}>
                         <div className="checkout-btn-row">
@@ -52,6 +54,9 @@ const Cart = () => {
                         </Col>
                     </Row>
                 </Container>
+                </div>
+                }
+                {/* Dynamically add any number of items */}
                 </div>
 
                 {/* Order History Section */}

@@ -6,14 +6,15 @@ import '../css/Navbar2.css'
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
+import ProductAction from '../actions/productActions'
 
 
 function Navbar2() {
     const [loginicon, setloginicon] = useState('Login')
+    const [search, setSearch] = useState('')
     const history = useHistory()
     const check = async ()=>{
         try{if(auth.currentUser){
-            console.log(auth.currentUser.displayName)
             await logout()
             setloginicon('login')
             alert('u are logged out')
@@ -22,10 +23,9 @@ function Navbar2() {
             alert(e)
         }
     }
-    const search = ()=>{
-        history.push('/search')
+    const searchHandle = ()=>{
+        history.push(`/search/${search}`)
     }
-    console.log(auth+'hii')
     return (
         <>
             <Navbar bg="dark" expand="lg" variant="dark" sticky="top">
@@ -51,9 +51,10 @@ function Navbar2() {
                             placeholder="a book name.."
                             className="mr-2 searchbox"
                             aria-label="Search"
+                            onChange={(e)=>{setSearch(e.target.value)}}
                         />
                         
-                        <Button onClick={search} variant="outline-primary" className="btn-md searchbutton"><nobr><i className="fa fa-search"></i> Search</nobr></Button>
+                        <Button onClick={searchHandle} variant="outline-primary" className="btn-md searchbutton"><nobr><i className="fa fa-search"></i> Search</nobr></Button>
                     </Form>
                 </Container>
                 
