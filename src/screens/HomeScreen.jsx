@@ -13,9 +13,9 @@ import BookRenderer from "../components/BookRenderer";
 let result = ProductAction('PRODUCT_GET_RANDOM','')
  const Sliderdata=[
 
-{image: 'https://images-na.ssl-images-amazon.com/images/I/71aLultW5EL._AC_UL200_SR200,200_.jpg'},
-{image:'https://images-na.ssl-images-amazon.com/images/I/71aLultW5EL._AC_UL200_SR200,200_.jpg'},
-{image:'https://images-na.ssl-images-amazon.com/images/I/71e5m7xQd0L._AC_UL200_SR200,200_.jpg'}]
+{image: 'https://d2g9wbak88g7ch.cloudfront.net/bannerimages/44_inr.png'},
+{image:'https://d2g9wbak88g7ch.cloudfront.net/bannerimages/40_inr.png'},
+{image:'https://d2g9wbak88g7ch.cloudfront.net/bannerimages/41_inr.png'}]
 
 
 const Populate =()=>{

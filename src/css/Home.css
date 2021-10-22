@@ -35,7 +35,7 @@ body {
   width: auto;
   position: relative;
   height: 60vh;
-  display: grid;
+  display: flex;
   justify-content: center;
   align-items: center;
   opacity: 1;

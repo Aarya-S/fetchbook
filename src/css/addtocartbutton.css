@@ -16,21 +16,17 @@
   padding: 10px 45px;
   text-decoration: none;
   font-family: "Poppins", sans-serif;
-  font-size: 30px;
+  font-size: 25px;
   color: white;
-  background: rgba(17, 25, 40, 0.75);
+  background: rgba(132, 137, 150, 0.75);
   transition: 1s;
-  box-shadow: 6px 6px 0 black;
+  box-shadow: 6px 6px 0 rgba(94, 97, 104, 0.75);
   transform: skewX(-15deg);
-}
-
-.cta:focus {
-  outline: none;
 }
 
 .cta:hover {
   transition: 0.5s;
-  box-shadow: 10px 10px 0 #fbc638;
+  box-shadow: 10px 10px 0 brown;
 }
 
 .cta span:nth-child(2) {
@@ -87,7 +83,7 @@ path.two {
     fill: white;
   }
   50% {
-    fill: #fbc638;
+    fill: brown;
   }
   100% {
     fill: white;
