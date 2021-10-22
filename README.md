@@ -6,12 +6,10 @@ A digital catalog of books, both new and used.<br>
 ### File Management
 
 ## Things to do
-<h3>2. Details Page</h3>
-<h3>3. Dashboard</h3>
-<h3>4. Membership Page</h3>
-<h3>5. Cart</h3>
-<h3>6. Book Card</h3>
-<h3>7. Offers Page</h3>
-<h3>8. Login Page</h3>
-<h3>9. Search Bar(connect to db)</h3>
-<h3>10. Filter</h3>
+<h3>1. Dashboard</h3>
+<h3>2. Cart (user history)</h3>
+<h3>3. Offers Page</h3>
+<h3>4. Filters in AfterSearch</h3>
+<h3>5. Payment Gateway</h3>
+<h3>6. CheckOut Page</h3>
+<h3> Deploy</h3>
