@@ -8,7 +8,6 @@ A digital catalog of books, both new and used.<br>
 ## Things to do
 <h3>1. Dashboard</h3>
 <h3>2. Cart (user history)</h3>
-<h3>3. Offers Page</h3>
 <h3>4. Filters in AfterSearch</h3>
 <h3>5. Payment Gateway</h3>
 <h3>6. CheckOut Page</h3>
