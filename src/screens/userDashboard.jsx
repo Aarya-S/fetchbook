@@ -19,8 +19,6 @@ const Dashboard = ()=>{
                 <label for="address" className="label-dash">Address: </label><br />
                 <input value={userdata.address} id="address" className="textfield" /><br /><br />
                 <Link to='/forgotpassword'><button className="change-pwd">Change password</button></Link><br /> <br /><br />
-                <h3>Incart:</h3>
-                <hr />
                 </div>
             </div>
         )

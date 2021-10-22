@@ -144,7 +144,7 @@ const CartCard = ({product})=>{
                                     </button>
                                     <text className="count-product">{count}</text>
                                     <button className="add-subtract">
-                                        <i className="fa fa-plus" onClick={()=>{setCount(count+1)}}></i>
+                                        <i className="fa fa-plus" onClick={()=>{count<10?setCount(count+1):setCount(10)}}></i>
                                     </button>
                             </Col>
 

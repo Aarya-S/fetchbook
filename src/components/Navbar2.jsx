@@ -16,7 +16,7 @@ function Navbar2() {
     const check = async ()=>{
         try{if(auth.currentUser){
             await logout()
-            setloginicon('login')
+            setloginicon('Login')
             alert('u are logged out')
         }}
         catch(e){
