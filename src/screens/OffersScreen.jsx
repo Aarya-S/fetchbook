@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { Component } from "react";
 import { Link } from "react-router-dom";
+import ProductAction from "../actions/productActions";
 import BookCard from "../components/Bookcard";
+import RenderBook from "../components/BookRenderer";
 import Navbar2 from '../components/Navbar2';
 import '../css/Offers.css'
 
@@ -36,28 +38,22 @@ const data = [
      }
    ]
 
-class Offers extends Component{
-    state={
-
-    }
-    render(){
-        return(
-            <div className="parentOffers">
-              <Navbar2 />
-                <RenderBooks/>
-            </div>
-        )
-    }
+  let FetchOffers = ProductAction('PRODUCT_OFFERS_REQUEST','') 
+const Offers =()=>{
+  const [books, setbooks] = useState([])
+  FetchOffers.then((result)=>{
+    setbooks(result)
+  })
+  .catch((err)=>{console.log(err)})
+  return(
+    <div className="parentOffers">
+      <Navbar2 />    
+      <RenderBook state={books}/>  
+    </div>
+  )
 }
-const RenderBooks=(state)=>{
-    return(
-    <div className='booklist'>
-    {data.map((book, index) => {
-      
-    return <Link to='/details'><BookCard key={book.id} {...book}></BookCard></Link>;
-  })}</div>
-    )
-  }
+
+
 
  
 

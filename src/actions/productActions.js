@@ -83,7 +83,7 @@ const ProductAction=(action,data)=>{
     switch(action){
         case 'PRODUCT_ADD_REQUEST' : return setproduct(data) ;break;
         case 'PRODUCT_GET_RANDOM' : return getrandom(); break;
-        case 'PRODUCT_OFFERS_REQUEST': return getoffer(data); break;
+        case 'PRODUCT_OFFERS_REQUEST': return getoffer(); break;
         case 'UPDATE_BOOK_REQUEST':return updatebookbyid(data); break;
         case 'DELETE_BOOK_REQUEST' : return deletebookbyid(data); break;
         case 'SEARCH_BOOK_REQUEST' : return search(data); break;
