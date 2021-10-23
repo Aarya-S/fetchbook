@@ -1,22 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import '../css/Details.css';
 import Navbar2 from '../components/Navbar2';
 import '../css/addtocartbutton.css';
 import { useLocation, useParams } from "react-router";
-import CartHelper from "../helper/CartList"
+import CartHelper from "../helper/CartList";
+import ProductAction from "../actions/productActions";
+import { Link } from "react-router-dom";
+import BookCard from "../components/Bookcard";
+
+let result = ProductAction('PRODUCT_GET_RANDOM','')
 
 const Details =()=>{
     let {bookid} = useParams();
     let Location = useLocation();
+    const [books, setbooks] = useState([])
+  result.then((result)=>{
+    setbooks(result)
+  }).catch((e)=>{console.log(e)})
     const product  = Location.state;
-    const addtoCart = ()=>{
-      console.log('hi')
-    }
+    
         return(
             <div>
             <Navbar2 />
-            <div class="parent">
-            <div class="div1">
+            <div className="parent">
+            <div className="div1">
               <img src={product.img} style={{width: '95%', height: "70vh" }} alt="product image"/>
                 <h2></h2>
                 <div className="wrapper">
@@ -38,8 +45,8 @@ const Details =()=>{
     </span> 
   </a>
                 </div>
-                </div>
-                <div className="div2"> 
+              </div>
+            <div className="div2"> 
                 <br/>
                 <h1 style={{fontFamily:"Bahnschrift SemiBold"}}>{product.bookname}</h1>
                 <hr/><hr/>
@@ -59,8 +66,10 @@ const Details =()=>{
                 <h4>{product.tag.new}</h4><hr/>
                 <h4><span className="span">Price </span>: {product.tag.price}</h4><hr/><hr/>
                 </div>
-                </div>
-                
+              </div>
+            <div className="div4">
+                <RenderBook state={books}/>
+              </div>
                 
             
             </div>
@@ -68,9 +77,17 @@ const Details =()=>{
       
         )
 
-             }
+}
 
-
+             const RenderBook =({state})=>{
+              return(
+                  <div className="detailBottom">
+                     {state.map((book) => {
+            return <Link to={{pathname : `/details/${book._id}`,state :book}}><BookCard key={book._id} book={book}></BookCard></Link>;
+              })}    
+                  </div>
+              )
+          }
 
 
 export default Details
