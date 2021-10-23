@@ -1,20 +1,32 @@
 .parent {
   display: grid;
   grid-template-columns: repeat(3, 1fr) 0.1fr repeat(3, 1fr) 0.1fr;
-  grid-template-rows: repeat(7, 1fr);
+  grid-template-rows: repeat(4, 1fr) 0.1fr 1fr 0.1fr 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
 }
 
-.detailBottom{
-  
+.div1 {
+  grid-area: 1 / 1 / 5 / 4;
 }
-
-.div1 { grid-area: 1 / 1 / 5 / 4; }
-.div2 { grid-area: 1 / 5 / 7 / 8; }
-.div3 { grid-area: 6 / 1 / 7 / 4; }
-.div4 { grid-area: 7 / 1 / 8 / 8; }
-
+.div2 {
+  grid-area: 1 / 5 / 7 / 8;
+}
+.div3 {
+  grid-area: 6 / 1 / 7 / 4;
+}
+.div4 {
+  grid-area: 8 / 1 / 9 / 8;
+}
+.div5 {
+  grid-area: 7 / 1 / 8 / 8;
+}
+.div6 {
+  grid-area: 1 / 4 / 7 / 5;
+}
+.div7 {
+  grid-area: 5 / 1 / 6 / 4;
+}
 .sliders {
   width: auto;
   position: relative;

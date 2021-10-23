@@ -22,10 +22,12 @@ const Details =()=>{
         return(
             <div>
             <Navbar2 />
-            <div className="parent">
-            <div className="div1">
-              <img src={product.img} style={{width: '95%', height: "70vh" }} alt="product image"/>
+            <div class="parent">
+            <div class="div1">
+              <img src={product.img} style={{width: '100%', height: "100vh",paddingLeft: "3%" , paddingRight: "3%", marginTop: "25%" ,marginBottom: "25%" }} alt="product image"/>
                 <h2></h2>
+                </div>
+                <div class ="div3">
                 <div className="wrapper">
   <a className="cta" onClick={()=>{
     CartHelper.AddCart(product)
@@ -49,32 +51,41 @@ const Details =()=>{
             <div className="div2"> 
                 <br/>
                 <h1 style={{fontFamily:"Bahnschrift SemiBold"}}>{product.bookname}</h1>
-                <hr/><hr/>
+                <hr style={{height:"7px" , color: "rgb(255,0,0)"}} />
                 <div className="text">
-                <h4> <span  className="span">Seller</span> : {product.sellername}</h4><hr/><hr/>
-                <h4><span className="span">Description</span> : <br/>{product.description}</h4><hr/><hr/>
+                <h4> <span  className="span">Seller</span> : {product.sellername}</h4><hr style={{height:"5px"}} />
+                <h4><span className="span">Description</span> : <br/>{product.description}</h4><hr style={{height:"5px" }} />
                 <h4><span className="span">Author</span> : {product.auther}</h4>
                 <h4><span className="span">Publisher</span> : {product.publisher}</h4>
                 <h4><span className="span">Seller Address</span> : {product.tag.address}</h4>
-                <hr/><hr/>
+                <hr style={{height:"5px"}} />
               
                 <h4><span className="span">Category</span> : {product.tag.category}</h4>
-                <h4><span className="span">Condition of Book</span> : {product.tag.condition}</h4><hr/>
-                <h4>{product.tag.delivery_status}</h4><hr/>
+                <h4><span className="span">Condition of Book</span> : {product.tag.condition}</h4>
+                <h4>{product.tag.delivery_status}</h4><hr style={{height:"5px"}} />
                 <h4><span className="span">Products Available</span> : {String( product.stock)}</h4>
-                <h4><span className="span">Product in stock</span> : {product.tag.instock}</h4><hr/>
-                <h4>{product.tag.new}</h4><hr/>
-                <h4><span className="span">Price </span>: {product.tag.price}</h4><hr/><hr/>
+                <h4><span className="span">Product in stock</span> : {product.tag.instock}</h4>
+                <h4>{product.tag.new}</h4><hr style={{height:"5px"}} />
+                <h4><span className="span">Price </span>: {product.tag.price}</h4>
                 </div>
               </div>
             <div className="div4">
                 <RenderBook state={books}/>
               </div>
+                </div>
+                <div className="div5">
+                  <hr style={{height:"10px"}}/>
+                  </div>
+                  <div className="div6" >
+                  </div>
+                  <div className="div7">
+                  <hr style={{height:"5px"}} />
+                  </div>
                 
             
             </div>
-            </div>
-      
+            
+           
         )
 
 }
