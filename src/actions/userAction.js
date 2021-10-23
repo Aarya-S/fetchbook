@@ -1,5 +1,4 @@
 import axios from 'axios'
-import next from 'next';
 import {
     USER_DETAILS_FAIL,
     USER_DETAILS_REQUEST,
@@ -18,61 +17,57 @@ import {
   } from '../constant/userconstant'
 const BASE_URL = process.env.BASE_URL || "http://localhost:5000"
 
-const setuser =async (name,memail,maddress)=>{
-    const res = null;
+const setuser =async (name,memail)=>{
+    let res = null;
     await axios.post(`${BASE_URL}/user/adduser`,{
         username : name,
-        address : maddress,
         email : memail
     }).then((responce)=>{responce.status === 200 ?res=USER_UPDATE_SUCCESS:res=USER_UPDATE_FAIL})
-    .catch((e)=>{res=USER_UPDATE_FAIL+ e})
-    next()
+    .catch((e)=>{res=USER_UPDATE_FAIL+ e;console.log(res)})
     return res
 }
 
 const getuser = async(email)=>{
-    const res = null;
+    let res = null;
     await axios.post(`${BASE_URL}/user/getuser?email="${email}"`)
     .then((responce)=>{responce.status === 200?res=responce.data:res=USER_DETAILS_FAIL})
-    .catch((e)=>{res=USER_DETAILS_FAIL+e})
-    next()
+    .catch((e)=>{res=USER_DETAILS_FAIL+e;console.log(res)})
     return res
 }
 
 const addorder = async(useremail,bookid,sellermail)=>{
-    const res = null;
+    let res = null;
     await axios.post(`${BASE_URL}/user/addorder`,{
         email : useremail,
         bookid : bookid,
         sellermail : sellermail
-    }).then((e)=>{responce.status===200?res=USER_ADD_ORDER_SUCCESS:res=USER_ADD_ORDER_FAIL})
-    .catch((e)=>{res=USER_ADD_ORDER_FAIL+e})
+    }).then((responce)=>{responce.status===200?res=USER_ADD_ORDER_SUCCESS:res=USER_ADD_ORDER_FAIL})
+    .catch((e)=>{res=USER_ADD_ORDER_FAIL+e;console.log(res)})
     return res
 }
 
 const removeorder = async(useremail,bookid,sellermail)=>{
-    const res = null;
+    let res = null;
     await axios.put(`${BASE_URL}/user/remove`,{
         email : useremail,
         bookid : bookid,
         sellermail : sellermail
-    }).then((e)=>{responce.status===200?res=USER_ADD_ORDER_RESET:res=USER_ADD_ORDER_FAIL})
-    .catch((e)=>{res=USER_ADD_ORDER_FAIL+e})
+    }).then((responce)=>{responce.status===200?res=USER_ADD_ORDER_RESET:res=USER_ADD_ORDER_FAIL})
+    .catch((e)=>{res=USER_ADD_ORDER_FAIL+e;console.log(res)})
     return res
 }
 const deleteuser = async(id)=>{
-    const res = null;
+    let res = null;
     await axios.post(`${BASE_URL}/user/delete/:id`)
     .then((responce)=>{responce.status === 200?res=USER_DELETE_SUCCESS:res=USER_DELETE_FAIL})
-    .catch((e)=>{res=USER_DELETE_FAIL+e})
-    next()
+    .catch((e)=>{res=USER_DELETE_FAIL+e;console.log(res)})
     return res
 }
 
 
 const UserAction=(action,data)=>{
     switch(action){
-    case USER_UPDATE_REQUEST : return setuser(data.name,data.dpimg,data.email,data.address);
+    case USER_UPDATE_REQUEST : return setuser(data.name,data.email);break;
     case USER_DELETE_REQUEST : return deleteuser(data);break;
     case USER_DETAILS_REQUEST: return getuser(data); break;
     case USER_ADD_ORDER_REQUEST: return addorder(data.usermail,data.bookid,data.sellermail) ;break;

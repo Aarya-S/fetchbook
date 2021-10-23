@@ -40,9 +40,7 @@ const Cart = () => {
                     Your Cart
                     </header>
                 <hr />
-
-                {/* Add condition for no items in cart */}
-                {/* If no items, show this */}
+                {/* Cart Render  */}
                 {List === null || List.length===0?
                 <div className="no-items">Items you add to your cart will appear here!</div>
                 :<div>
@@ -75,15 +73,15 @@ const Cart = () => {
                     <header className="heading1">
                     Order History
                     </header>
-                <hr />
+                    <hr />
 
                 {/* Add condition for no order history */}
                 {/* If no items, show this */}
-                <div className="no-items">You have no order history!</div>
+                    <div className="no-items">You have no order history!</div>
 
                 
-                {/* Dynamically add any number of items */}
-                <Card style={{height: "175px", margin: "20px 30px"}}>
+                    {/* Dynamically add any number of items */}
+                    <Card style={{height: "175px", margin: "20px 30px"}}>
                     <Container>       
                         <Row className="justify-content-start align-items-center">
                             <Col sm={2}>
@@ -111,7 +109,7 @@ const Cart = () => {
 
                         </Row>
                     </Container>
-                </Card>
+                    </Card>
                 </div>
             </div>
         )

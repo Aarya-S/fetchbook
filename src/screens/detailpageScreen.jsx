@@ -17,7 +17,7 @@ const Details =()=>{
             <Navbar2 />
             <div class="parent">
             <div class="div1">
-              <img src={product.img} style={{width: 'auto', height: "60vh" }} alt="product image"/>
+              <img src={product.img} style={{width: '95%', height: "70vh" }} alt="product image"/>
                 <h2></h2>
                 <div className="wrapper">
   <a className="cta" onClick={()=>{

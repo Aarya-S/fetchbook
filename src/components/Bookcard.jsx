@@ -12,13 +12,18 @@ const BookCard=({book}) => {
             <Card.Text>
                 {book.author}
             </Card.Text>
-            <Card.Text>
-                ${book.tag.price}
-            </Card.Text>
             {book.tag.offer===true?
             <Card.Text>
-                Offered Product
-            </Card.Text>:''
+                <s><i className="fa fa-inr"></i>
+                {book.tag.price}</s>
+                {' '}
+                <strong><i className="fa fa-inr"></i>
+                {book.tag.offered_price}</strong>
+            </Card.Text>:
+            <Card.Text>
+                <i className="fa fa-inr"></i>
+                {book.tag.price}
+            </Card.Text>
             }
         </Card.Body>
      </Card>

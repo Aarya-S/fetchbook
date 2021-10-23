@@ -6,7 +6,6 @@ import '../css/Navbar2.css'
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
-import ProductAction from '../actions/productActions'
 
 
 function Navbar2() {
@@ -16,8 +15,8 @@ function Navbar2() {
     const check = async ()=>{
         try{if(auth.currentUser){
             await logout()
-            setloginicon('Login')
-            alert('u are logged out')
+            console.log(auth.currentUser)
+            setloginicon('login')
         }}
         catch(e){
             alert(e)
@@ -64,7 +63,7 @@ function Navbar2() {
                 <LinkContainer to="/about"><Nav.Link className="nav-links-custom">About</Nav.Link></LinkContainer>
                 {/* <LinkContainer to="/membersignup"><Nav.Link className="nav-links-custom">Become Seller</Nav.Link></LinkContainer> */}
                 <LinkContainer to="/cart"><Nav.Link  className="nav-links-custom"><nobr><i className="fa fa-shopping-cart"></i> Cart</nobr></Nav.Link></LinkContainer>
-                {auth.currentUser!=null?
+                {auth.currentUser?
                 <NavDropdown title={auth.currentUser.displayName} className="nav-links-custom">
                     <NavDropdown.Item><Link to='/userdashboard'>Dashboard</Link></NavDropdown.Item>
                     <NavDropdown.Divider />

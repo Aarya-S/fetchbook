@@ -3,6 +3,8 @@ import { Link,useHistory } from "react-router-dom";
 import { signUpWithEmailAndPassword ,signInWithGoogle} from "../firebaseconfig";
 import '../css/Signup.css';
 import validator from "../helper/password";
+import UserAction from "../actions/userAction";
+import { USER_UPDATE_REQUEST } from "../constant/userconstant";
 
 
 const SignUP=()=>{
@@ -10,12 +12,13 @@ const SignUP=()=>{
         const [password, setpassword] = useState()
         const [cnfrmpwd, setcnfrmpwd] = useState()
         let history = useHistory()
+        let result = null
         const submit = async ()=>{
             try{if(password === cnfrmpwd){
-                //console.log('this is uid : -'+userid+'this is password'+ password)
                 const stats = validator(password)
                 if(stats === true){
-                await signUpWithEmailAndPassword(userid,password)
+                result = await signUpWithEmailAndPassword(userid,password)
+                alert('SuccussFully SignedUp')
                 history.push('/login')}
                 else{
                     alert('Invalid Password (oneof means special char)' + stats)
@@ -26,7 +29,15 @@ const SignUP=()=>{
                 alert('Password missmatch Check the Password')
             }}
             catch(e){
+                result = null;
                 alert(e)
+            }finally{
+                if(result!=null){
+                    UserAction(USER_UPDATE_REQUEST,{
+                        name : userid,
+                        email : userid
+                    })
+                }
             }
         }
         const googlesubmit = async ()=>{

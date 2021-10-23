@@ -20,10 +20,9 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
 const storage  = getStorage(app)
 const Provider = new GoogleAuthProvider();
-let isLogin = auth.currentUser
+let isLogin = auth.currentUser;
 const signInWithGoogle = () => {
   if(isLogin === null){
-    console.log('in firebase '+isLogin)
   return signInWithPopup(auth, Provider)
 }}
 
