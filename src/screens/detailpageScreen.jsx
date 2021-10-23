@@ -23,10 +23,15 @@ const Details =()=>{
             <div>
             <Navbar2 />
             <div class="parent">
+              
             <div class="div1">
               <img src={product.img} style={{width: '100%', height: "100vh",paddingLeft: "3%" , paddingRight: "3%", marginTop: "25%" ,marginBottom: "25%" }} alt="product image"/>
                 <h2></h2>
                 </div>
+                <div className="div7">
+                  <hr style={{height:"5px"}} />
+        </div>
+                  
                 <div class ="div3">
                 <div className="wrapper">
   <a className="cta" onClick={()=>{
@@ -48,6 +53,7 @@ const Details =()=>{
   </a>
                 </div>
               </div>
+              
             <div className="div2"> 
                 <br/>
                 <h1 style={{fontFamily:"Bahnschrift SemiBold"}}>{product.bookname}</h1>
@@ -69,18 +75,13 @@ const Details =()=>{
                 <h4><span className="span">Price </span>: {product.tag.price}</h4>
                 </div>
               </div>
-            <div className="div4">
+                </div>
+                   <div className="div5"> 
+                  <hr style={{height:"10px"}}/>
+  </div>
+                  <div className="div4">
                 <RenderBook state={books}/>
               </div>
-                </div>
-                <div className="div5">
-                  <hr style={{height:"10px"}}/>
-                  </div>
-                  <div className="div6" >
-                  </div>
-                  <div className="div7">
-                  <hr style={{height:"5px"}} />
-                  </div>
                 
             
             </div>
@@ -92,7 +93,13 @@ const Details =()=>{
 
              const RenderBook =({state})=>{
               return(
-                  <div className="detailBottom">
+                  <div className="detailBottom" style={{display: "grid",
+                    gridGap: "130px",
+                    padding: "16px",
+                    gridTemplateColumns: "repeat(auto-fill,minmax(180px,1fr))",
+                    gridAutoFlow: "column",
+                    gridAutoColumns: "minmax(160px,1fr)",
+                    overflowX: "auto"}}>
                      {state.map((book) => {
             return <Link to={{pathname : `/details/${book._id}`,state :book}}><BookCard key={book._id} book={book}></BookCard></Link>;
               })}    
