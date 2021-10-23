@@ -23,9 +23,9 @@ const Details =()=>{
             <div>
             <Navbar2 />
             <div class="parent">
-              
+            
             <div class="div1">
-              <img src={product.img} style={{width: '100%', height: "100vh",paddingLeft: "3%" , paddingRight: "3%", marginTop: "25%" ,marginBottom: "25%" }} alt="product image"/>
+              <img src={product.img} style={{width: '100%', height: "95vh",paddingLeft: "3%" , paddingRight: "3%", marginTop: "12%" ,marginBottom: "12%" }} alt="product image"/>
                 <h2></h2>
                 </div>
                 <div className="div7">
@@ -79,6 +79,7 @@ const Details =()=>{
                    <div className="div5"> 
                   <hr style={{height:"10px"}}/>
   </div>
+ 
                   <div className="div4">
                 <RenderBook state={books}/>
               </div>
@@ -99,7 +100,8 @@ const Details =()=>{
                     gridTemplateColumns: "repeat(auto-fill,minmax(180px,1fr))",
                     gridAutoFlow: "column",
                     gridAutoColumns: "minmax(160px,1fr)",
-                    overflowX: "auto"}}>
+                    overflowX: "auto",
+                    margin:'0px'}}>
                      {state.map((book) => {
             return <Link to={{pathname : `/details/${book._id}`,state :book}}><BookCard key={book._id} book={book}></BookCard></Link>;
               })}    
