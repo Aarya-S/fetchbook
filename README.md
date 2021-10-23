@@ -23,6 +23,6 @@ A digital catalog of books, both new and used.<br>
 <br>
 <hr>
 <h3>Rohit</h3>
-<h4> a) Fix reload state change in username </h4>
+<h4> a) Fix reload state change in username (cant be fixed) </h4>
 <h4> b) Cart + - items should change price and total amount </h4>
 <h4> c) route userDashboard and sellerui </h4>
