@@ -6,25 +6,22 @@ import '../css/Cart.css'
 import returnCart from "../helper/CartList";
 
 
-const productCount = 1;
-const cpi= 200;
+
+// const cpi= 200;
 const orderCount = 2;
 const itemCost = 200;
 const orderID = 123456;
-
-function calculateCost(productCount, cpi){
-    const price= (productCount) * (cpi)
-    return price
-}
-// const prod ={
-//     name : "ajsndasnd",
-//     description : "siuwncidsnciusndvcdnsuicdnocwcmwiocmoicscdkdmcsdmcoidsmcoisdncoindsoicniodpsncoisdncsdnoidsncois",
-//     img:"https://images-na.ssl-images-amazon.com/images/I/71aLultW5EL._AC_UL200_SR200,200_.jpg",
-//     tag:{
-//         sellerid : "abc@xyz.com",
-//         address : " ausdiasndiu asondoasnc owcnownco incwoiwn"
+const Total = 0;
+// const Productvalue = new Array();
+// const ProductCount = new Array();
+// const CalculateTotal = (ProductValueArray)=>{
+//     for(let i =0 ; i<ProductValueArray ; i++){
+//         Total += ProductValueArray[i];
 //     }
+//     return Total;
 // }
+
+
 
 
 const Cart = () => {   
@@ -56,9 +53,18 @@ const Cart = () => {
                     </div>
                     <Container>
                     <Row>
+                        <Col sm={{span: 2, offset: 10}}>
+                            <b>TOTAL:</b> 
+                            <text className="total-amount"><i className="fa fa-inr"></i>{" "}800</text>
+                        </Col>
+                    </Row>
+                    <Row>
                         <Col sm={{span: 10, offset: 1}}>
                         <div className="checkout-btn-row">
-                        <button className="checkout-btn">Proceed to Checkout</button>
+                        <button className="checkout-btn" onClick={()=>{console.log(
+                           'Total Count ' + List.length + '\n'
+                           +''
+                        )}}>Proceed to Checkout</button>
                         </div>
                         </Col>
                     </Row>
@@ -149,7 +155,9 @@ const CartCard = ({product})=>{
                             <Col sm={1}>
                                 <nobr>
                                     <i className="fa fa-inr"></i>
-                                    <text className="final-price">{calculateCost(productCount, cpi)}</text>
+                                    {product.tag.offer?
+                                    <text className="final-price">{count*product.tag.offered_price}</text>:
+                                    <text className="final-price">{count*product.tag.price}</text>}
                                 </nobr>
                             </Col>
 
