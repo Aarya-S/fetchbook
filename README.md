@@ -1,6 +1,5 @@
 # Fetchbook
 A digital catalog of books, both new and used.<br>
-<code>1.npm init</code><br>
 <code>2.npm install</code><br>
 
 ### File Management
