@@ -14,10 +14,9 @@ import MemberSignUp from './screens/BecomeMemberScreen';
 import Forgotpwd from './screens/ForgotpwdScreen';
 import AfterSearch from './screens/afterSearch';
 import Checkout from './screens/checkoutScreen';
-import Sellerui from './screens/sellerScreen';
+import Sellerui from './screens/sellerDashboard';
 import Dashboard from './screens/userDashboard';
 import AddBookScreen from './screens/AddbookScreen';
-
 
 
 function App() {

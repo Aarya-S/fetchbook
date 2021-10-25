@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Col, Container, Row } from "react-bootstrap";
+import { Card, Col, Container, Row, Toast } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Navbar2 from '../components/Navbar2';
 import '../css/Cart.css'
@@ -11,22 +11,29 @@ import returnCart from "../helper/CartList";
 const orderCount = 2;
 const itemCost = 200;
 const orderID = 123456;
-const Total = 0;
+const FinalTotal = 0
 // const Productvalue = new Array();
 // const ProductCount = new Array();
-// const CalculateTotal = (ProductValueArray)=>{
-//     for(let i =0 ; i<ProductValueArray ; i++){
-//         Total += ProductValueArray[i];
-//     }
-//     return Total;
-// }
+const CalculateTotal = (ProductArray)=>{
+    let finalPrice = 0;
+    let Total = 0;
+    for(let i =0 ; i<ProductArray.length ; i++){
+        if(ProductArray[i].tag.offer){
+        finalPrice = ProductArray[i].count*ProductArray[i].tag.offered_price}
+        else{
+            finalPrice = ProductArray[i].count*ProductArray[i].tag.price
+        }
+        Total = Total + finalPrice;
+    }
+    return Total;
+}
+
 
 
 
 
 const Cart = () => {   
     const [List, setList] = useState(returnCart.returnCart())
-    
     
         return(
             <div>
@@ -45,25 +52,18 @@ const Cart = () => {
                     return <CartCard product={book}/>
                     // console.log(book)
                     })}
-                    <div onClick={()=>{
+                    <div >
+                        <button onClick={()=>{
                         returnCart.DeleteCart();
                         setList([])
-                        alert('Item Removed From the Cart')}}>
-                        Empty the Cart
+                        alert('Item Removed From the Cart')}}>Empty the Cart</button>
                     </div>
                     <Container>
-                    <Row>
-                        <Col sm={{span: 2, offset: 10}}>
-                            <b>TOTAL:</b> 
-                            <text className="total-amount"><i className="fa fa-inr"></i>{" "}800</text>
-                        </Col>
-                    </Row>
                     <Row>
                         <Col sm={{span: 10, offset: 1}}>
                         <div className="checkout-btn-row">
                         <button className="checkout-btn" onClick={()=>{console.log(
-                           'Total Count ' + List.length + '\n'
-                           +''
+                           CalculateTotal(List)
                         )}}>Proceed to Checkout</button>
                         </div>
                         </Col>
@@ -124,7 +124,9 @@ const Cart = () => {
 
 const CartCard = ({product})=>{
     const [count, setCount] = useState(1)
-    
+    const setCounttoProduct = ()=>{
+        product.count = count;
+    }
     return(
         <Card style={{height: "175px", margin: "20px 30px"}}>
                     <Container>       
@@ -146,6 +148,7 @@ const CartCard = ({product})=>{
                                     <button className="add-subtract">
                                         <i className="fa fa-minus" onClick={()=>{count!=1?setCount(count-1):setCount(1)}}></i>
                                     </button>
+                                    {setCounttoProduct()}
                                     <text className="count-product">{count}</text>
                                     <button className="add-subtract">
                                         <i className="fa fa-plus" onClick={()=>{count<10?setCount(count+1):setCount(10)}}></i>

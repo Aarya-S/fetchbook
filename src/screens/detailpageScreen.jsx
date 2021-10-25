@@ -25,7 +25,7 @@ const Details =()=>{
             <div class="parent">
             
             <div class="div1">
-              <img src={product.img} style={{width: '100%', height: "95vh",paddingLeft: "3%" , paddingRight: "3%", marginTop: "12%" ,marginBottom: "12%" }} alt="product image"/>
+              <img src={product.img} style={{width: '100%', height: "75vh",paddingLeft: "3%" , paddingRight: "3%", marginTop: "12%" ,marginBottom: "12%" }} alt="product image"/>
                 <h2></h2>
                 </div>
                 <div className="div7">
@@ -34,12 +34,15 @@ const Details =()=>{
                   
                 <div class ="div3">
                 <div className="wrapper">
+                  
+    {product.tag.delivery_status?
   <a className="cta" onClick={()=>{
     CartHelper.AddCart(product)
     alert(
       'Added to Cart'
     )
     }}>
+  
     <span>Add to Cart</span>
     <span>
       <svg width="66px" height="43px" viewBox="0 0 66 43" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
@@ -50,7 +53,7 @@ const Details =()=>{
         </g>
       </svg>
     </span> 
-  </a>
+  </a>:''}
                 </div>
               </div>
               

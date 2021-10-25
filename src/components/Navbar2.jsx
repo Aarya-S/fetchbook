@@ -6,11 +6,14 @@ import '../css/Navbar2.css'
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 import { LinkContainer } from 'react-router-bootstrap'
+import sellerAction from '../actions/sellerAction'
+import { SELLER_DETAILS_REQUEST } from '../constant/sellerconstant'
 
 
 function Navbar2() {
     const [loginicon, setloginicon] = useState('Login')
     const [search, setSearch] = useState('')
+    const [seller, setseller] = useState(null)
     const history = useHistory()
     const check = async ()=>{
         try{if(auth.currentUser){
@@ -61,8 +64,13 @@ function Navbar2() {
                 <Nav>
                 <LinkContainer to="/offers"><Nav.Link className="nav-links-custom">Offers</Nav.Link></LinkContainer>
                 <LinkContainer to="/about"><Nav.Link className="nav-links-custom">About</Nav.Link></LinkContainer>
-                {/* <LinkContainer to="/membersignup"><Nav.Link className="nav-links-custom">Become Seller</Nav.Link></LinkContainer> */}
                 <LinkContainer to="/cart"><Nav.Link  className="nav-links-custom"><nobr><i className="fa fa-shopping-cart"></i> Cart</nobr></Nav.Link></LinkContainer>
+                {/* {auth.currentUser?
+                    sellerAction(SELLER_DETAILS_REQUEST,auth.currentUser.email).then((result)=>{
+                        console.log(result)
+                        setseller(result);
+                    }).catch((e)=>{console.log(e);}):''
+                } */}
                 {auth.currentUser?
                 <NavDropdown title={auth.currentUser.displayName} className="nav-links-custom">
                     <NavDropdown.Item><Link to='/userdashboard'>Dashboard</Link></NavDropdown.Item>
