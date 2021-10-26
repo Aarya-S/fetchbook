@@ -13,13 +13,12 @@ import { SELLER_DETAILS_REQUEST } from '../constant/sellerconstant'
 function Navbar2() {
     const [loginicon, setloginicon] = useState('Login')
     const [search, setSearch] = useState('')
-    const [seller, setseller] = useState(null)
     const history = useHistory()
     const check = async ()=>{
         try{if(auth.currentUser){
             await logout()
-            console.log(auth.currentUser)
             setloginicon('login')
+            history.push('/')
         }}
         catch(e){
             alert(e)
@@ -27,6 +26,21 @@ function Navbar2() {
     }
     const searchHandle = ()=>{
         history.push(`/search/${search}`)
+    }
+    const checkSeller = ()=>{
+        let Fetchresult = null;
+        console.log(auth.currentUser.email)
+        sellerAction(SELLER_DETAILS_REQUEST,auth.currentUser.email).then((result)=>{
+            Fetchresult = result;
+        }).catch((e)=>{
+            console.log(e)
+            return false;
+        })
+        if(Fetchresult === null){
+            return false;
+        }else{
+            return Fetchresult;
+        }
     }
     return (
         <>
@@ -65,15 +79,13 @@ function Navbar2() {
                 <LinkContainer to="/offers"><Nav.Link className="nav-links-custom">Offers</Nav.Link></LinkContainer>
                 <LinkContainer to="/about"><Nav.Link className="nav-links-custom">About</Nav.Link></LinkContainer>
                 <LinkContainer to="/cart"><Nav.Link  className="nav-links-custom"><nobr><i className="fa fa-shopping-cart"></i> Cart</nobr></Nav.Link></LinkContainer>
-                {/* {auth.currentUser?
-                    sellerAction(SELLER_DETAILS_REQUEST,auth.currentUser.email).then((result)=>{
-                        console.log(result)
-                        setseller(result);
-                    }).catch((e)=>{console.log(e);}):''
-                } */}
                 {auth.currentUser?
-                <NavDropdown title={auth.currentUser.displayName} className="nav-links-custom">
+                <NavDropdown title={auth.currentUser.displayName || auth.currentUser.email} className="nav-links-custom">
+                    {checkSeller()?
                     <NavDropdown.Item><Link to='/userdashboard'>Dashboard</Link></NavDropdown.Item>
+                    // <NavDropdown.Item><Link to={{pathname : `/sellerui`,state : checkSeller()}}>Dashboard</Link></NavDropdown.Item>
+                    :
+                    <NavDropdown.Item><Link to='/sellerui'>Dashboard</Link></NavDropdown.Item>}
                     <NavDropdown.Divider />
                     <NavDropdown.Item onClick={check}>Logout</NavDropdown.Item>
                 </NavDropdown>

@@ -31,7 +31,7 @@ const setSeller = async (data)=>{
 const getSeller = async (data)=>{
   let result = null;
   
-    await axios.get(`${BASE_URL}/seller/getuser?email="${data}"`)
+    await axios.get(`${BASE_URL}/seller/getseller?email=${data}`)
     .then((responce)=>{responce.status===200?result=responce.data:result=SELLER_DETAILS_FAIL})
     .catch((responce)=>{console.log(responce);result=SELLER_DETAILS_FAIL})
   return result
