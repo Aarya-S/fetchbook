@@ -73,9 +73,9 @@ const Details =()=>{
                 <h4><span className="span">Condition of Book</span> : {product.tag.condition}</h4>
                 <h4>{product.tag.delivery_status}</h4><hr style={{height:"5px"}} />
                 <h4><span className="span">Products Available</span> : {String( product.stock)}</h4>
-                <h4><span className="span">Product in stock</span> : {product.tag.instock}</h4><hr/>
-                <h4>{product.tag.new}</h4><hr/>
-                <h4><span className="span">Price </span>: {product.tag.offer?product.tag.offered_price:product.tag.price}</h4><hr/><hr/>
+                <h4><span className="span">Product in stock</span> : {product.tag.instock}</h4>
+                <h4>{product.tag.new}</h4><hr style={{height:"5px"}}/>
+                <h4><span className="span">Price </span>: {product.tag.offer?product.tag.offered_price:product.tag.price}</h4><hr style={{height:"5px"}}/>
                 </div>
               </div>
                 </div>

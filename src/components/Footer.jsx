@@ -23,9 +23,9 @@ return(
                 <div className="col">
                     <h4>Our Company</h4>
                     <ul className="list-unstyled">
-                        <li><a href="/About">Our Team</a></li>
-                        <li><a href="/About">FAQ</a></li>
-                        <li><a href="/About">Jobs/Career</a></li>
+                        <li><a href="/About#ourteam">Our Team</a></li>
+                        <li><a href="/About#faq">FAQ</a></li>
+                        <li><a href="https://www.indeed.com/">Jobs/Career</a></li>
                     </ul>
                 </div>
                 {/* Column3 */}
@@ -44,7 +44,7 @@ return(
             <hr />
             <div className="row">
                 <p className="col-sm">
-                    &copy;{new Date().getFullYear()} fetchbook.com | All rights reserved |<Link to='/About'> Terms of Service </Link>| <Link to='/About'>Privacy</Link>
+                    &copy;{new Date().getFullYear()} fetchbook.com | All rights reserved |<a href='/About#termsofservice'> Terms of Service </a>| <a href='/About#privacy'>Privacy</a>
                 </p>
             </div>
 
