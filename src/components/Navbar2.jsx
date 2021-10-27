@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useEffect, useState} from 'react'
 import { Navbar, Container, Form, Button, FormControl, Nav, NavDropdown} from 'react-bootstrap'
 import LogoWhite from "../assets/FetchBookWhite.svg"
 import { auth,logout } from '../firebaseconfig'
@@ -13,11 +13,13 @@ import { SELLER_DETAILS_REQUEST } from '../constant/sellerconstant'
 function Navbar2() {
     const [loginicon, setloginicon] = useState('Login')
     const [search, setSearch] = useState('')
+    const [checkSeller, setCheckSeller] = useState(false)
     const history = useHistory()
     const check = async ()=>{
         try{if(auth.currentUser){
             await logout()
             setloginicon('login')
+            setCheckSeller(false)
             history.push('/')
         }}
         catch(e){
@@ -27,20 +29,24 @@ function Navbar2() {
     const searchHandle = ()=>{
         history.push(`/search/${search}`)
     }
-    const checkSeller = ()=>{
-        let Fetchresult = null;
-        console.log(auth.currentUser.email)
+    useEffect(() => {
+     if(auth.currentUser){
+         checkSellerfunc()
+     }  
+    })
+    
+    const checkSellerfunc = ()=>{
+        if(checkSeller === false){
         sellerAction(SELLER_DETAILS_REQUEST,auth.currentUser.email).then((result)=>{
-            Fetchresult = result;
+            if(result === null){
+                setCheckSeller(false)
+            }else{
+                setCheckSeller(result)
+            }
         }).catch((e)=>{
             console.log(e)
-            return false;
-        })
-        if(Fetchresult === null){
-            return false;
-        }else{
-            return Fetchresult;
-        }
+            setCheckSeller(false)
+        })}
     }
     return (
         <>
@@ -81,11 +87,11 @@ function Navbar2() {
                 <LinkContainer to="/cart"><Nav.Link  className="nav-links-custom"><nobr><i className="fa fa-shopping-cart"></i> Cart</nobr></Nav.Link></LinkContainer>
                 {auth.currentUser?
                 <NavDropdown title={auth.currentUser.displayName || auth.currentUser.email} className="nav-links-custom">
-                    {checkSeller()?
-                    <NavDropdown.Item><Link to='/userdashboard'>Dashboard</Link></NavDropdown.Item>
+                    {checkSeller?
+                    <NavDropdown.Item><Link to='/sellerui'>Dashboard</Link></NavDropdown.Item>
                     // <NavDropdown.Item><Link to={{pathname : `/sellerui`,state : checkSeller()}}>Dashboard</Link></NavDropdown.Item>
                     :
-                    <NavDropdown.Item><Link to='/sellerui'>Dashboard</Link></NavDropdown.Item>}
+                    <NavDropdown.Item><Link to='/userdashboard'>Dashboard</Link></NavDropdown.Item>}
                     <NavDropdown.Divider />
                     <NavDropdown.Item onClick={check}>Logout</NavDropdown.Item>
                 </NavDropdown>
