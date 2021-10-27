@@ -87,8 +87,9 @@ function Navbar2() {
                 <LinkContainer to="/cart"><Nav.Link  className="nav-links-custom"><nobr><i className="fa fa-shopping-cart"></i> Cart</nobr></Nav.Link></LinkContainer>
                 {auth.currentUser?
                 <NavDropdown title={auth.currentUser.displayName || auth.currentUser.email} className="nav-links-custom">
+                    
                     {checkSeller?
-                    <NavDropdown.Item><Link to='/sellerui'>Dashboard</Link></NavDropdown.Item>
+                    <NavDropdown.Item><Link to={{pathname : `/sellerui`,state :checkSeller}} >Dashboard</Link></NavDropdown.Item>
                     // <NavDropdown.Item><Link to={{pathname : `/sellerui`,state : checkSeller()}}>Dashboard</Link></NavDropdown.Item>
                     :
                     <NavDropdown.Item><Link to='/userdashboard'>Dashboard</Link></NavDropdown.Item>}
