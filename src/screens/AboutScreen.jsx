@@ -9,31 +9,18 @@ function About() {
         <body>
 
 <div className="about-section" >
-  <h1>About Us</h1>
+  <h1><u>About Us</u></h1>
   <h4 >We are a book website and we make buyer's and seller's life easy.<br/><br/>Our aim is to create a platform for book sellers and buyers that will act as a virtual catalogue for new and used books , which will also in turn help the local sellers in the market to increase their sales with ease based on multiple factors like location of shop, availability of books ,customer ratings.<br/><br/>We provide you with the luxury of shopping for books and checking book availability with the comfort of your home.<br/></h4>
+  
 </div>
 
-<h2 style={{textAlign:'center'}}><br/>Our Team</h2>
+<a id="termsofservice"></a>
 <div className="row">
   <div className="column">
     <div className="card">
-      <div className="container" style={{textAlign:'center'}}>
-        <br/>
-        <h4 className="titles" >Pranav Yede</h4>
-        <br/>
-        <h4 className="titles">Rohit Vichare</h4>
-        <br/>
-        <h4 className="titles">Aarya Shelar</h4>
-        <br/>
-        <h4 className="titles">Kshitij Wani</h4>
-      </div>
-    </div>
-  </div>
-
-  <div className="column">
-    <div className="card">
       <div className="container">
-        <h2><br/>Terms of Service</h2>
+      <a id="termsofservice"></a>
+        <h2><br/><u>Terms of Service</u></h2>
         <z>Terms of Use<br/>
 You are welcome to Fetchbook.com. You can avail the services offered here or through its affiliates, but prior to that you need to agree to the terms and conditions. If you browse our site or visit our shop, you have to accept these conditions.<br/>
 
@@ -113,11 +100,12 @@ The complete site is provided by Fetchbook.com on the basis of as is and as avai
       </div>
     </div>
   </div>
-  
+  <a id="privacy"></a>
   <div className="column">
     <div className="card">
       <div className="container">
-        <h2><br/>Privacy</h2>
+      <a id="privacy"></a>
+        <h2><br/><u>Privacy</u></h2>
         <p>Fetchbook.com website strictly focuses on the privacy of our customers’ and our loyalty towards our commitment. The policy discloses the practice by which we gather the necessary information through our website.<br/><hr/>
 
         <div className="bold">The Information that is collected</div><br/>
@@ -141,13 +129,64 @@ Fetchbook.com collected the customer’s personal information and processes it i
 <div className="bold">Security & Confidentiality</div><br/>
 Fetchbook.com restricts access of the personal information to the employees, moderator, contractors and agents for updates, delivery and for improvement of the product and services. They have to abide to the confidentiality agreement failing which they will be terminated.<br/>
 
-We make use of the best security measures for the protection against the misuse, loss of information that is under our control. We go through the SSL secure commerce server which uses the military grade encryption to protect all the information with specific codes. Each customer is important to us and we consider their approval with due respect.<br/><hr/></p>
+We make use of the best security measures for the protection against the misuse, loss of information that is under our control. We go through the SSL secure commerce server which uses the military grade encryption to protect all the information with specific codes. Each customer is important to us and we consider their approval with due respect.<br/></p>
       </div>
     </div>
   </div>
-  
+  <a id="ourteam"></a>
+  <h2  style={{textAlign:'center'}}><br/><u>Our Team</u></h2>
+  <div className="column">
+    <div className="card">
+      <div className="container" style={{textAlign:'center'}}>
+        <br/>
+        <h4 className="titles" >Pranav Yede</h4>
+        <br/>
+        <h4 className="titles">Rohit Vichare</h4>
+        <br/>
+        <h4 className="titles">Aarya Shelar</h4>
+        <br/>
+        <h4 className="titles">Kshitij Wani</h4>
+      </div>
+    </div>
+  </div> 
+
+  <a id="faq"></a> 
+  <div className="column">
+    <div className="card">
+      <div className="container">
+      <a id="faq"></a> 
+      <h2><br/><u>FAQs</u></h2>
+      <div className="bold">What does “my account” means? How can I modify my selective information?</div><br/>
+
+Modifying your Fetchbook account is quiet simple. You can see your orders at whatever time via “my account”.<br/>
+My account let you totally check on you transactions on Fetchbook<br/>
+
+-Handle/modify your personalized information such as address, contact information, e-mail ids.<br/>
+-Modify your password.<br/>
+-Tag your order status at any time.<br/><hr/>
+
+<div className="bold">How can I purchase an item which is currently ‘out of stock’?</div><br/>
+Regrettably, the items that are currently out of stock will not be available for sell.<br/><hr/>
+
+<div className="bold">Why do I can understand the different price rates offered on the same item?</div><br/>
+On Fetchbook, you might find different editions and varieties of the item. As in case of books, you might see some editions as collectors ere prints, while others may be just the hardcover and other paperbacks. You can get further details about this on the item page.<br/>
+
+Some editions are again published/re-printed in India, while some of them are brought by importing. All the other provided editions and different price tags for the same product are given on their respective pages under the feature of “the other editions”.<br/><hr/>
+
+<div className="bold">Do I need to have an account on Fetchbook for shopping?</div><br/>
+
+Yep, it is suggested to have your own account on the website. You should form your account and by thence you can savor a individualized shopping feel, also including suggestions, fast checkout procedure and a personal wishlist. You will also be able to rate and review the items and the vendors according to your choice.<br/><hr/>
+
+<div className="bold">When can I expect my order to be delivered?</div><br/>
+
+Vendors usually arrange the order and send the items ordered within the prespecified time given on the product page. But the working days exclude the national holidays and Sundays. The delivery time is also influenced by some factors like who is the vendor, the availability of the product and most importantly the place where the order has to be delivered as per how far is the place from the vendor’s location.<br/><hr/>
+
+      
+    </div>
+  </div>
 </div>
 
+</div>
 </body>
       </div>
     );
