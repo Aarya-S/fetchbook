@@ -1,15 +1,11 @@
 import React, { useState } from "react";
-import { Card, Col, Container, Row, Toast } from "react-bootstrap";
+import { Button, Card, Col, Container, Row, Toast } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Navbar2 from '../components/Navbar2';
 import '../css/Cart.css'
 import returnCart from "../helper/CartList";
+import returnOrderHistory from "../helper/OrderHistoryList";
 
-
-
-// const cpi= 200;
-// const Productvalue = new Array();
-// const ProductCount = new Array();
 const CalculateTotal = (ProductArray)=>{
     let finalPrice = 0;
     let Total = 0;
@@ -26,7 +22,7 @@ const CalculateTotal = (ProductArray)=>{
 
 const product = [{
     bookname : "Harry Potter",
-    img : "https://images-na.ssl-images-amazon.com/images/I/51ZuFk7r86L._SX331_BO1,204,203,200_.jpg",
+    img : "https://m.media-amazon.com/images/I/71euQ6eHPYL._AC_UL480_FMwebp_QL65_.jpg",
     orderid : 123456,
     tag : {
         sellerid : "Seller1",
@@ -42,11 +38,26 @@ const product = [{
 
 const Cart = () => {   
     const [List, setList] = useState(returnCart.returnCart())
-    
+    const [OrderHistory, setOrderHistory] = useState(returnOrderHistory.returnOrderHistory())
+    const [count, setCount] = useState(1)
+    const setCounttoProduct = ()=>{
+        product.count = count;
+    }
+    const removeByArrayItem = (request,value)=>{
+        if(request==="cart"){
+           let newList = List.filter(item => item._id !== value);
+           returnCart.updateCartList(newList);
+           setList(newList);    
+        }else{
+            let newOrderList = OrderHistory.filter(item => item._id !== value);
+            localStorage.setItem("orderHistory",JSON.stringify(newOrderList));
+            setOrderHistory(newOrderList);
+        }
+        
+    }
         return(
             <div>
                 <Navbar2 />
-                
                 <div className="current-items">
                     <header className="heading1">
                     Your Cart
@@ -57,7 +68,48 @@ const Cart = () => {
                 <div className="no-items">Items you add to your cart will appear here!</div>
                 :<div>
                     {List.map((book)=>{
-                    return <CartCard product={book}/>
+                    return( 
+                        <Card style={{height: "175px", margin: "20px 30px"}}>
+                        <Container>       
+                            <Row className="justify-content-start align-items-center">
+                            <Col sm={2}>
+                            <Link to={{pathname : `/details/${book._id}`,state :book}}>
+                                <Card.Img src={book.img} variant="left" style={{height: "150px", width:"150px", marginTop:"12.5px", marginLeft: "12.5px"}} />
+                            </Link>
+                                </Col>
+                                
+                                <Col sm={6}>
+                                    <Card.Title>{book.bookname}</Card.Title>
+                                    <Card.Subtitle>{book.tag.sellerid}</Card.Subtitle>
+                                    <Card.Subtitle>{book.tag.address}</Card.Subtitle>
+                                    <Button onClick={()=>{removeByArrayItem("cart",book._id)}}>Remove Item</Button>
+    
+                                    {/* <div className="description">{product.description}</div> */}
+                                </Col>
+                                <Col sm={3}>
+                                        <button className="add-subtract">
+                                            <i className="fa fa-minus" onClick={()=>{count!=1?setCount(count-1):setCount(1)}}></i>
+                                        </button>
+                                        {setCounttoProduct()}
+                                        <text className="count-product">{count}</text>
+                                        <button className="add-subtract">
+                                            <i className="fa fa-plus" onClick={()=>{count<10?setCount(count+1):setCount(10)}}></i>
+                                        </button>
+                                </Col>
+    
+                                <Col sm={1}>
+                                    <nobr>
+                                        <i className="fa fa-inr"></i>
+                                        {book.tag.offer?
+                                        <text className="final-price">{count*book.tag.offered_price}</text>:
+                                        <text className="final-price">{count*book.tag.price}</text>}
+                                    </nobr>
+                                </Col>
+    
+                            </Row>
+                        </Container>
+                    </Card>     
+                     )
                     // console.log(book)
                     })}
                     <div >
@@ -87,10 +139,42 @@ const Cart = () => {
                     </header>
                     <hr />
                 
-                {product === null || product.length===0?
+                {OrderHistory === null || OrderHistory.length===0?
                     <div className="no-items">You have no order history!</div>:
-                product.map((book)=>{
-                    return <HistoryCard product={book}/>
+                OrderHistory.map((book)=>{
+                    return (
+                    <Card style={{height: "175px", margin: "20px 30px"}}>
+                        <Container>       
+                            <Row className="justify-content-start align-items-center">
+                                <Col sm={2}>
+                                    <Card.Img variant="left" src={book.img} style={{height: "150px", width:"150px", marginTop:"12.5px", marginLeft: "12.5px"}} />
+                                </Col>
+                                
+                                <Col sm={6}>
+                                    <Card.Title>{book.name}</Card.Title>
+                                    <Card.Subtitle>{book.tag.sellerid}</Card.Subtitle>
+                                    <Card.Subtitle>Qnty : - {book.tag.count}</Card.Subtitle>
+                                    <div className="description"> {book.tag.address}</div>
+                                </Col>
+
+                                <Col sm={2}>
+                                    <i className="fa fa-inr"></i>
+                                    {book.tag.offer?book.tag.offered_price*book.tag.count:book.tag.price*book.tag.count}
+                                </Col>
+
+                                <Col sm={2}>
+                                    {/* Status of Order */}
+                                    <div className="text-center">
+                                        {/* Delivered, Processing, Out for Delivery */}
+                                        <b>{book.tag.delivery?"Delivered":"Pending"}</b> <br />
+                                        <text><b>ORDER ID:</b> {book.orderid}</text>
+                                    </div>
+                                </Col>
+
+                            </Row>
+                        </Container>
+                    </Card>
+                    )
                 })}
                     
                 </div>
@@ -99,85 +183,6 @@ const Cart = () => {
     
 }
 
-const CartCard = ({product})=>{
-    const [count, setCount] = useState(1)
-    const setCounttoProduct = ()=>{
-        product.count = count;
-    }
-    return(
-        <Card style={{height: "175px", margin: "20px 30px"}}>
-                    <Container>       
-                        <Row className="justify-content-start align-items-center">
-                        <Col sm={2}>
-                        <Link to={{pathname : `/details/${product._id}`,state :product}}>
-                            <Card.Img src={product.img} variant="left" style={{height: "150px", width:"150px", marginTop:"12.5px", marginLeft: "12.5px"}} />
-                        </Link>
-                            </Col>
-                            
-                            <Col sm={6}>
-                                <Card.Title>{product.bookname}</Card.Title>
-                                <Card.Subtitle>{product.tag.sellerid}</Card.Subtitle>
-                                <Card.Subtitle>{product.tag.address}</Card.Subtitle>
 
-                                {/* <div className="description">{product.description}</div> */}
-                            </Col>
-                            <Col sm={3}>
-                                    <button className="add-subtract">
-                                        <i className="fa fa-minus" onClick={()=>{count!=1?setCount(count-1):setCount(1)}}></i>
-                                    </button>
-                                    {setCounttoProduct()}
-                                    <text className="count-product">{count}</text>
-                                    <button className="add-subtract">
-                                        <i className="fa fa-plus" onClick={()=>{count<10?setCount(count+1):setCount(10)}}></i>
-                                    </button>
-                            </Col>
-
-                            <Col sm={1}>
-                                <nobr>
-                                    <i className="fa fa-inr"></i>
-                                    {product.tag.offer?
-                                    <text className="final-price">{count*product.tag.offered_price}</text>:
-                                    <text className="final-price">{count*product.tag.price}</text>}
-                                </nobr>
-                            </Col>
-
-                        </Row>
-                    </Container>
-                </Card>
-    )
-}
-
-const HistoryCard = ({product})=>{
-   return( <Card style={{height: "175px", margin: "20px 30px"}}>
-                    <Container>       
-                        <Row className="justify-content-start align-items-center">
-                            <Col sm={2}>
-                                <Card.Img variant="left" style={{height: "150px", width:"150px", marginTop:"12.5px", marginLeft: "12.5px"}} />
-                            </Col>
-                            
-                            <Col sm={6}>
-                                <Card.Title>{product.name}</Card.Title>
-                                <Card.Subtitle>{product.tag.sellerid}</Card.Subtitle>
-                                <div className="description"> {product.tag.address}</div>
-                            </Col>
-
-                            <Col sm={2}>
-                                <i className="fa fa-inr"></i>
-                                {product.tag.offer?product.tag.offered_price*product.tag.count:product.tag.price*product.tag.count}
-                            </Col>
-
-                            <Col sm={2}>
-                                {/* Status of Order */}
-                                <div className="text-center">
-                                    {/* Delivered, Processing, Out for Delivery */}
-                                    <b>{product.tag.delivery?"Delivered":"Pending"}</b> <br />
-                                    <text><b>ORDER ID:</b> {product.orderid}</text>
-                                </div>
-                            </Col>
-
-                        </Row>
-                    </Container>
-    </Card>)
-}
 
 export default Cart

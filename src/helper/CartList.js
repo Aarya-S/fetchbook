@@ -20,6 +20,20 @@ function returnCart(){
     }
 }
 
+function updateCartList(List){
+    try{
+        localStorage.removeItem("Cart")
+        localStorage.setItem("Cart",JSON.stringify(List));
+        if(List.length===0 || List===[]){
+            DeleteCart();
+        }else{
+        CartList = List;
+    }}
+    catch(e){
+        console.log(e);
+    }
+}
+
 function DeleteCart (){
     try{
         localStorage.removeItem("Cart");
@@ -28,4 +42,4 @@ function DeleteCart (){
         console.log(e);
     }
 }
-export default {returnCart,AddCart,DeleteCart}
+export default {returnCart,AddCart,DeleteCart,updateCartList}
