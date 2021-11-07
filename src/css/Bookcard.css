@@ -1,5 +1,7 @@
-/* .bookcard_container:hover:hover { 
-    border-radius: 2%;
-    transform: scale(1.03);
-    opacity: 0.8;
-   } */
+.book-card-container:hover {
+  
+}
+
+.strike-text {
+  margin-right: 10px;
+}
