@@ -97,6 +97,11 @@ const SellerScreen = ()=>{
                         </Container>
                     </Card>
                 
+                    <Card border="dark" style={{height: "auto", margin: "20px 30px", padding: "25px 12px"}}>
+                        <Container>
+
+                        </Container>
+                    </Card>
             </div>
         )
     
