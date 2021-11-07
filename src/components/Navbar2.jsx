@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
 import { Navbar, Container, Form, Button, FormControl, Nav, NavDropdown} from 'react-bootstrap'
 import LogoWhite from "../assets/FetchBookWhite.svg"
-import { auth, logout } from '../firebaseconfig'
+import { auth,logout } from '../firebaseconfig'
 import '../css/Navbar2.css'
 import { useHistory } from 'react-router'
 import { Link } from 'react-router-dom'

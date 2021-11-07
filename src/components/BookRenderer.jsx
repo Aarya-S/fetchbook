@@ -9,7 +9,7 @@ const RenderBook =({state})=>{
     return(
         <div  className='booklist'>
            {state.map((book) => {
-        return <Link to={{pathname : `/details/${book._id}`,state :book}}><BookCard key={book._id} book={book}></BookCard></Link>;
+  return <Link to={{pathname : `/details/${book._id}`,state :book}}><BookCard key={book._id} book={book}></BookCard></Link>;
     })}    
         </div>
     )

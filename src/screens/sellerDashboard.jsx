@@ -28,69 +28,20 @@ const SellerScreen = ()=>{
         return(
             <div>
                 <Navbar2 />
-                <div class="container">
-                    <div class="Name">
-                        <label className="label-name">Name: </label>
-                        <input value={selleracc.sellername} className="name-field" />
-                    </div>
-                    <div class="Experience">
-                        <label className="label-exp">Experience: </label>
-                        <input value={selleracc.experience} className="exp-field" />
-                    </div>
-                    <div class="Address">
-                        <label className="label-addr">Seller Address: </label>
-                        <textarea value={selleracc.address} className="addr-field" />
-                    </div>
-                </div>
-                    
-                            
-                        
-                            
-                     
-                            
-                
-                {/* <button className="change-pwd" onClick={()=>{history.push('/AddBookScreen')}}>Add Book</button><br />
+                <div className="dashboard">
+                <label className="label-dash">Name: </label><br />
+                <input value={Seller.sellername} className="textfield" /><br /><br />
+                <label className="label-dash">Seller Address: </label><br />
+                <input value={Seller.address} className="textfield" /><br /><br />
+                <label className="label-dash">Experience: </label><br />
+                <input value={Seller.experience} className="textfield" /><br /><br />
+                <button className="change-pwd" onClick={()=>{history.push('/AddBookScreen')}}>Add Book</button><br />
                 <button className="change-pwd" onClick={getsellerorderhandle}>Get added books</button><br />
-                <button className="change-pwd" >Remove book</button><br /> */}
-                <div className="btn-area">
-                {/* <button className="change-pwd" onClick={()=>{
-                    setdisplay(seller.orders)
-                }}>View Orders</button><br />
-                 */}
-                 <button className="change-pwd" id="update-btn">
-                     Update Info
-                 </button>
-                 <button className="change-pwd">
-                     Refresh Orders
-                 </button>
+                <button className="change-pwd" >Remove book</button><br />
+                <button className="change-pwd" onClick={()=>{
+                    // setdisplay(seller.orders)
+                }}>Orders</button><br />
                 </div>
-
-                <br />
-                <h3>Current Orders</h3>
-                <hr />
-                <table className="order-tbl">
-                    <tr>
-                        <th>Sr. No.</th>
-                        <th>Buyer</th>
-                        <th>Product Name</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                    </tr>
-                    <tr>
-                        <td>1.</td>
-                        <td>1.</td>
-                        <td>1.</td>
-                        <td>1.</td>
-                        <td>1.</td>
-                    </tr>
-                </table>
-
-                <br />
-                <h3>Your Products</h3>
-                <hr />
-
-
-                
                 
                 <p>{display}</p>
                 
