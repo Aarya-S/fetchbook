@@ -78,7 +78,7 @@ const Cart = () => {
                                     <Card.Title>{book.bookname}</Card.Title>
                                     <Card.Subtitle>{book.tag.sellerid}</Card.Subtitle>
                                     <Card.Subtitle>{book.tag.address}</Card.Subtitle>
-                                    <Button onClick={()=>{removeByArrayItem("cart",book._id)}}>Remove Item</Button>
+                                    <Button variant="link" size="sm" style={{ margin: "5px 0px", padding: "0px 0px"}} onClick={()=>{removeByArrayItem("cart",book._id)}}>Remove Item</Button>
     
                                     {/* <div className="description">{product.description}</div> */}
                                 </Col>
