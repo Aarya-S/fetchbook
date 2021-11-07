@@ -10,6 +10,7 @@ A digital catalog of books, both new and used.<br>
 <h3>4. Filters in AfterSearch</h3>
 <h3>5. Payment Gateway</h3>
 <h3>6. CheckOut Page</h3>
+<h3>7. pricing page</h3>
 <h3> Deploy</h3>
 
 
