@@ -2,22 +2,24 @@ import React, { useState } from "react";
 import { Button, Card, Col, Container, Row, Toast } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Navbar2 from '../components/Navbar2';
+import { useHistory } from "react-router";
 import '../css/Cart.css'
 import returnCart from "../helper/CartList";
 import returnOrderHistory from "../helper/OrderHistoryList";
-
-const CalculateTotal = (ProductArray)=>{
+// let history = useHistory();
+const CalculateTotalnProceed = (ProductArray)=>{
     let finalPrice = 0;
     let Total = 0;
     for(let i =0 ; i<ProductArray.length ; i++){
         if(ProductArray[i].tag.offer){
-        finalPrice = ProductArray[i].count*ProductArray[i].tag.offered_price}
+        finalPrice = ProductArray[i].count*ProductArray[i].tag.offered_price
+    }
         else{
             finalPrice = ProductArray[i].count*ProductArray[i].tag.price
         }
         Total = Total + finalPrice;
     }
-    return Total;
+    
 }
 
 const product = [{
@@ -37,11 +39,12 @@ const product = [{
 
 
 const Cart = () => {   
+    let history = useHistory();
     const [List, setList] = useState(returnCart.returnCart())
     const [OrderHistory, setOrderHistory] = useState(returnOrderHistory.returnOrderHistory())
-    const [count, setCount] = useState(1)
-    const setCounttoProduct = ()=>{
-        product.count = count;
+    const checkoutHandler = () => {
+        CalculateTotalnProceed(List);
+        history.push("/Checkout");
     }
     const removeByArrayItem = (request,value)=>{
         if(request==="cart"){
@@ -55,21 +58,14 @@ const Cart = () => {
         }
         
     }
+
+    const CartCard = ({book})=>{
+        const [count, setCount] = useState(1)
+        const setCounttoProduct = ()=>{
+            book.count = count;
+        }
         return(
-            <div>
-                <Navbar2 />
-                <div className="current-items">
-                    <header className="heading1">
-                    Your Cart
-                    </header>
-                <hr />
-                {/* Cart Render  */}
-                {List === null || List.length===0?
-                <div className="no-items">Items you add to your cart will appear here!</div>
-                :<div>
-                    {List.map((book)=>{
-                    return( 
-                        <Card style={{height: "175px", margin: "20px 30px"}}>
+            <Card style={{height: "175px", margin: "20px 30px"}}>
                         <Container>       
                             <Row className="justify-content-start align-items-center">
                             <Col sm={2}>
@@ -109,7 +105,23 @@ const Cart = () => {
                             </Row>
                         </Container>
                     </Card>     
-                     )
+        )
+    }
+        return(
+            <div>
+                <Navbar2 />
+                <div className="current-items">
+                    <header className="heading1">
+                    Your Cart
+                    </header>
+                <hr />
+                {/* Cart Render  */}
+                {List === null || List.length===0?
+                <div className="no-items">Items you add to your cart will appear here!</div>
+                :<div>
+                    {List.map((book)=>{
+                    return  <CartCard book={book}/> 
+                     
                     // console.log(book)
                     })}
                     <div >
@@ -122,9 +134,9 @@ const Cart = () => {
                     <Row>
                         <Col sm={{span: 10, offset: 1}}>
                         <div className="checkout-btn-row">
-                        <button className="checkout-btn" onClick={()=>{console.log(
-                           CalculateTotal(List)
-                        )}}>Proceed to Checkout</button>
+                        <button className="checkout-btn" onClick={()=>{
+                            checkoutHandler()
+                        }}>Proceed to Checkout</button>
                         </div>
                         </Col>
                     </Row>
