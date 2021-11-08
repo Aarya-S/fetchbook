@@ -17,6 +17,7 @@ import Checkout from './screens/checkoutScreen';
 import Sellerui from './screens/sellerDashboard';
 import Dashboard from './screens/userDashboard';
 import AddBookScreen from './screens/AddbookScreen';
+import PricingScreen from './screens/PricingScreen';
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
         <Route component={Checkout} path='/checkout' exact/>
         <Route component={Dashboard} path='/userDashboard' exact/>
         <Route component={AddBookScreen} path='/AddBookScreen' exact/>
+        <Route component={PricingScreen} path='/pricing' exact />
       </Switch>
       </div>
     
