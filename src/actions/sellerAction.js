@@ -49,6 +49,18 @@ const addorder = async (data)=>{
   return result
 }
 
+const getSellerBooks = async (data)=>{
+  let result = null;
+  try{
+    await axios.get(`${BASE_URL}/query?tag_sellerBooks=${data}`)
+    .then((responce)=>{responce.status===200?result=responce.data:result='SELLER_BOOK_FAIL'})
+    .catch((responce)=>{console.log(responce)})
+  }catch(e){
+    result = 'SELLER_BOOK_FAIL' + e
+  }
+  return result
+}
+
 const deleteorder = async (data)=>{
   let result = null;
   try{
@@ -68,6 +80,7 @@ const sellerAction = (Action,data)=>{
     case SELLER_DELETE_REQUEST: return deleteorder(data); break;
     case SELLER_PROFILE_UPDATE_REQUEST:return setSeller(data); break;
     case ADD_SELLER_DETAILS_REQUEST : return setSeller(data); break;
+    case 'SELLER_BOOK_REQUEST' : return getSellerBooks(data); break;
     default : alert(`you requested Action - ${Action}`)
   }
   return null;

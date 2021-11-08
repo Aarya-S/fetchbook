@@ -30,7 +30,7 @@ const SellerScreen = ()=>{
 
                         <Col sm={4}>
                             <button className="change-pwd" onClick={()=>{history.push('/AddBookScreen')}}>Add Book</button><br />
-                            <button className="change-pwd">Get added books</button><br />
+                            <button className="change-pwd" onClick={()=>{history.push('/sellerui/getaddedBooks')}}>Get added books</button><br />
                             <button className="change-pwd" >Remove book</button><br />
                             <button className="change-pwd">Refresh Orders</button><br />
                         </Col>
