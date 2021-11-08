@@ -2,9 +2,8 @@
 import { getStorage } from "@firebase/storage";
 import { initializeApp } from "firebase/app";
 
-import { getAuth, GoogleAuthProvider,signOut,signInWithPopup,createUserWithEmailAndPassword,signInWithEmailAndPassword,sendPasswordResetEmail } from "firebase/auth";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getAuth,updateProfile,updateEmail,GoogleAuthProvider,signOut,signInWithPopup,createUserWithEmailAndPassword,signInWithEmailAndPassword,sendPasswordResetEmail } from "firebase/auth";
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -50,6 +49,8 @@ export {
   signUpWithEmailAndPassword,
   signInWithEmailnPassword,
   sendPasswordResetinEmail,
+  updateProfile,
+  updateEmail,
   logout,
   storage,
 };

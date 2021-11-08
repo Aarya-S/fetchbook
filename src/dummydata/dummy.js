@@ -87,5 +87,32 @@ const seller = {
             userid:123,
         }]
 }
+
+const orderobject  = {
+    buyerName : "dummy name",
+    buyerId : "abc@mail.com",
+    orderid : "1234",
+    address : "sadad sadadad adadadadada adadadadada adadadadad adadad",
+    books : [
+        {
+            bookid : 1,
+            bookname : "The Psychology of Money",
+            auther : "Morgan Housel",
+            sellername : "Cloudtail India",
+            tag : {
+                category : "history", 
+                sellerid: 101,
+                price : "$50",
+                address : "Renaissance Industrial Smart City, Kalyan-Sape Rd, Vashere, Maharashtra 421302", 
+                delivery_status : true,
+                condition : "better", 
+                new : true, 
+                instock : "2" 
+            },
+        },
+        {
+            bookid : 2,
+            bookname : "Atomic Habits",}]
+}
   
 module.exports = {data,userdata,seller}

@@ -6,6 +6,8 @@ import { useHistory } from "react-router";
 import '../css/Cart.css'
 import returnCart from "../helper/CartList";
 import returnOrderHistory from "../helper/OrderHistoryList";
+import { auth } from "../firebaseconfig";
+
 // let history = useHistory();
 const CalculateTotalnProceed = (ProductArray)=>{
     let finalPrice = 0;
@@ -22,20 +24,6 @@ const CalculateTotalnProceed = (ProductArray)=>{
     
 }
 
-const product = [{
-    bookname : "Harry Potter",
-    img : "https://m.media-amazon.com/images/I/71euQ6eHPYL._AC_UL480_FMwebp_QL65_.jpg",
-    orderid : 123456,
-    tag : {
-        sellerid : "Seller1",
-        address : "Delhi",
-        price : 200,
-        offered_price : 150,
-        offer : true,
-        count : 2,
-        delivery : true
-    }
-}];
 
 
 const Cart = () => {   
@@ -145,6 +133,7 @@ const Cart = () => {
                 }
                 </div>
                 {/* Order History Section */}
+                {auth.currentUser?
                 <div className="order-history">
                     <header className="heading1">
                     Order History
@@ -189,7 +178,7 @@ const Cart = () => {
                     )
                 })}
                     
-                </div>
+                </div>:''}
             </div>
         )
     
