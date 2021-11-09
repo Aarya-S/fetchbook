@@ -73,7 +73,7 @@ const MemberSignUp=()=>{
             <input type="password" class="form-control input-lg" value={cnfrmpwd} name="confirm_password" placeholder="Confirm Password" onChange={(e)=>{setcnfrmpwd(e.target.value)}} required="required"/>
         </div>  
         <div className="form-group">
-            <button onClick={submit} class="btn btn-success btn-lg btn-block signup-btn">Sign Up</button>
+            <button onClick={submit} class="btn btn-lg btn-block sign-btn">Sign Up</button>
         </div>
     <div className="text-center">Already have an account?<Link to='/login'> <a>Login here</a></Link></div>
             </div>
