@@ -27,7 +27,7 @@ const Forgotpwd = ()=>{
                 </div>  
                 
                 <div className="form-group">
-                    <button type="submit" onClick={submit} class="btn btn-success btn-lg btn-block signup-btn">Done</button>
+                    <button type="submit" onClick={submit} className="btn btn-lg btn-block sign-btn">Done</button>
                 </div>
             </div>
         </div>

@@ -60,13 +60,14 @@ body {
   text-align: center;
   width: 400px;
   height: auto;
-  /* border-color: red; */
+  border-color: red;
   transition: all 0.4s;
-  /* margin: 20px 20px; */
+  margin: 12px auto;
 }
 .sign-btn:hover {
-  /* background: red;
-  opacity: 0.8; */
+  background: red;
+  color: white;
+  opacity: 0.8;
 }
 .or-seperator {
   margin: 50px 0 15px;

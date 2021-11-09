@@ -13,10 +13,10 @@ const PricingScreen = () => {
             <Navbar2 />
             <br />
             <center>
-                <text className="head-text">JOIN US TODAY</text><br />
+                <text className="head-text">JOIN US TODAY</text>
                 <text className="sub-text">and grow your bookselling business</text><br /><br />
             
-                <text>With our reasonable membership plans for every type of business, we are confident that we will boost profits, build an online presence, and improve your brand!</text>
+                <text style={{fontSize: "large" }}>With our reasonable membership plans for every type of business, we are confident that we will boost profits, build an online presence, and improve your brand!</text>
             </center>
             <Container fluid>
                 <Row>
@@ -37,7 +37,7 @@ const PricingScreen = () => {
                             </Card.Text>
                             <br />
                             <Card.Text align="center">
-                                <h3><i className="fa fa-inr"></i><span style={{marginLeft: "8px"}}>Price /-</span></h3>
+                                <h3><i className="fa fa-inr"></i><span style={{marginLeft: "8px"}}>123 /-</span></h3>
                             </Card.Text>
                         </Card>
                     </Col>
@@ -59,7 +59,7 @@ const PricingScreen = () => {
                             </Card.Text>
                             <br />
                             <Card.Text align="center">
-                                <h3><i className="fa fa-inr"></i><span style={{marginLeft: "8px"}}>Price /-</span></h3>
+                                <h3><i className="fa fa-inr"></i><span style={{marginLeft: "8px"}}>123 /-</span></h3>
                             </Card.Text>
                         </Card>
                     </Col>
@@ -81,10 +81,33 @@ const PricingScreen = () => {
                             </Card.Text>
                             <br />
                             <Card.Text align="center">
-                                <h3><i className="fa fa-inr"></i><span style={{marginLeft: "8px"}}>Price /-</span></h3>
+                                <h3><i className="fa fa-inr"></i><span style={{marginLeft: "8px"}}>123 /-</span></h3>
                             </Card.Text>
                         </Card>
                     </Col>
+
+                    <Col className="card-col">
+                        <Card border="dark" style={{height: "auto", margin: "40px 12px 20px 12px", padding: "25px 18px"}}>
+                            <Card.Title align="center" className="plan-name">Plan Name</Card.Title>
+                            <Card.Subtitle align="left" className="plan-desc">A brief description about the plan spanning atleast two lines aaaaaaaaaaa</Card.Subtitle>
+                            <br />
+                            <hr width="85%" style={{ margin:"0px 7% 25px 7%" }} />
+                            <Card.Text className="perks">
+                                <h6>Perks of the plan</h6>
+                                <ul>
+                                    <li>Perk 1 aaaaaaaa</li>
+                                    <li>Perk 1 aaaaaaaaaaa</li>
+                                    <li>Perk 1 aaaaaaaaaa</li>
+                                    <li>Perk 1 aaaaaaaaaaaaa</li>
+                                </ul>
+                            </Card.Text>
+                            <br />
+                            <Card.Text align="center">
+                                <h3><i className="fa fa-inr"></i><span style={{marginLeft: "8px"}}>123 /-</span></h3>
+                            </Card.Text>
+                        </Card>
+                    </Col>
+
                 </Row>
                 <Row>
                     <Col style={{ margin: "20px 4% 10px 4%" }}>
