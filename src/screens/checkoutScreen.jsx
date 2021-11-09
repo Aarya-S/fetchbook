@@ -4,10 +4,11 @@ import Navbar2 from '../components/Navbar2';
 import '../css/CheckoutScreen.css'
 import { Form, Col, Row, Button, Card, Container } from 'react-bootstrap'
 import { CardActionArea } from "@material-ui/core";
+import { auth } from "../firebaseconfig";
 
 const CheckoutScreen = ()=>{   
     let location = useLocation();
-    const product  = Location.state;
+    let product  = location.state;
     console.log(product);
         return(
             <>
@@ -22,7 +23,7 @@ const CheckoutScreen = ()=>{
                                 <Row className="mb-3">
                                     <Form.Group as={Col} controlId="formGridEmail">
                                     <Form.Label><b>Email</b></Form.Label>
-                                    <Form.Control readOnly placeholder="aarya@shelar.com" />
+                                    <Form.Control readOnly placeholder={auth.currentUser.email} />
                                     </Form.Group>
                                     <Form.Group as={Col} controlId="formGridPassword">
                                     <Form.Label><b>Name</b></Form.Label>
@@ -70,13 +71,13 @@ const CheckoutScreen = ()=>{
                                 <text className="bill-heading">BILL DETAILS</text>
                                 <hr /><br />
                                 <Card.Subtitle style={{marginBottom: "40px", fontSize: "large"}}>
-                                    <b>No. of items in cart:</b> <text style={{marginLeft: "45%", fontWeight: "bold"}}>12</text>
+                                    <b>No. of items in cart: </b> <text style={{marginLeft: "45%", fontWeight: "bold"}}> {product.productCount}</text>
                                 </Card.Subtitle>
                                 <Card.Subtitle style={{marginBottom: "28px"}}>
-                                    Subtotal <text style={{marginLeft: "60%"}}><i className="fa fa-inr"></i> 123</text>
+                                    Subtotal <text style={{marginLeft: "60%"}}><i className="fa fa-inr"></i> {product.total}</text>
                                 </Card.Subtitle>
                                 <Card.Subtitle style={{marginBottom: "28px"}}>
-                                    Processing fee @ 2% <text style={{marginLeft: "39.5%"}}><i className="fa fa-inr"></i> 456</text>
+                                    Processing fee @ 2% <text style={{textAlign:"right"}}><i className="fa fa-inr"></i> {product.total*0.02}</text>
                                 </Card.Subtitle>
                                 
                                 {/* 
@@ -88,13 +89,13 @@ const CheckoutScreen = ()=>{
                                 */}
 
                                 <Card.Subtitle style={{marginBottom: "28px"}}>
-                                    SGST @ 18% <text style={{marginLeft: "53%"}}><i className="fa fa-inr"></i> 789</text>
+                                    SGST @ 9% <text style={{marginLeft: "53%"}}><i className="fa fa-inr"></i> {(product.total*0.09*0.02).toFixed(2)}</text>
                                 </Card.Subtitle>
                                 <Card.Subtitle style={{marginBottom: "28px"}}>
-                                    CGST @ 18% <text style={{marginLeft: "53%"}}><i className="fa fa-inr"></i> 1011</text>
+                                    CGST @ 9% <text style={{marginLeft: "53%"}}><i className="fa fa-inr"></i> {(product.total*0.09*0.02).toFixed(2)}</text>
                                 </Card.Subtitle>
                                 <hr />
-                                <text className="total">Total <text className="total-amt"><i className="fa fa-inr"></i> 6969</text></text>
+                                <text className="total">Total <text className="total-amt"><i className="fa fa-inr"></i> {(product.total*1.0236).toFixed(2)}</text></text>
                             </Card>
                         </Col>
                         </Row>

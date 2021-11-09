@@ -12,7 +12,9 @@ import { auth } from "../firebaseconfig";
 const CalculateTotalnProceed = (ProductArray)=>{
     let finalPrice = 0;
     let Total = 0;
+    let count = 0;
     for(let i =0 ; i<ProductArray.length ; i++){
+        count = count + ProductArray[i].count;
         if(ProductArray[i].tag.offer){
         finalPrice = ProductArray[i].count*ProductArray[i].tag.offered_price
     }
@@ -21,7 +23,7 @@ const CalculateTotalnProceed = (ProductArray)=>{
         }
         Total = Total + finalPrice;
     }
-    
+    return {total : Total, productCount : count,list : ProductArray}
 }
 
 
@@ -32,8 +34,16 @@ const Cart = () => {
     const [OrderHistory, setOrderHistory] = useState(returnOrderHistory.returnOrderHistory())
     const checkoutHandler = () => {
         if(auth.currentUser){
-        CalculateTotalnProceed(List);
-        history.push("/checkout");}
+        let CheckOrderStuff = CalculateTotalnProceed(List);
+        console.log(CheckOrderStuff)
+        history.push({
+            pathname: "/checkout",
+            state: {
+                total: CheckOrderStuff.total,
+                productCount: CheckOrderStuff.productCount,
+                list: CheckOrderStuff.list
+            }
+        });}
         else{
             alert("Please Login to Proceed")
         }
