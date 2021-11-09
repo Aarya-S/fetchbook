@@ -37,7 +37,7 @@ function App() {
         <Route component={Forgotpwd} path = '/forgotpassword' exact/>
         <Route component={AfterSearch} path='/search/:searchedbook' exact/>
         <Route component={Sellerui} path='/sellerui' exact/>
-        <Route component={Checkout} path='/checkout' exact/>
+        <Route component={Checkout} path='/Checkout' exact/>
         <Route component={Dashboard} path='/userDashboard' exact/>
         <Route component={AddBookScreen} path='/AddBookScreen' exact/>
         <Route component={PricingScreen} path='/pricing' exact />

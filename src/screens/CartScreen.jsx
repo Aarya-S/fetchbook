@@ -31,8 +31,12 @@ const Cart = () => {
     const [List, setList] = useState(returnCart.returnCart())
     const [OrderHistory, setOrderHistory] = useState(returnOrderHistory.returnOrderHistory())
     const checkoutHandler = () => {
+        if(auth.currentUser){
         CalculateTotalnProceed(List);
-        history.push("/Checkout");
+        history.push("/Checkout");}
+        else{
+            alert("Please Login to Proceed")
+        }
     }
     const removeByArrayItem = (request,value)=>{
         if(request==="cart"){
