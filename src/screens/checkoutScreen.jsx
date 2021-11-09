@@ -2,99 +2,105 @@ import React from "react";
 import { useLocation } from "react-router";
 import Navbar2 from '../components/Navbar2';
 import '../css/CheckoutScreen.css'
+import { Form, Col, Row, Button, Card, Container } from 'react-bootstrap'
+import { CardActionArea } from "@material-ui/core";
 
 const CheckoutScreen = ()=>{   
     let location = useLocation();
     const product  = Location.state;
     console.log(product);
         return(
-            <div>
-                <Navbar2/>
-                {/* <div className="row">
-                <div className="col-75">
-                    <div className="container">
-                    <form>
+            <>
+                <Navbar2 />
+                        <Container fluid>
+                        <Row>
+                           <Col style={{marginLeft: "20px", marginRight: "60px"}} sm={7}>
+                           {/* Shipping Details Area */}
+                           <br /><br /><br /><h3>Billing Details</h3>
+                           <hr />
+                           <Form>
+                                <Row className="mb-3">
+                                    <Form.Group as={Col} controlId="formGridEmail">
+                                    <Form.Label><b>Email</b></Form.Label>
+                                    <Form.Control readOnly placeholder="aarya@shelar.com" />
+                                    </Form.Group>
+                                    <Form.Group as={Col} controlId="formGridPassword">
+                                    <Form.Label><b>Name</b></Form.Label>
+                                    <Form.Control type="text" placeholder="Your name here" />
+                                    </Form.Group>
+                                </Row>
 
-                        <div className="row">
-                        <div className="col-50">
-                            <h3>Billing Address</h3>
-                            <label for="fname"><i className="fa fa-user"></i> Full Name</label>
-                            <input type="text" id="fname" name="firstname" placeholder="John M. Doe"/>
-                            <label for="email"><i className="fa fa-envelope"></i> Email</label>
-                            <input type="text" id="email" name="email" placeholder="john@example.com"/>
-                            <label for="adr"><i className="fa fa-address-card-o"></i> Address</label>
-                            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street"/>
-                            <label for="city"><i className="fa fa-institution"></i> City</label>
-                            <input type="text" id="city" name="city" placeholder="New York"/>
+                                <Form.Group className="mb-3" controlId="formGridAddress1">
+                                    <Form.Label><b>Address Line 1</b></Form.Label>
+                                    <Form.Control type="text" />
+                                </Form.Group>
 
-                            <div className="row">
-                            <div className="col-50">
-                                <label for="state">State</label>
-                                <input type="text" id="state" name="state" placeholder="NY"/>
-                            </div>
-                            <div className="col-50">
-                                <label for="zip">Zip</label>
-                                <input type="text" id="zip" name="zip" placeholder="10001"/>
-                            </div>
-                            </div>
-                        </div>
+                                <Form.Group className="mb-3" controlId="formGridAddress2">
+                                    <Form.Label><b>Address Line 2</b></Form.Label>
+                                    <Form.Control type="text" />
+                                </Form.Group>
 
-                        <div className="col-50">
-                            <h3>Payment</h3>
-                            <label for="fname">Accepted Cards</label>
-                            <div className="icon-container">
-                            <i className="fa fa-cc-visa" style="color:navy;"></i>
-                            <i className="fa fa-cc-amex" style="color:blue;"></i>
-                            <i className="fa fa-cc-mastercard" style="color:red;"></i>
-                            <i className="fa fa-cc-discover" style="color:orange;"></i>
-                            </div>
-                            <label for="cname">Name on Card</label>
-                            <input type="text" id="cname" name="cardname" placeholder="John More Doe"/>
-                            <label for="ccnum">Credit card number</label>
-                            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444"/>
-                            <label for="expmonth">Exp Month</label>
-                            <input type="text" id="expmonth" name="expmonth" placeholder="September"/>
+                                <Row className="mb-3">
 
-                            <div className="row">
-                            <div className="col-50">
-                                <label for="expyear">Exp Year</label>
-                                <input type="text" id="expyear" name="expyear" placeholder="2018"/>
-                            </div>
-                            <div className="col-50">
-                                <label for="cvv">CVV</label>
-                                <input type="text" id="cvv" name="cvv" placeholder="352"/>
-                            </div>
-                            </div>
-                        </div>
+                                    <Form.Group as={Col} controlId="formGridState">
+                                    <Form.Label><b>State</b></Form.Label>
+                                    <Form.Control />
+                                    </Form.Group>
 
-                        </div>
-                        <label>
-                        <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing</input>
-                        </label>
-                        <input type="submit" value="Continue to checkout" class="btn"/>
-                    </form>
-                    </div>
-                </div>
+                                    <Form.Group as={Col} controlId="formGridCity">
+                                    <Form.Label><b>City</b></Form.Label>
+                                    <Form.Control />
+                                    </Form.Group>
 
-                <div className="col-25">
-                    <div className="container">
-                    <h4>Cart
-                        <span className="price" style="color:black">
-                        <i className="fa fa-shopping-cart"></i>
-                        <b>4</b>
-                        </span>
-                    </h4>
-                    <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-                    <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-                    <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-                    <p><a href="#">Product 4</a> <span class="price">$2</span></p>
-                    <hr/>
-                    <p>Total <span className="price" style="color:black"><b>$30</b></span></p>
-                    </div>
-                </div>
-                </div> */}
+                                    <Form.Group as={Col} controlId="formGridZip">
+                                    <Form.Label><b>Zip</b></Form.Label>
+                                    <Form.Control />
+                                    </Form.Group>
+                                </Row>
+                                <Button variant="dark" type="submit" style={{width: "100%", marginTop: "25px"}}>
+                                    Confirm Order
+                                </Button>
+                            </Form>
+                        </Col>
 
-            </div>
+                        <Col sm={4} style={{marginRight: "20px"}}>
+                        <br />
+                        {/* Total Cost Breakdown */}
+                            <Card border="dark" style={{height: "auto", margin: "40px 12px 20px 5px", padding: "25px 18px"}}> 
+                                <text className="bill-heading">BILL DETAILS</text>
+                                <hr /><br />
+                                <Card.Subtitle style={{marginBottom: "40px", fontSize: "large"}}>
+                                    <b>No. of items in cart:</b> <text style={{marginLeft: "45%", fontWeight: "bold"}}>12</text>
+                                </Card.Subtitle>
+                                <Card.Subtitle style={{marginBottom: "28px"}}>
+                                    Subtotal <text style={{marginLeft: "60%"}}><i className="fa fa-inr"></i> 123</text>
+                                </Card.Subtitle>
+                                <Card.Subtitle style={{marginBottom: "28px"}}>
+                                    Processing fee @ 2% <text style={{marginLeft: "39.5%"}}><i className="fa fa-inr"></i> 456</text>
+                                </Card.Subtitle>
+                                
+                                {/* 
+                                
+                                IMPORTANT!!!
+                                
+                                SGST and CGST are 18% of processing fee, NOT 18% of SUBTOTAL 
+                                
+                                */}
+
+                                <Card.Subtitle style={{marginBottom: "28px"}}>
+                                    SGST @ 18% <text style={{marginLeft: "53%"}}><i className="fa fa-inr"></i> 789</text>
+                                </Card.Subtitle>
+                                <Card.Subtitle style={{marginBottom: "28px"}}>
+                                    CGST @ 18% <text style={{marginLeft: "53%"}}><i className="fa fa-inr"></i> 1011</text>
+                                </Card.Subtitle>
+                                <hr />
+                                <text className="total">Total <text className="total-amt"><i className="fa fa-inr"></i> 6969</text></text>
+                            </Card>
+                        </Col>
+                        </Row>
+                    </Container>
+            </>
+               
         )
     
 }
