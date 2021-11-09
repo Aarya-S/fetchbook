@@ -59,13 +59,13 @@ html {
 }
 
 .titles {
-  color: aliceblue;
+  color: black;
   margin-left: 25%;
   width: 50%;
-  border-radius: 0px;
+  border-radius: 12px;
   font-family: Bahnschrift;
-  background-color: brown;
-  font-weight: bold;
+  background-color: rgba(69, 76, 77, 0.664);
+  font-weight: normal;
   text-align: center;
 }
 
