@@ -80,7 +80,7 @@ const Cart = () => {
                                     <Card.Title>{book.bookname}</Card.Title>
                                     <Card.Subtitle>{book.tag.sellerid}</Card.Subtitle>
                                     <Card.Subtitle>{book.tag.address}</Card.Subtitle>
-                                    <Button variant="link" size="sm" style={{ margin: "5px 0px", padding: "0px 0px"}} onClick={()=>{removeByArrayItem("cart",book._id)}}>Remove Item</Button>
+                                    <Button variant="link" size="sm" style={{ margin: "5px 0px", padding: "0px 0px", color: "red" }} onClick={()=>{removeByArrayItem("cart",book._id)}}>Remove Item</Button>
     
                                     {/* <div className="description">{product.description}</div> */}
                                 </Col>
@@ -126,11 +126,11 @@ const Cart = () => {
                      
                     // console.log(book)
                     })}
-                    <div >
-                        <button onClick={()=>{
+                    <div style={{marginLeft: "25px"}}>
+                        <Button variant="outline-danger" onClick={()=>{
                         returnCart.DeleteCart();
                         setList([])
-                        alert('Item Removed From the Cart')}}>Empty the Cart</button>
+                        alert('Item Removed From the Cart')}}>Empty the Cart</Button>
                     </div>
                     <Container>
                     <Row>
