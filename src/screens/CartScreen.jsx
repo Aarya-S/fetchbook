@@ -33,7 +33,7 @@ const Cart = () => {
     const checkoutHandler = () => {
         if(auth.currentUser){
         CalculateTotalnProceed(List);
-        history.push("/Checkout");}
+        history.push("/checkout");}
         else{
             alert("Please Login to Proceed")
         }

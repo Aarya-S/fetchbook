@@ -33,9 +33,7 @@ body {
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
   padding: 40px;
 }
-.signup-form a {
-  color: #5cb85c;
-}
+
 .signup-form h2 {
   text-align: center;
   font-size: 34px;
@@ -121,4 +119,9 @@ body {
 .back-btn {
   margin-top: 20px;
   margin-left: 20px;
+}
+
+.text-center span {
+  color: red;
+  margin-left: 8px;
 }

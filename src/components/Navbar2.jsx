@@ -76,7 +76,7 @@ function Navbar2() {
                             onChange={(e)=>{setSearch(e.target.value)}}
                         />
                         
-                        <Button onClick={searchHandle} variant="outline-primary" className="btn-md searchbutton"><nobr><i className="fa fa-search"></i> Search</nobr></Button>
+                        <Button onClick={searchHandle} variant="outline-light" className="btn-md searchbutton"><nobr><i className="fa fa-search"></i> Search</nobr></Button>
                     </Form>
                 </Container>
                 

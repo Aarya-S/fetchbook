@@ -34,15 +34,15 @@ const SellerAddedBooks = () => {
     }
     const BookCard = ({book})=>{
         return (
-            <Card style={{height: "175px", margin: "20px 30px"}}>
-                        <Container>       
+            <Card style={{height: "175px", margin: "20px 10px"}}>
+                        <Container fluid>       
                             <Row className="justify-content-start align-items-center">
                             <Col sm={2}>
                            
                                 <Card.Img src={book.img} variant="left" style={{height: "150px", width:"150px", marginTop:"12.5px", marginLeft: "12.5px"}} />
                                 </Col>
                                 
-                                <Col sm={6}>
+                                <Col sm={5}>
                                     <Card.Title>{book.bookname}</Card.Title>
                                     <Card.Subtitle>{book.auther}</Card.Subtitle>
                                     <Card.Subtitle>{book.publisher}</Card.Subtitle>
@@ -53,11 +53,19 @@ const SellerAddedBooks = () => {
                                 </Col>
                                 
     
-                                <Col sm={2}>
+                                <Col sm={1} align="center">
                                     <nobr>
                                         <i className="fa fa-inr"></i>
                                         <span className="price">{book.tag.price}</span>
                                     </nobr>
+                                </Col>
+
+                                <Col sm={2} align="center">
+                                    <Button variant="outline-danger" size="md" style={{ margin: "5px 0px"}} onClick={()=>{removehandler(book._id)}} >Remove Item</Button>
+                                </Col>
+
+                                <Col sm={2} align="center">
+                                    <Button variant="outline-primary" size="md" style={{ margin: "5px 0px"}}>Edit Listing</Button>
                                 </Col>
     
                             </Row>
@@ -68,10 +76,13 @@ const SellerAddedBooks = () => {
     return (
         <div>
             <Navbar2 />
-            <header className="heading1">
+            <div style={{ marginLeft: "15px", fontFamily: "Roboto sans-serif"  }}>
+            <br /><header className="heading1">
                    Books Added By You
             </header>
             <hr />
+            </div>
+            
             {console.log(List)}
             {loading?'LOADING ....':
             <div>

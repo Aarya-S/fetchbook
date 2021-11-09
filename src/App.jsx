@@ -13,7 +13,7 @@ import SignUP from './screens/SignupScreen';
 import MemberSignUp from './screens/BecomeMemberScreen';
 import Forgotpwd from './screens/ForgotpwdScreen';
 import AfterSearch from './screens/afterSearch';
-import Checkout from './screens/checkoutScreen';
+import CheckoutScreen from './screens/checkoutScreen';
 import Sellerui from './screens/sellerDashboard';
 import Dashboard from './screens/userDashboard';
 import AddBookScreen from './screens/AddbookScreen';
@@ -37,7 +37,7 @@ function App() {
         <Route component={Forgotpwd} path = '/forgotpassword' exact/>
         <Route component={AfterSearch} path='/search/:searchedbook' exact/>
         <Route component={Sellerui} path='/sellerui' exact/>
-        <Route component={Checkout} path='/Checkout' exact/>
+        <Route component={CheckoutScreen} path='/checkout' exact/>
         <Route component={Dashboard} path='/userDashboard' exact/>
         <Route component={AddBookScreen} path='/AddBookScreen' exact/>
         <Route component={PricingScreen} path='/pricing' exact />
