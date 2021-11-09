@@ -44,6 +44,6 @@
 }
 
 .card-col:hover {
-  transform: scale(1.05);
+  transform: translateY(-10px);
   transition: ease 0.5s;
 }

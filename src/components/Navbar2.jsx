@@ -82,9 +82,10 @@ function Navbar2() {
                 
 
                 <Nav>
-                <LinkContainer to="/offers"><Nav.Link className="nav-links-custom">Offers</Nav.Link></LinkContainer>
-                <LinkContainer to="/about"><Nav.Link className="nav-links-custom">About</Nav.Link></LinkContainer>
-                <LinkContainer to="/cart"><Nav.Link  className="nav-links-custom"><nobr><i className="fa fa-shopping-cart"></i> Cart</nobr></Nav.Link></LinkContainer>
+                    <LinkContainer to="/pricing"><Nav.Link className="nav-links-custom">Pricing</Nav.Link></LinkContainer>
+                    <LinkContainer to="/offers"><Nav.Link className="nav-links-custom">Offers</Nav.Link></LinkContainer>
+                    <LinkContainer to="/about"><Nav.Link className="nav-links-custom">About</Nav.Link></LinkContainer>
+                    <LinkContainer to="/cart"><Nav.Link  className="nav-links-custom"><nobr><i className="fa fa-shopping-cart"></i> Cart</nobr></Nav.Link></LinkContainer>
                 {auth.currentUser?
                 <NavDropdown title={auth.currentUser.displayName || auth.currentUser.email} className="nav-links-custom">
                     
