@@ -1,6 +1,6 @@
 import React, { useState} from "react";
 
-import { Link ,useHistory} from "react-router-dom";
+import { Link ,useHistory,useLocation} from "react-router-dom";
 import Navbar2 from '../components/Navbar2';
 import { storage,auth } from "../firebaseconfig";
 import {ref,uploadBytesResumable,getDownloadURL } from "firebase/storage"
@@ -8,23 +8,61 @@ import ProductAction from "../actions/productActions";
 import '../css/Signup.css';
 import '../css/AddBookScreen.css'
 const AddBookScreen = ()=>{   
-        const [bookname, setBookname] = useState('');
+    
+    const location = useLocation()
+    console.log(location.state)
+    const EditBook = location.state.data ;
+
+        const [bookname, setBookname] = useState(location.state ? EditBook.bookname : '');
         const [file, setFile] = useState(null);
-        const [url, setURL] = useState("");
-        const [auther, setAuther] = useState('')
-        const [sellername, setSellername] = useState('')
-        const [description, setDescription] = useState('')
-        const [publisher, setPublisher] = useState('')
-        const [category, setCategory] = useState('')
-        const [price, setPrice] = useState('')
-        const [address, setAddress] = useState('')
-        const [stock, setStock] = useState('')
-        const [deliverystatus, setDeliverystatus] = useState(false)
-        const [newbook, setNewbook] = useState(false)
-        const [bookcondition, setBookcondition] = useState("good")
-        const [offered, setOffered] = useState(false)
+        const [url, setURL] = useState(location.state ?EditBook.img: "");
+        const [auther, setAuther] = useState(location.state ?EditBook.auther : '')
+        const [sellername, setSellername] = useState(location.state ?EditBook.sellername : '')
+        const [description, setDescription] = useState(location.state ?EditBook.description : '')
+        const [publisher, setPublisher] = useState(location.state ?EditBook.publisher : '')
+        const [category, setCategory] = useState(location.state ?EditBook.tag.category : '')
+        const [price, setPrice] = useState(location.state ?EditBook.tag.price : '')
+        const [address, setAddress] = useState(location.state ?EditBook.tag.address : '')
+        const [stock, setStock] = useState(location.state ?EditBook.tag.instock : '')
+        const [deliverystatus, setDeliverystatus] = useState(location.state ?EditBook.tag.delivery_status : false)
+        const [newbook, setNewbook] = useState(location.state ?EditBook.tag.new : false)
+        const [bookcondition, setBookcondition] = useState(location.state ?EditBook.tag.condition : "good")
+        const [offered, setOffered] = useState(location.state ?EditBook.tag.offer : false)
 
         const history = useHistory()
+        const onUpdate = ()=>{
+            if(auth.currentUser){
+                const result =ProductAction('UPDATE_BOOK_REQUEST',{
+                    _id:EditBook._id,
+                    bookname : bookname,
+                    img : url,
+                    auther : auther,
+                    sellername : sellername,
+                    description : description,
+                    publisher : publisher,
+                    tag:{
+                        category : category,
+                        sellerid : auth.currentUser.email,
+                        price : price,
+                        address : address,
+                        delivery_status: deliverystatus,
+                        condition : bookcondition,
+                        new : newbook,
+                        offer : offered,
+                        instock : stock,
+                    }
+
+                })
+                console.log(result)
+                if(result){
+                    alert('Book Updated Successfully')
+                }else{
+                    alert("fail to Update")
+                }}
+                else{
+                    alert('unautherize access')
+                }
+        }
         
         const onsubmit = ()=>{
                 if(auth.currentUser!=null){
@@ -108,10 +146,13 @@ const AddBookScreen = ()=>{
                 });
               } )
         }
+        const goDashboardHandler = ()=>{
+            history.goBack()
+        }
 
         return(
     <div>
-        <div><Link to="/sellerui"><button size="lg" className="btn btn-outline-dark back-btn"><i className="fa fa-angle-double-left"></i>  Back to DashBoard</button></Link></div>
+        <div><button size="lg" className="btn btn-outline-dark back-btn" onClick={goDashboardHandler}><i className="fa fa-angle-double-left"></i>  Back to DashBoard</button></div>
         <div className="signup-form">
             <div className="form-box">
 		<h2>Add Book Details</h2>
@@ -166,9 +207,13 @@ const AddBookScreen = ()=>{
             <input type="file" onChange={handleChange} className="uploader" />
             <button disabled={!file} onClick={handleUpload} className="upload-btn">Upload</button>
         </div>
+        {location.state?
+        <div className="form-group">
+            <button onClick={onUpdate} class="btn btn-success btn-lg btn-block signup-btn btn-end">Add Book</button>
+        </div>:
         <div className="form-group">
             <button onClick={onsubmit} class="btn btn-success btn-lg btn-block signup-btn btn-end">Add Book</button>
-        </div>
+        </div>}
         </div>
         </div>
     </div>

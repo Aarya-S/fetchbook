@@ -41,7 +41,7 @@ const getbookbyid=async (id)=>{
 }
 const updatebookbyid=async (data)=>{
     let res = null;
-    await axios.put(`${BASE_URL}/products/${data.id}`,
+    await axios.put(`${BASE_URL}/products/${data._id}`,
         data
     )
     .then((responce)=>{responce.status === 200 ?res='UPDATE_BOOK_SUCCESS':res='UPDATE_BOOK_FAIL'})

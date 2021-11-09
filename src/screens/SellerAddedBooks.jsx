@@ -14,6 +14,7 @@ import ProductAction from "../actions/productActions";
 const SellerAddedBooks = () => {
     const [List, setList] = useState(null);
     const [loading, setLoading] = useState(false)
+    let history = useHistory();
     if(auth.currentUser && List === null){
     let Fetchbooks = sellerAction('SELLER_BOOK_REQUEST',auth.currentUser.email);
     Fetchbooks.then(data => {
@@ -32,6 +33,17 @@ const SellerAddedBooks = () => {
             alert('Book Removed')
         }
     }
+
+    const editHandler = (data)=>{
+        history.push({
+            pathname: '/AddBookScreen',
+            state: {
+                data: data
+            }
+        })
+    }
+
+
     const BookCard = ({book})=>{
         return (
             <Card style={{height: "175px", margin: "20px 10px"}}>
@@ -65,7 +77,7 @@ const SellerAddedBooks = () => {
                                 </Col>
 
                                 <Col sm={2} align="center">
-                                    <Button variant="outline-primary" size="md" style={{ margin: "5px 0px"}}>Edit Listing</Button>
+                                    <Button variant="outline-primary" size="md" style={{ margin: "5px 0px"}} onClick={()=>{editHandler(book)}}>Edit Listing</Button>
                                 </Col>
     
                             </Row>
