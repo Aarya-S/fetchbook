@@ -8,18 +8,30 @@ import returnCart from "../helper/CartList";
 import returnOrderHistory from "../helper/OrderHistoryList";
 import { auth } from "../firebaseconfig";
 import sellerAction from "../actions/sellerAction";
+import ProductAction from "../actions/productActions";
 
 
 const SellerAddedBooks = () => {
-    let result = null;
-    if(auth.currentUser){
+    const [List, setList] = useState(null);
+    const [loading, setLoading] = useState(false)
+    if(auth.currentUser && List === null){
     let Fetchbooks = sellerAction('SELLER_BOOK_REQUEST',auth.currentUser.email);
     Fetchbooks.then(data => {
-        result = data;
+        setList(data)
+        console.log(data)
     }).catch(err => {
         console.log(err);
     });}
-    const [List, setList] = useState(result);
+
+    const removehandler =(id)=>{
+        setList(null)
+        setLoading(true)
+        const result = ProductAction("DELETE_BOOK_REQUEST",id)
+        if(result){
+            setLoading(false)
+            alert('Book Removed')
+        }
+    }
     const BookCard = ({book})=>{
         return (
             <Card style={{height: "175px", margin: "20px 30px"}}>
@@ -34,7 +46,8 @@ const SellerAddedBooks = () => {
                                     <Card.Title>{book.bookname}</Card.Title>
                                     <Card.Subtitle>{book.auther}</Card.Subtitle>
                                     <Card.Subtitle>{book.publisher}</Card.Subtitle>
-                                    <Button variant="link" size="sm" style={{ margin: "5px 0px", padding: "0px 0px"}} >Remove Item</Button>
+                                    <Card.Subtitle>Stock : {book.tag.instock}</Card.Subtitle>
+                                    <Button variant="link" size="sm" style={{ margin: "5px 0px", padding: "0px 0px"}} onClick={()=>{removehandler(book._id)}} >Remove Item</Button>
     
                                     {/* <div className="description">{product.description}</div> */}
                                 </Col>
@@ -59,9 +72,11 @@ const SellerAddedBooks = () => {
                    Books Added By You
             </header>
             <hr />
+            {console.log(List)}
+            {loading?'LOADING ....':
             <div>
                 {List===[] && auth.currentUser || List===null? 'No Books Added':List.map(book => <BookCard book={book} />)}
-            </div>
+            </div>}
         </div>
     );
 }

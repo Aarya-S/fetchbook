@@ -3,8 +3,6 @@ import { Link,useHistory } from "react-router-dom";
 import { signUpWithEmailAndPassword ,signInWithGoogle} from "../firebaseconfig";
 import '../css/Signup.css';
 import validator from "../helper/password";
-import UserAction from "../actions/userAction";
-import { USER_UPDATE_REQUEST } from "../constant/userconstant";
 
 
 const SignUP=()=>{
@@ -31,13 +29,6 @@ const SignUP=()=>{
             catch(e){
                 result = null;
                 alert(e)
-            }finally{
-                if(result!=null){
-                    UserAction(USER_UPDATE_REQUEST,{
-                        name : userid,
-                        email : userid
-                    })
-                }
             }
         }
         const googlesubmit = async ()=>{

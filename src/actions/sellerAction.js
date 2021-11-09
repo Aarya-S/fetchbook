@@ -22,6 +22,7 @@ const setSeller = async (data)=>{
       "address" : data.address,
       "experience" : data.exp,
       "phoneno" : data.phoneno,
+      "certificates" : data.certificates,
       "seller_email": data.seller_email
     }).then((responce)=>{responce.status===200?result=ADD_SELLER_DETAILS_SUCCESS:result=ADD_SELLER_DETAILS_FAIL})
     .catch((responce)=>{console.log(responce);result=ADD_SELLER_DETAILS_FAIL})
