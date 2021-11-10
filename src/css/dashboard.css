@@ -16,19 +16,21 @@
   padding-bottom: 7px;
   /* padding-left: 15px;
   padding-right: 15px; */
-  border: 1px solid black;
-  border-radius: 25px;
-  background-color: #dfe7e9;
+  color: rgb(202, 13, 13);
+  border-radius: 15px;
+  background-color: white;
   transition: all 0.5s;
 }
 
 .change-pwd:hover {
-  background-color: black;
+  background-color: rgb(202, 13, 13);
+  border-color: brown;
   color: white;
   cursor: pointer;
+  transform: scale(1.05);
 }
 
-.textfield {
+.text {
   padding: 5px;
   width: 25%;
 }

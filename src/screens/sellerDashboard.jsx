@@ -33,7 +33,7 @@ const SellerScreen = ()=>{
         const [Status, setStatus] = useState('')
             return(
                 <div>
-            <Card border="dark" style={{height: "auto", margin: "20px 30px", padding: "25px 12px"}}>
+            <Card border="dark" style={{height: "250px", margin: "30px 10px" , padding:"10px 10px 20px 10px"}}>
                         <Container className="justify-content-center">   
                             <Row>
                                 {/* <Col sm={2}>
@@ -41,20 +41,19 @@ const SellerScreen = ()=>{
                                 </Col> */}
                                 
                                 <Col sm={8}>
-                                    <Card.Title>Order ID : -  {Data.orderid}</Card.Title>
-                                    <Card.Subtitle>Buyer Name : -  {Data.buyerName}</Card.Subtitle>
-                                    <Card.Subtitle>Buyer Email : -  {Data.buyerid}</Card.Subtitle>
-                                    <div className="description">Billing Address : - {Data.delivery_address}</div>
+                                    <Card.Title style={{marginBottom:"15px",marginTop:"10px"}}><b>Order ID:</b> {Data.orderid}</Card.Title>
+                                    <Card.Subtitle><b>Buyer Name:</b> {Data.buyerName}</Card.Subtitle>
+                                    <div className="description"><b>Billing Address: </b> {Data.delivery_address}</div>
                                 </Col>
 
                               
 
-                                <Col sm={2}>
+                                <Col sm={4}>
                                     {/* Status of Order */}
                                     <div className="text-center">
                                         {/* Delivered, Processing, Out for Delivery */}
                                         <b style={{color: "green"}}>{Data.delivery_status}</b><br/>
-                                        <label className="label-check">Delivery Status</label>
+                                        <label className="label-check"><b>Delivery Status</b></label>
                                         <select name="condition" id="condition" defaultValue={Data.delivery_status} onChange={(e)=>{setStatus(e.target.value)}}  required="required" className="selection">
                                             <option value="Pending">Pending</option>
                                             <option value="Shipping">Shipping</option>
@@ -68,6 +67,7 @@ const SellerScreen = ()=>{
                                             delivery_status: Status
                                         })
                                         }}>Update</button>}
+                                        {Status===''?'':<button style={{marginLeft:"20px"}} className="btn btn-success">Update</button>}
                                         {/* <b style={{color: "blue"}}>Pending</b>
                                         <b style={{color: "red"}}>Cancelled</b> */}
                                     </div>
@@ -79,18 +79,21 @@ const SellerScreen = ()=>{
                             <Row style={{padding: "10px 0px"}}>
                                 
 
-                                <Col sm={7}>
-                                <Card.Title>{Data.bookname}</Card.Title>
-                                <Card.Subtitle>{Data.auther}</Card.Subtitle>
-                                <Card.Subtitle>Order Time :- {Data.orderTime}</Card.Subtitle>
-                                <Card.Subtitle>Estimated Delivery :- {Data.delivery_date}</Card.Subtitle>
+                                <Col sm={3}>
+                                <Card.Subtitle style={{marginBottom:"15px",marginTop:"10px"}}><b>Book Name: </b>{Data.bookname}</Card.Subtitle>
+                                <Card.Subtitle style={{marginBottom:"15px",marginTop:"10px"}}><b>Author Name: </b>{Data.auther}</Card.Subtitle>
                                 </Col>
 
-                                <Col sm={2}>
-                                <b>Quantity : - {Data.count}</b>
+                                <Col sm={4}>
+                                <Card.Subtitle style={{marginBottom:"15px",marginTop:"10px"}}><b>Order Time:</b> {Data.orderTime}</Card.Subtitle>
+                                <Card.Subtitle style={{marginBottom:"15px",marginTop:"10px"}}><b>Estimated Delivery: </b>{Data.delivery_date}</Card.Subtitle>
                                 </Col>
 
-                                <Col sm={2}>
+                                <Col sm={3}>
+                                <b style={{color:"brown" ,fontSize:"larger"}}>Quantity: {Data.count}</b>
+                                </Col>
+
+                                <Col sm={2} style={{color:"brown",fontSize:"larger"}}>
                                 <i className="fa fa-inr"></i>
                                 <b>{Data.tag.offered_price?Data.tag.offered_price:Data.tag.price}</b>
                                 </Col>
@@ -138,40 +141,45 @@ const SellerScreen = ()=>{
                 <Navbar2 />
                 <Container>
                     <Row style={{padding: "12px 5px"}}>
-                        <Col sm={8}>
-                            {Seller.certificates!=="no certificate added"? <button onClick={()=>{history.push(Seller.certificates)}}>Check Certitficates</button>:'Certificates Not Provided'}
+                        <Col sm={7}>
+                            {Seller.certificates!=="no certificate added"? <button onClick={()=>{history.push(Seller.certificates)}}>Check Certificates</button>:<b>Shop Verification Documents Not Provided</b>}
                             <br/>
-                            <label className="label-dash">Name: </label><br />
+                            <label className="label-dash"><b>Name:</b> </label><br />
                             <input value={sellername} className="textfield" onChange={(e)=>{setSellername(e.target.value)}} /><br /><br />
-                            <label className="label-dash">Seller Address: </label><br />
+                            <label className="label-dash"><b>Seller Address: </b></label><br />
                             <input value={address} className="textfield" onChange={(e)=>{setAddress(e.target.value)}}/><br /><br />
-                            <label className="label-dash">Experience: </label><br />
+                            <label className="label-dash"><b>Experience: </b></label><br />
                             <input value={experience} className="textfield" onChange={(e)=>{setExperience(e.target.value)}}/><br /><br />
-                            <label className="label-dash">Phone No: </label><br />
+                            <label className="label-dash"><b>Phone No: </b></label><br />
                             <input value={phone} className="textfield" onChange={(e)=>{setPhone(e.target.value)}}/><br /><br />
-                            <label className="label-dash">Email: </label><br />
+                            <label className="label-dash"><b>Email: </b></label><br />
                             <input value={email} className="textfield" onChange={(e)=>{setEmail(e.target.value)}}/><br /><br />
-                            <button className="change-pwd" onClick={handler}>Update Profile</button><br />
+                            <button className="change-pwd" onClick={handler}><b>Update Profile</b></button><br />
                         </Col>
 
-                        <Col sm={4}>
-                            <button className="change-pwd" onClick={()=>{history.push('/AddBookScreen')}}>Add Book</button><br />
-                            <button className="change-pwd" onClick={()=>{history.push('/sellerui/getaddedBooks')}}>Get added books</button><br />
-                            <button className="change-pwd">Refresh Orders</button><br />
-                            <Link to='/forgotpassword'><button className="change-pwd">Change Password</button></Link><br />
+                        <Col sm={5}>
+                            <button style={{width:"100%", height:"12%" , margin:"5%",marginTop:"15%"}} className="change-pwd" onClick={()=>{history.push('/AddBookScreen')}}>Add Book</button><br />
+                            <button style={{width:"100%", height:"12%",margin:"5%"}}className="change-pwd" onClick={()=>{history.push('/sellerui/getaddedBooks')}}>Get added books</button><br />
+                            <button style={{width:"100%", height:"12%",margin:"5%"}}className="change-pwd">Refresh Orders</button><br />
+                            <Link to='/forgotpassword'>
+                                <button style={{width:"100%", height:"12%",margin:"5%"}}className="change-pwd">Change Password</button></Link><br />
                         </Col>
-                    </Row>
-                
+                </Row>
                 </Container>
                 
 
                 <br />
-                <h3>Incoming Orders</h3>
+                <div className="order-history">
+                    <header className="heading1">
+                    Incoming Orders
+                    </header>
+                    
                 <hr />
                 {Orders.length === 0? <h4>No Orders</h4>:Orders.map((order)=>{
                     return <OrderCard order={order}/>
+                    
                  })}
-                
+                </div>
             </div>
         )
     

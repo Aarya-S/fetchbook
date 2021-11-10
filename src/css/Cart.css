@@ -16,7 +16,7 @@
 }
 
 .no-items {
-  font-size: medium;
+  font-size: larger;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   margin-left: 30px;
@@ -27,15 +27,22 @@
 /* Cart Item CSS */
 .count-product {
   margin: auto 30px;
-  color: black;
+  color: brown;
+  font-size: larger;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .final-price {
   margin-left: 10px;
+  color: brown;
+  font-size: larger;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .description {
-  color: rgba(0, 0, 0, 0.6);
+  color: brown;
   margin-top: 10px;
 }
 
@@ -61,8 +68,9 @@
 /* Buttons */
 .checkout-btn {
   border: 1px solid black;
-  background-color: white;
-  border-radius: 20px;
+  background-color: brown;
+  color: white;
+  border-radius: 12px;
   padding: 7px;
   margin-top: 30px;
   width: 100%;
@@ -70,6 +78,7 @@
 }
 
 .checkout-btn:hover {
-  background-color: black;
-  color: white;
+  background-color: rgb(206, 2, 2);
+  color: aliceblue;
+  transform: scale(1.05);
 }

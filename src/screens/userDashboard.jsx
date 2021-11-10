@@ -31,12 +31,12 @@ const Dashboard = ()=>{
                 <div className="dashboard">
                 <h3>Dashboard</h3>
                 <hr />
-                <label for="name" className="label-dash">Name:</label><br />
-                <input value={DisplayName} id="name" onChange={(e)=>{setDisplayName(e.target.value)}} className="textfield" /><br /><br />
-                <label for="email" className="label-dash">Email ID:</label><br />
-                <input value={Email} id="email" onChange={(e)=>{setEmail(e.target.value)}} className="textfield" /><br /><br />
-                <button className="change-pwd" onClick={submitHandler}>update profile</button>
-                <Link to='/forgotpassword'><button className="change-pwd">Change password</button></Link><br /> <br /><br />
+                <label for="name" className="label-dash"><b>Name:</b></label><br />
+                <input value={DisplayName} id="name" onChange={(e)=>{setDisplayName(e.target.value)}} className="text" /><br /><br />
+                <label for="email" className="label-dash"><b>Email ID:</b></label><br />
+                <input value={Email} id="email" onChange={(e)=>{setEmail(e.target.value)}} className="text" /><br /><br />
+                <button className="change-pwd" onClick={submitHandler}>Update profile</button><br/>
+                <Link to='/forgotpassword'><button className="change-pwd">Change Password</button></Link><br /> <br /><br />
                 </div>
             </div>
         )

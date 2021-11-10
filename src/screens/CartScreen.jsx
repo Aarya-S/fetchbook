@@ -87,10 +87,10 @@ const Cart = () => {
                                 </Col>
                                 
                                 <Col sm={6}>
-                                    <Card.Title>{book.bookname}</Card.Title>
-                                    <Card.Subtitle>{book.tag.sellerid}</Card.Subtitle>
-                                    <Card.Subtitle>{book.tag.address}</Card.Subtitle>
-                                    <Button variant="link" size="sm" style={{ margin: "5px 0px", padding: "0px 0px", color: "red" }} onClick={()=>{removeByArrayItem("cart",book._id)}}>Remove Item</Button>
+                                    <Card.Title style={{padding: "10px 0px 0px 0px"}}><b>Book Name: </b>{book.bookname}</Card.Title>
+                                    <Card.Subtitle style={{padding: "10px 0px 0px 0px"}}><b>Seller Mail ID: </b>{book.tag.sellerid}</Card.Subtitle>
+                                    <Card.Subtitle style={{padding: "10px 0px 0px 0px"}}><b>Seller Address: </b>{book.tag.address}</Card.Subtitle>
+                                    <Button variant="link" size="medium" style={{  padding: "10px 0px 0px 0px", color: "red" }} onClick={()=>{removeByArrayItem("cart",book._id)}}>Remove Item</Button>
     
                                     {/* <div className="description">{product.description}</div> */}
                                 </Col>
@@ -122,32 +122,37 @@ const Cart = () => {
 
     const OrderCard = ({book})=>{
         return (
-            <Card style={{height: "175px", margin: "20px 30px"}}>
+            <Card style={{height: "155px", margin: "20px 30px" , padding:"10px 10px 10px 10px"}}>
                         <Container>       
                             <Row className="justify-content-start align-items-center">
-                                
-                                <Col sm={6}>
-                                    <Card.Title>Book Name : - {book.bookname}</Card.Title>
-                                    <Card.Subtitle>Seller Mail : - {book.tag.sellerid}</Card.Subtitle>
-                                    <Card.Subtitle>Qnty : - {book.count}</Card.Subtitle>
+                                <Col sm={5} >
+                                <Card.Title ><b>Book Name:</b> {book.bookname}</Card.Title>
+                                    <Card.Title><b>Seller Mail:</b> {book.tag.sellerid}</Card.Title>
+                                    <Card.Title><b>Quantity: </b>{book.count}</Card.Title>
                                     {/* <div className="description"> {book.tag.address}</div> */}
                                 </Col>
 
-                                <Col sm={2}>
-                                    <i className="fa fa-inr"></i>
+                                <Col sm={1}>
+                                <b>Price: </b><i className="fa fa-inr"></i>
                                     {book.tag.offer?book.tag.offered_price*book.count:book.tag.price*book.count}
                                 </Col>
 
-                                <Col sm={2}>
+                                <Col sm={3}>
                                     {/* Status of Order */}
                                     <div className="text-center">
-                                        <text><b>ORDER ID:</b> {book.orderid}</text><br/>
-                                        <text><b>ORDER Time:</b> {book.orderTime}</text><br/>
-                                        <text><b>Estimate Delivery:</b>{book.delivery_date}</text><br/>
+                                        <text><b>Order ID:</b> {book.orderid}</text><br/>
+                                        <text><b>Order Time:</b> {book.orderTime}</text><br/>
+                                    
                                     </div>
                                 </Col>
-                                <button onClick ={()=>{ContactSeller(book.tag.sellerid)}}>Contact Seller</button>
-
+                                <Col sm={3}>
+                                    <div>
+                                <text><b>Estimate Delivery:</b>{book.delivery_date}</text><br/>
+                                </div>
+                                </Col>
+                                
+                                <Button style={{width:"20%"}} variant="outline-danger"  onClick ={()=>{ContactSeller(book.tag.sellerid)}}>Contact Seller</Button>
+                                
                             </Row>
                         </Container>
                     </Card>
@@ -170,8 +175,8 @@ const Cart = () => {
                      
                     // console.log(book)
                     })}
-                    <div style={{marginLeft: "25px"}}>
-                        <Button variant="outline-danger" onClick={()=>{
+                    <div style={{marginLeft: "30px"}}>
+                        <Button style={{width:"20%"}}variant="outline-danger" onClick={()=>{
                         returnCart.DeleteCart();
                         setList([])
                         alert('Item Removed From the Cart')}}>Empty the Cart</Button>
