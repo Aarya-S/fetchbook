@@ -16,8 +16,8 @@ const AfterSearch = ({match})=>{
     const [search, setSearch] = useState('')
     const [condition, setCondition] = useState('')
     const [deliveryStatus, setDeliveryStatus] = useState(false)
-    const [newBook, setNewBook] = useState('')
-    const [offered, setOffered] = useState('')
+    const [newBook, setNewBook] = useState(false)
+    const [offered, setOffered] = useState(false)
     const [instock, setInstock] = useState()
     const [category, setCategory] = useState('')
     const deliveryhandle =()=>{
@@ -28,6 +28,29 @@ const AfterSearch = ({match})=>{
     if(search!=searchedbook){
         setSearch(searchedbook)
         setRender([])
+    }
+    const offeredhandle =()=>{
+      setOffered(!offered)
+  }
+  const newhandle =()=>{
+    setNewBook(!newBook)
+}
+const deliveryStatushandle =()=>{
+  setDeliveryStatus(!deliveryStatus)
+}
+
+    const ApplyFilter = ()=>{
+      console.log(newBook)
+      if(deliveryStatus){
+        setRender(render.filter(book=>book.delivery==true))
+      }
+      if(newBook){
+        console.log(render.filter(book=>book.tag.new==true))
+        setRender(render.filter(book=>book.new==true))
+      }
+      if(offered){
+        setRender(render.filter(book=>book.offer==true))
+      }
     }
     
     if(render.length === 0 ){
@@ -57,7 +80,7 @@ const AfterSearch = ({match})=>{
       <h6 class="font-weight-bold mb-3"><u>Condition</u></h6>
 
       <div class="form-check pl-0 mb-3">
-        <input type="checkbox" class="form-check-input filled-in" id="new"/>
+        <input type="checkbox" class="form-check-input filled-in" id="new" defaultValue={newBook} onChange={newhandle}/>
         <label class="form-check-label small text-uppercase card-link-secondary" for="new">New</label>
       </div>
       <div class="form-check pl-0 mb-3">
@@ -127,7 +150,9 @@ const AfterSearch = ({match})=>{
         <input type="checkbox" class="form-check-input filled-in" id="used"/>
         <label class="form-check-label small text-uppercase card-link-secondary" for="used">Educational</label>
         </div>
-        
+      <div class="font-weight-bold mb-3">
+          <button onClick={ApplyFilter}>Apply</button>
+        </div>
 
       
       

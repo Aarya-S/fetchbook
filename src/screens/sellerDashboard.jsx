@@ -16,8 +16,10 @@ const SellerScreen = ()=>{
         const Seller = location.state
         const Orders = location.state.orders
         console.log(Orders)
+        
         const OrderCard = ({order})=>{
             const Data = order.putdata
+        const [Status, setStatus] = useState('')
             return(
                 <div>
             <Card border="dark" style={{height: "auto", margin: "20px 30px", padding: "25px 12px"}}>
@@ -30,7 +32,7 @@ const SellerScreen = ()=>{
                                 <Col sm={8}>
                                     <Card.Title>Order ID : -  {Data.orderid}</Card.Title>
                                     <Card.Subtitle>Buyer Name : -  {Data.buyerName}</Card.Subtitle>
-                                    <div className="description">Delivery Address : - {Data.delivery_address}</div>
+                                    <div className="description">Billing Address : - {Data.delivery_address}</div>
                                 </Col>
 
                               
@@ -39,7 +41,14 @@ const SellerScreen = ()=>{
                                     {/* Status of Order */}
                                     <div className="text-center">
                                         {/* Delivered, Processing, Out for Delivery */}
-                                        <b style={{color: "green"}}>{Data.delivery_status}</b>
+                                        <b style={{color: "green"}}>{Data.delivery_status}</b><br/>
+                                        <label className="label-check">Delivery Status</label>
+                                        <select name="condition" id="condition" defaultValue={Data.delivery_status} onChange={(e)=>{setStatus(e.target.value)}}  required="required" className="selection">
+                                            <option value="Pending">Pending</option>
+                                            <option value="Shipping">Shipping</option>
+                                            <option value="Delivered">Delivered</option>
+                                        </select>
+                                        {Status===''?'':<button className="btn btn-success">Update</button>}
                                         {/* <b style={{color: "blue"}}>Pending</b>
                                         <b style={{color: "red"}}>Cancelled</b> */}
                                     </div>
@@ -55,6 +64,7 @@ const SellerScreen = ()=>{
                                 <Card.Title>{Data.bookname}</Card.Title>
                                 <Card.Subtitle>{Data.auther}</Card.Subtitle>
                                 <Card.Subtitle>Order Time :- {Data.orderTime}</Card.Subtitle>
+                                <Card.Subtitle>Estimated Delivery :- {Data.delivery_date}</Card.Subtitle>
                                 </Col>
 
                                 <Col sm={2}>
