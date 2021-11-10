@@ -22,17 +22,14 @@ const Details =()=>{
         return(
             <div>
             <Navbar2 />
-            <div class="parent">
+            <div class="grid">
             
-            <div class="div1">
+            <div class="span-row-3">
               <img src={product.img} style={{width: '100%', height: "95vh",paddingLeft: "3%" , paddingRight: "3%", marginTop: "12%" ,marginBottom: "12%" }} alt="product image"/>
                 <h2></h2>
-                </div>
-                <div className="div7">
-                  <hr style={{height:"5px"}} />
-        </div>
+                
                   
-                <div class ="div3">
+                
                 <div className="wrapper">
   <a className="cta" onClick={()=>{
     CartHelper.AddCart(product)
@@ -52,9 +49,10 @@ const Details =()=>{
     </span> 
   </a>
                 </div>
-              </div>
+                </div>
               
-            <div className="div2"> 
+              
+            <div className="span-row-5"> 
                 <br/>
                 <h1 style={{fontFamily:"Bahnschrift SemiBold"}}>{product.bookname}</h1>
                 <hr/>
@@ -76,11 +74,8 @@ const Details =()=>{
                 </div>
               </div>
                 </div>
-                   <div className="div5"> 
-                  <hr style={{height:"10px"}}/>
-  </div>
  
-                  <div className="div4">
+                  <div className="span-col-2">
                 <RenderBook state={books}/>
               </div>
                 
