@@ -11,23 +11,25 @@ const AddBookScreen = ()=>{
     
     const location = useLocation()
     console.log(location.state)
-    const EditBook = location.state.data || null;
+    let EditBook = null;
+    if(location.state){
+    EditBook = location.state;}
 
-        const [bookname, setBookname] = useState(location.state ? EditBook.bookname : '');
+        const [bookname, setBookname] = useState(location.state ? EditBook.data.bookname : '');
         const [file, setFile] = useState(null);
-        const [url, setURL] = useState(location.state ?EditBook.img: "");
-        const [auther, setAuther] = useState(location.state ?EditBook.auther : '')
-        const [sellername, setSellername] = useState(location.state ?EditBook.sellername : '')
-        const [description, setDescription] = useState(location.state ?EditBook.description : '')
-        const [publisher, setPublisher] = useState(location.state ?EditBook.publisher : '')
-        const [category, setCategory] = useState(location.state ?EditBook.tag.category : '')
-        const [price, setPrice] = useState(location.state ?EditBook.tag.price : '')
-        const [address, setAddress] = useState(location.state ?EditBook.tag.address : '')
-        const [stock, setStock] = useState(location.state ?EditBook.tag.instock : '')
-        const [deliverystatus, setDeliverystatus] = useState(location.state ?EditBook.tag.delivery_status : false)
-        const [newbook, setNewbook] = useState(location.state ?EditBook.tag.new : false)
-        const [bookcondition, setBookcondition] = useState(location.state ?EditBook.tag.condition : "good")
-        const [offered, setOffered] = useState(location.state ?EditBook.tag.offer : false)
+        const [url, setURL] = useState(location.state ?EditBook.data.img: "");
+        const [auther, setAuther] = useState(location.state ?EditBook.data.auther : '')
+        const [sellername, setSellername] = useState(location.state ?EditBook.data.sellername : '')
+        const [description, setDescription] = useState(location.state ?EditBook.data.description : '')
+        const [publisher, setPublisher] = useState(location.state ?EditBook.data.publisher : '')
+        const [category, setCategory] = useState(location.state ?EditBook.data.tag.category : '')
+        const [price, setPrice] = useState(location.state ?EditBook.data.tag.price : '')
+        const [address, setAddress] = useState(location.state ?EditBook.data.tag.address : '')
+        const [stock, setStock] = useState(location.state ?EditBook.data.tag.instock : '')
+        const [deliverystatus, setDeliverystatus] = useState(location.state ?EditBook.data.tag.delivery_status : false)
+        const [newbook, setNewbook] = useState(location.state ?EditBook.data.tag.new : false)
+        const [bookcondition, setBookcondition] = useState(location.state ?EditBook.data.tag.condition : "good")
+        const [offered, setOffered] = useState(location.state ?EditBook.data.tag.offer : false)
 
         const history = useHistory()
         const onUpdate = ()=>{
