@@ -39,7 +39,7 @@ return(
                 </div>
             </div>
             <div className="col">
-            <Link to='/membersignup'><h4><button>SELL HERE</button></h4></Link>
+            <Link to='/membersignup'><h4><button class="button button1">BECOME A SELLER TODAY</button></h4></Link>
             </div>
             <hr />
             <div className="row">

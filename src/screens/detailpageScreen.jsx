@@ -57,7 +57,7 @@ const Details =()=>{
             <div className="div2"> 
                 <br/>
                 <h1 style={{fontFamily:"Bahnschrift SemiBold"}}>{product.bookname}</h1>
-                <hr style={{height:"7px" , color: "rgb(255,0,0)"}} />
+                <hr/>
                 <div className="text">
                 <h4> <span  className="span">Seller</span> : {product.sellername}</h4><hr style={{height:"5px"}} />
                 <h4><span className="span">Description</span> : <br/>{product.description}</h4><hr style={{height:"5px" }} />
@@ -70,9 +70,9 @@ const Details =()=>{
                 <h4><span className="span">Condition of Book</span> : {product.tag.condition}</h4>
                 <h4>{product.tag.delivery_status}</h4><hr style={{height:"5px"}} />
                 <h4><span className="span">Products Available</span> : {String( product.stock)}</h4>
-                <h4><span className="span">Product in stock</span> : {product.tag.instock}</h4><hr/>
-                <h4>{product.tag.new}</h4><hr/>
-                <h4><span className="span">Price </span>: {product.tag.offer?product.tag.offered_price:product.tag.price}</h4><hr/><hr/>
+                <h4><span className="span">Product in stock</span> : {product.tag.instock}</h4>
+                <h4>{product.tag.new}</h4><hr style={{height:"5px"}} />
+                <h4><span className="span">Price </span>: {product.tag.offer?product.tag.offered_price:product.tag.price}</h4><hr style={{height:"5px"}} />
                 </div>
               </div>
                 </div>

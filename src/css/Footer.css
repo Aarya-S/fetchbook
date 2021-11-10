@@ -30,7 +30,21 @@ a:focus {
   background: #bae498;
 }
 
-/* a:hover {
+.button {
+  border: none;
+  border-radius: 6px;
+  color: white;
+  padding: 7px 16px;
+  text-align: center;
+  display: inline;
+  font-size: 20px;
+}
+
+.button1 {
+  background-color: rgb(146, 38, 38);
+}
+
+/* .button1:hover {
   border-bottom: 1px solid;
   background: rgb(119, 119, 119);
 } */
