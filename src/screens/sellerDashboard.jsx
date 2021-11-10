@@ -58,7 +58,7 @@ const SellerScreen = ()=>{
                                 </Col>
 
                                 <Col sm={2}>
-                                <b>{Data.count}</b>
+                                <b>Quantity : - {Data.count}</b>
                                 </Col>
 
                                 <Col sm={2}>

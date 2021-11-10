@@ -7,6 +7,7 @@ import { CardActionArea } from "@material-ui/core";
 import { auth } from "../firebaseconfig";
 import sellerAction from "../actions/sellerAction";
 import { SELLER_ORDER_LIST_REQUEST } from "../constant/sellerconstant";
+import OrderHistoryList from "../helper/OrderHistoryList";
 
 const CheckoutScreen = ()=>{   
     let history = useHistory();
@@ -36,8 +37,18 @@ const CheckoutScreen = ()=>{
             product.list[i].orderTime = new Date().toLocaleString();
             product.list[i].delivery_address = address1+' '+address2+' '+city+' '+state+' '+zipcode;
             product.list[i].delivery_status = 'pending';
+            Date.prototype.addDays = function(days) {
+                var date = new Date(this.valueOf());
+                date.setDate(date.getDate() + days);
+                return date;
+            }
+            
+            var date = new Date();
+            product.list[i].delivery_date = date.addDays(3).toLocaleString();
             AddorderRequest(product.list[i]);
+            OrderHistoryList.AddOrderHistory(product.list[i]);
         }
+        alert('Order Placed Successfully');
         history.push('/')
     }
     const AddorderRequest = (product)=>{

@@ -61,6 +61,16 @@ const Cart = () => {
         
     }
 
+    const emptyOrderhistory = ()=>{
+        returnOrderHistory.DeleteOrderHistory();
+        setOrderHistory([]);
+        alert("Order History is Empty")
+    }
+
+    const ContactSeller = (sellerId)=>{
+        window.open(`mailto:${sellerId}`);
+    }
+
     const CartCard = ({book})=>{
         const [count, setCount] = useState(1)
         const setCounttoProduct = ()=>{
@@ -107,6 +117,40 @@ const Cart = () => {
                             </Row>
                         </Container>
                     </Card>     
+        )
+    }
+
+    const OrderCard = ({book})=>{
+        return (
+            <Card style={{height: "175px", margin: "20px 30px"}}>
+                        <Container>       
+                            <Row className="justify-content-start align-items-center">
+                                
+                                <Col sm={6}>
+                                    <Card.Title>Book Name : - {book.bookname}</Card.Title>
+                                    <Card.Subtitle>Seller Mail : - {book.tag.sellerid}</Card.Subtitle>
+                                    <Card.Subtitle>Qnty : - {book.count}</Card.Subtitle>
+                                    {/* <div className="description"> {book.tag.address}</div> */}
+                                </Col>
+
+                                <Col sm={2}>
+                                    <i className="fa fa-inr"></i>
+                                    {book.tag.offer?book.tag.offered_price*book.count:book.tag.price*book.count}
+                                </Col>
+
+                                <Col sm={2}>
+                                    {/* Status of Order */}
+                                    <div className="text-center">
+                                        <text><b>ORDER ID:</b> {book.orderid}</text><br/>
+                                        <text><b>ORDER Time:</b> {book.orderTime}</text><br/>
+                                        <text><b>Estimate Delivery:</b>{book.delivery_date}</text><br/>
+                                    </div>
+                                </Col>
+                                <button onClick ={()=>{ContactSeller(book.tag.sellerid)}}>Contact Seller</button>
+
+                            </Row>
+                        </Container>
+                    </Card>
         )
     }
         return(
@@ -156,41 +200,19 @@ const Cart = () => {
                 
                 {OrderHistory === null || OrderHistory.length===0?
                     <div className="no-items">You have no order history!</div>:
+                    <div>{
                 OrderHistory.map((book)=>{
                     return (
-                    <Card style={{height: "175px", margin: "20px 30px"}}>
-                        <Container>       
-                            <Row className="justify-content-start align-items-center">
-                                <Col sm={2}>
-                                    <Card.Img variant="left" src={book.img} style={{height: "150px", width:"150px", marginTop:"12.5px", marginLeft: "12.5px"}} />
-                                </Col>
-                                
-                                <Col sm={6}>
-                                    <Card.Title>{book.name}</Card.Title>
-                                    <Card.Subtitle>{book.tag.sellerid}</Card.Subtitle>
-                                    <Card.Subtitle>Qnty : - {book.tag.count}</Card.Subtitle>
-                                    <div className="description"> {book.tag.address}</div>
-                                </Col>
-
-                                <Col sm={2}>
-                                    <i className="fa fa-inr"></i>
-                                    {book.tag.offer?book.tag.offered_price*book.tag.count:book.tag.price*book.tag.count}
-                                </Col>
-
-                                <Col sm={2}>
-                                    {/* Status of Order */}
-                                    <div className="text-center">
-                                        {/* Delivered, Processing, Out for Delivery */}
-                                        <b>{book.tag.delivery?"Delivered":"Pending"}</b> <br />
-                                        <text><b>ORDER ID:</b> {book.orderid}</text>
-                                    </div>
-                                </Col>
-
-                            </Row>
-                        </Container>
-                    </Card>
+                        <div>
+                            <OrderCard book={book}/>
+                            
+                        </div>
                     )
                 })}
+                <button className="checkout-btn" onClick={emptyOrderhistory}>Delete All Order History</button>
+                </div>
+                
+                }
                     
                 </div>:''}
             </div>
