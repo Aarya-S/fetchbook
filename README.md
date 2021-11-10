@@ -20,17 +20,17 @@ A digital catalog of books, both new and used.<br>
 <br>
 <hr>
 <h3>Aarya</h3>
-razor pay test mode <br/>
-recipt page 
-filters
-Offers Page
+razo<br/>r pay test mode <br/>
+recipt pa<br/>ge <br/>
+filters<br/>
+Offers Page<br/>
 
 <h3>css</h3>
-order history
-details page
-footor buttons sell Here
+order history<br/>
+details page<br/>
+footor buttons sell Here<br/>
 
 
-books atleast 15 
-across 4 seller accounts
+books atleast 15 <br/>
+across 4 seller accounts<br/>
 
