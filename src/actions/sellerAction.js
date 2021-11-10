@@ -41,7 +41,9 @@ const getSeller = async (data)=>{
 const addorder = async (data)=>{
   let result = null;
   try{
-    await axios.get(`${BASE_URL}/seller/addorders?email=${data}`)
+    await axios.post(`${BASE_URL}/seller/addorders`,{
+      data
+    })
     .then((responce)=>{responce.status===200?result=responce.data:result=SELLER_ORDER_LIST_FAIL})
     .catch((responce)=>{console.log(responce)})
   }catch(e){

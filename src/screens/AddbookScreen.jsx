@@ -11,7 +11,7 @@ const AddBookScreen = ()=>{
     
     const location = useLocation()
     console.log(location.state)
-    const EditBook = location.state.data ;
+    const EditBook = location.state.data || null;
 
         const [bookname, setBookname] = useState(location.state ? EditBook.bookname : '');
         const [file, setFile] = useState(null);

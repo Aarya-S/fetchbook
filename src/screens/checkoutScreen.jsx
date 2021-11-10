@@ -1,15 +1,48 @@
-import React from "react";
-import { useLocation } from "react-router";
+import React, { useState } from "react";
+import { useLocation ,useHistory } from "react-router";
 import Navbar2 from '../components/Navbar2';
 import '../css/CheckoutScreen.css'
 import { Form, Col, Row, Button, Card, Container } from 'react-bootstrap'
 import { CardActionArea } from "@material-ui/core";
 import { auth } from "../firebaseconfig";
+import sellerAction from "../actions/sellerAction";
+import { SELLER_ORDER_LIST_REQUEST } from "../constant/sellerconstant";
 
 const CheckoutScreen = ()=>{   
+    let history = useHistory();
     let location = useLocation();
     let product  = location.state;
+    
+    const [address1, setAddress1] = useState('')
+    const [address2, setAddress2] = useState('')
+    const [city, setCity] = useState('')
+    const [state, setState] = useState('')
+    const [zipcode, setZipcode] = useState('')
     console.log(product);
+    const checkoutHandler = ()=>{
+        for(let i=0;i<product.list.length;i++){
+            delete product.list[i].description;
+            delete product.list[i].img;
+            delete product.list[i].publisher;
+            delete product.list[i].tag.category;
+            delete product.list[i].tag.condition;
+            delete product.list[i].tag.delivery_status;
+            delete product.list[i].tag.instock;
+            delete product.list[i].tag.new;
+            delete product.list[i].tag.address;
+            product.list[i].buyerName = auth.currentUser.displayName;
+            product.list[i].buyerid = auth.currentUser.email;
+            product.list[i].orderid = Math.random().toString(36).substr(2, 9);
+            product.list[i].orderTime = new Date().toLocaleString();
+            product.list[i].delivery_address = address1+' '+address2+' '+city+' '+state+' '+zipcode;
+            product.list[i].delivery_status = 'pending';
+            AddorderRequest(product.list[i]);
+        }
+        history.push('/')
+    }
+    const AddorderRequest = (product)=>{
+        sellerAction(SELLER_ORDER_LIST_REQUEST,product);
+    }
         return(
             <>
                 <Navbar2 />
@@ -27,38 +60,38 @@ const CheckoutScreen = ()=>{
                                     </Form.Group>
                                     <Form.Group as={Col} controlId="formGridPassword">
                                     <Form.Label><b>Name</b></Form.Label>
-                                    <Form.Control type="text" placeholder="Your name here" />
+                                    <Form.Control readOnly placeholder={auth.currentUser.displayName} />
                                     </Form.Group>
                                 </Row>
 
                                 <Form.Group className="mb-3" controlId="formGridAddress1">
                                     <Form.Label><b>Address Line 1</b></Form.Label>
-                                    <Form.Control type="text" />
+                                    <Form.Control type="text" value={address1} onChange={(e)=>{setAddress1(e.target.value)}}/>
                                 </Form.Group>
 
                                 <Form.Group className="mb-3" controlId="formGridAddress2">
                                     <Form.Label><b>Address Line 2</b></Form.Label>
-                                    <Form.Control type="text" />
+                                    <Form.Control type="text" value={address2} onChange={(e)=>{setAddress2(e.target.value)}}/>
                                 </Form.Group>
 
                                 <Row className="mb-3">
 
                                     <Form.Group as={Col} controlId="formGridState">
                                     <Form.Label><b>State</b></Form.Label>
-                                    <Form.Control />
+                                    <Form.Control type="text" value={state} onChange={(e)=>{setState(e.target.value)}}/>
                                     </Form.Group>
 
                                     <Form.Group as={Col} controlId="formGridCity">
                                     <Form.Label><b>City</b></Form.Label>
-                                    <Form.Control />
+                                    <Form.Control type="text" value={city} onChange={(e)=>{setCity(e.target.value)}}/>
                                     </Form.Group>
 
                                     <Form.Group as={Col} controlId="formGridZip">
                                     <Form.Label><b>Zip</b></Form.Label>
-                                    <Form.Control />
+                                    <Form.Control type="text" value={zipcode} onChange={(e)=>{setZipcode(e.target.value)}}/>
                                     </Form.Group>
                                 </Row>
-                                <Button variant="dark" type="submit" style={{width: "100%", marginTop: "25px"}}>
+                                <Button variant="dark"  style={{width: "100%", marginTop: "25px"}} onClick={checkoutHandler}>
                                     Confirm Order
                                 </Button>
                             </Form>

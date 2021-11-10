@@ -14,6 +14,65 @@ const SellerScreen = ()=>{
         const history = useHistory()
         const location = useLocation()
         const Seller = location.state
+        const Orders = location.state.orders
+        console.log(Orders)
+        const OrderCard = ({order})=>{
+            const Data = order.putdata
+            return(
+                <div>
+            <Card border="dark" style={{height: "auto", margin: "20px 30px", padding: "25px 12px"}}>
+                        <Container className="justify-content-center">   
+                            <Row>
+                                {/* <Col sm={2}>
+                                    <Card.Img variant="left" src="https://www.unsplash.com/random" style={{height: "150px", width:"150px", marginTop:"12.5px", marginLeft: "12.5px"}} />
+                                </Col> */}
+                                
+                                <Col sm={8}>
+                                    <Card.Title>Order ID : -  {Data.orderid}</Card.Title>
+                                    <Card.Subtitle>Buyer Name : -  {Data.buyerName}</Card.Subtitle>
+                                    <div className="description">Delivery Address : - {Data.delivery_address}</div>
+                                </Col>
+
+                              
+
+                                <Col sm={2}>
+                                    {/* Status of Order */}
+                                    <div className="text-center">
+                                        {/* Delivered, Processing, Out for Delivery */}
+                                        <b style={{color: "green"}}>{Data.delivery_status}</b>
+                                        {/* <b style={{color: "blue"}}>Pending</b>
+                                        <b style={{color: "red"}}>Cancelled</b> */}
+                                    </div>
+                                </Col>
+                            </Row>
+                            <hr />
+
+                            {/* Ordered Books List */}
+                            <Row style={{padding: "10px 0px"}}>
+                                
+
+                                <Col sm={7}>
+                                <Card.Title>{Data.bookname}</Card.Title>
+                                <Card.Subtitle>{Data.auther}</Card.Subtitle>
+                                <Card.Subtitle>Order Time :- {Data.orderTime}</Card.Subtitle>
+                                </Col>
+
+                                <Col sm={2}>
+                                <b>{Data.count}</b>
+                                </Col>
+
+                                <Col sm={2}>
+                                <i className="fa fa-inr"></i>
+                                <b>{Data.tag.offered_price?Data.tag.offered_price:Data.tag.price}</b>
+                                </Col>
+                            </Row>
+
+                        </Container>
+                    </Card>
+
+                    </div>
+                    )
+        }
         const [sellername, setSellername] = useState(Seller.sellername || "unAuth Access")
         const [address, setAddress] = useState(Seller.address || "unAuth Access")
         const [email, setEmail] = useState(Seller.seller_email || "unAuth Access")
@@ -80,66 +139,10 @@ const SellerScreen = ()=>{
                 <br />
                 <h3>Incoming Orders</h3>
                 <hr />
-
-                <Card border="dark" style={{height: "auto", margin: "20px 30px", padding: "25px 12px"}}>
-                        <Container className="justify-content-center">   
-                            <Row>
-                                {/* <Col sm={2}>
-                                    <Card.Img variant="left" src="https://www.unsplash.com/random" style={{height: "150px", width:"150px", marginTop:"12.5px", marginLeft: "12.5px"}} />
-                                </Col> */}
-                                
-                                <Col sm={8}>
-                                    <Card.Title>Order ID:</Card.Title>
-                                    <Card.Subtitle>Buyer Name</Card.Subtitle>
-                                    <div className="description">Address</div>
-                                </Col>
-
-                                <Col sm={2}>
-                                    <b>Total</b><br />
-                                    <i className="fa fa-inr"></i>
-                                    Price
-                                </Col>
-
-                                <Col sm={2}>
-                                    {/* Status of Order */}
-                                    <div className="text-center">
-                                        {/* Delivered, Processing, Out for Delivery */}
-                                        <b style={{color: "green"}}>Delivered</b>
-                                        {/* <b style={{color: "blue"}}>Pending</b>
-                                        <b style={{color: "red"}}>Cancelled</b> */}
-                                    </div>
-                                </Col>
-                            </Row>
-                            <hr />
-
-                            {/* Ordered Books List */}
-                            <Row style={{padding: "10px 0px"}}>
-                                <Col sm={1}>
-                                <b>1.</b>
-                                </Col>
-
-                                <Col sm={7}>
-                                <Card.Title>Book Name</Card.Title>
-                                <Card.Subtitle>Author</Card.Subtitle>
-                                </Col>
-
-                                <Col sm={2}>
-                                <b>Quantity</b>
-                                </Col>
-
-                                <Col sm={2}>
-                                <b>Price</b>
-                                </Col>
-                            </Row>
-
-                        </Container>
-                    </Card>
+                {Orders.length === 0? <h4>No Orders</h4>:Orders.map((order)=>{
+                    return <OrderCard order={order}/>
+                 })}
                 
-                    <Card border="dark" style={{height: "auto", margin: "20px 30px", padding: "25px 12px"}}>
-                        <Container>
-
-                        </Container>
-                    </Card>
             </div>
         )
     
