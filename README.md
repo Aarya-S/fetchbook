@@ -20,8 +20,17 @@ A digital catalog of books, both new and used.<br>
 <br>
 <hr>
 <h3>Aarya</h3>
-<h4> a) Seller Dashboard Manage Books </h4>
-<h4> b) Change in card when product has offer </h4>
-<h4> c) Calculate offer percent function </h4>
+razo<br/>r pay test mode <br/>
+recipt pa<br/>ge <br/>
+filters<br/>
+Offers Page<br/>
 
+<h3>css</h3>
+order history<br/>
+details page<br/>
+footor buttons sell Here<br/>
+
+
+books atleast 15 <br/>
+across 4 seller accounts<br/>
 
