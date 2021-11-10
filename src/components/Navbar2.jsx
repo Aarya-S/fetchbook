@@ -75,8 +75,8 @@ function Navbar2() {
                             aria-label="Search"
                             onChange={(e)=>{setSearch(e.target.value)}}
                         />
-                        
-                        <Button onClick={searchHandle} variant="outline-light" className="btn-md searchbutton"><nobr><i className="fa fa-search"></i> Search</nobr></Button>
+                        {search===''?'':
+                        <Button onClick={searchHandle} variant="outline-light" className="btn-md searchbutton"><nobr><i className="fa fa-search"></i> Search</nobr></Button>}
                     </Form>
                 </Container>
                 
