@@ -32,7 +32,7 @@ const getuser = async(email)=>{
     await axios.post(`${BASE_URL}/user/getuser?email="${email}"`)
     .then((responce)=>{responce.status === 200?res=responce.data:res=USER_DETAILS_FAIL})
     .catch((e)=>{res=USER_DETAILS_FAIL+e;console.log(res)})
-    return res
+    return res;
 }
 
 const addorder = async(useremail,bookid,sellermail)=>{
@@ -58,11 +58,13 @@ const removeorder = async(useremail,bookid,sellermail)=>{
 }
 const deleteuser = async(id)=>{
     let res = null;
-    await axios.post(`${BASE_URL}/user/delete/:id`)
+    await axios.delete(`${BASE_URL}/user/delete/:id`)
     .then((responce)=>{responce.status === 200?res=USER_DELETE_SUCCESS:res=USER_DELETE_FAIL})
     .catch((e)=>{res=USER_DELETE_FAIL+e;console.log(res)})
-    return res
+    return res;
 }
+
+
 
 
 const UserAction=(action,data)=>{

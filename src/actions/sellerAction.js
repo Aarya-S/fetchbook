@@ -76,6 +76,17 @@ const deleteorder = async (data)=>{
   return result;
 }
 
+const updateuser = async (data)=>{
+  console.log(data)
+  let res = null;
+  await axios.post(`${BASE_URL}/seller/updateorder`,{
+      id : data.id,
+      delivery_status : data.delivery_status,
+      orderid : data.orderid,}).then((responce)=>{responce.status === 200?res='ORDER_UPDATE_SUCCESS':res='ORDER_UPDATE_FAIL'})
+  .catch((e)=>{res='ORDER_UPDATE_FAIL'+e;console.log(res)})
+  return res;
+}
+
 const sellerAction = (Action,data)=>{
   switch(Action){
     case SELLER_DETAILS_REQUEST : return getSeller(data) ;break;
@@ -84,6 +95,7 @@ const sellerAction = (Action,data)=>{
     case SELLER_PROFILE_UPDATE_REQUEST:return setSeller(data); break;
     case ADD_SELLER_DETAILS_REQUEST : return setSeller(data); break;
     case 'SELLER_BOOK_REQUEST' : return getSellerBooks(data); break;
+    case 'ORDER_UPDATE_REQUEST' : return updateuser(data); break;
     default : alert(`you requested Action - ${Action}`)
   }
   return null;

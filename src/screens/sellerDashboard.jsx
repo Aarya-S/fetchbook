@@ -16,9 +16,20 @@ const SellerScreen = ()=>{
         const Seller = location.state
         const Orders = location.state.orders
         console.log(Orders)
-        
+        const HandleUpdateOrder = (data)=>{
+
+            const result = sellerAction('ORDER_UPDATE_REQUEST',data)
+            console.log(data)
+
+            // result.then((responce)=>{
+            //     console.log(responce)
+            // })
+            alert('Order Updated')
+            history.push('/')
+        }
         const OrderCard = ({order})=>{
-            const Data = order.putdata
+            const Data = order.putdata;
+
         const [Status, setStatus] = useState('')
             return(
                 <div>
@@ -32,6 +43,7 @@ const SellerScreen = ()=>{
                                 <Col sm={8}>
                                     <Card.Title>Order ID : -  {Data.orderid}</Card.Title>
                                     <Card.Subtitle>Buyer Name : -  {Data.buyerName}</Card.Subtitle>
+                                    <Card.Subtitle>Buyer Email : -  {Data.buyerid}</Card.Subtitle>
                                     <div className="description">Billing Address : - {Data.delivery_address}</div>
                                 </Col>
 
@@ -48,7 +60,14 @@ const SellerScreen = ()=>{
                                             <option value="Shipping">Shipping</option>
                                             <option value="Delivered">Delivered</option>
                                         </select>
-                                        {Status===''?'':<button className="btn btn-success">Update</button>}
+                                        {Status===''?'':<button className="btn btn-success" onClick={()=>
+                                        {
+                                        HandleUpdateOrder({
+                                            id : Seller._id,
+                                            orderid: Data.orderid,
+                                            delivery_status: Status
+                                        })
+                                        }}>Update</button>}
                                         {/* <b style={{color: "blue"}}>Pending</b>
                                         <b style={{color: "red"}}>Cancelled</b> */}
                                     </div>
