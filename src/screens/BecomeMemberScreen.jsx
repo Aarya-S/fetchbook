@@ -4,6 +4,8 @@ import sellerAction from "../actions/sellerAction";
 import { ADD_SELLER_DETAILS_REQUEST } from "../constant/sellerconstant";
 import '../css/Signup.css';
 import { signUpWithEmailAndPassword,signInWithGoogle } from "../firebaseconfig";
+import {ref,uploadBytesResumable,getDownloadURL } from "firebase/storage"
+import { storage,auth } from "../firebaseconfig";
 import validator from "../helper/password";
 
 
@@ -16,6 +18,8 @@ const MemberSignUp=()=>{
     const [address,setaddress] = useState('')
     const [password, setpassword] = useState('')
     const [cnfrmpwd, setcnfrmpwd] = useState('')
+    const [file, setFile] = useState(null)
+    const [url, setUrl] = useState('')
     let history = useHistory()
         const submit=async ()=> {
             try{
@@ -38,9 +42,56 @@ const MemberSignUp=()=>{
                     address : address,
                     experience : exp,
                     phoneno : phoneno,
+                    certificates : url,
                     seller_email: email
                 })
             }
+        }
+        const metadata = {
+            contentType: 'image/jpeg'
+        };
+        const handleChange = (e) => {
+            if (e.target.files[0]) {
+            if (e.target.files[0].type === 'image/jpeg' || e.target.files[0].type === 'image/png') {
+            setFile(e.target.files[0]);}
+            else{
+                setFile(null)
+                alert('Please select a valid image')
+            }}
+        }
+        function handleUpload(e) {
+            e.preventDefault();
+            const fileref = ref(storage,`/images/${file.name}`);
+            const uploadTask = uploadBytesResumable(fileref, file, metadata);
+            uploadTask.on('state_changed',
+            (snapshot) => {
+                const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                console.log('Upload is ' + progress + '% done');
+                switch (snapshot.state) {
+                case 'paused':
+                    console.log('Upload is paused');
+                    break;
+                case 'running':
+                    console.log('Upload is running');
+                    break;
+                }
+            },
+            (error) => {
+                alert(error)
+                switch (error.code) {
+                  case 'storage/unauthorized':
+                    break;
+                  case 'storage/canceled':
+                    break;
+                  case 'storage/unknown':
+                    break;
+                }
+              }, () => {
+                getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                    setUrl(downloadURL)
+                  console.log('File available at', downloadURL);
+                });
+              } )
         }
         return(
             <>  
@@ -62,6 +113,7 @@ const MemberSignUp=()=>{
         <div className="form-group">
             <input type="number" class="form-control input-lg" value={exp} name="Experience " onChange={(e)=>{setexp(e.target.value)}} placeholder="Experience in selling (years)"/>
         </div>
+        
          
         <div className="form-group">
             <input type="" class="form-control input-lg" value={address} name="Address " onChange={(e)=>{setaddress(e.target.value)}} placeholder="Seller Address"/>
@@ -71,7 +123,12 @@ const MemberSignUp=()=>{
         </div>
 		<div className="form-group">
             <input type="password" class="form-control input-lg" value={cnfrmpwd} name="confirm_password" placeholder="Confirm Password" onChange={(e)=>{setcnfrmpwd(e.target.value)}} required="required"/>
-        </div>  
+        </div> 
+        <div className="form-group">
+            <label>Add Shop Registration Certificate</label>
+            <input type="file" onChange={handleChange} className="uploader" />
+            <button disabled={!file} onClick={handleUpload} className="upload-btn">Upload</button>
+        </div> 
         <div className="form-group">
             <button onClick={submit} class="btn btn-lg btn-block sign-btn">Sign Up</button>
         </div>

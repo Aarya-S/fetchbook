@@ -67,7 +67,6 @@ const SellerScreen = ()=>{
                                             delivery_status: Status
                                         })
                                         }}>Update</button>}
-                                        {Status===''?'':<button style={{marginLeft:"20px"}} className="btn btn-success">Update</button>}
                                         {/* <b style={{color: "blue"}}>Pending</b>
                                         <b style={{color: "red"}}>Cancelled</b> */}
                                     </div>

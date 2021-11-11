@@ -111,7 +111,13 @@ const AddBookScreen = ()=>{
             contentType: 'image/jpeg'
         };
         function handleChange(e) {
-            setFile(e.target.files[0]);
+            if (e.target.files[0]) {
+                if (e.target.files[0].type === 'image/jpeg' || e.target.files[0].type === 'image/png') {
+                setFile(e.target.files[0]);}
+                else{
+                    setFile(null);
+                    alert('Please select a valid image')
+                }}
         }
 
         function handleUpload(e) {
