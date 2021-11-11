@@ -174,7 +174,7 @@ const SellerScreen = ()=>{
                     </header>
                     
                 <hr />
-                {Orders.length === 0? <h4>No Orders</h4>:Orders.map((order)=>{
+                { Orders === undefined || Orders.length === 0? <h4>No Orders</h4>:Orders.map((order)=>{
                     return <OrderCard order={order}/>
                     
                  })}
