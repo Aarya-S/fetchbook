@@ -87,6 +87,7 @@ const updateuser = async (data)=>{
   return res;
 }
 
+
 const sellerAction = (Action,data)=>{
   switch(Action){
     case SELLER_DETAILS_REQUEST : return getSeller(data) ;break;

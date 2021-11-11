@@ -67,6 +67,17 @@ const search = async (data)=>{
     return res
 }
 
+const AddtoLoggs = async (data)=>{
+    let res = null;
+    await axios.post(`${BASE_URL}/logs/insertone`,
+        data
+    ).then((responce)=>{responce.status === 200 ?res='LOGG_ADDED':res='LOGG_ADD_FAIL'})
+    .catch((e)=>{res='LOGG_ADD_FAIL'+ e;
+        console.log(res)    
+    })
+    return res
+}
+
 const getsellerbooks = async (data)=>{
     let res =null;
     await axios.get(`${BASE_URL}/products/getsellerbooks?email=${data}`)
@@ -89,6 +100,7 @@ const ProductAction=(action,data)=>{
         case 'SEARCH_BOOK_REQUEST' : return search(data); break;
         case 'GET_BOOK_REQUEST': return getbookbyid(data);break;
         case 'SELLER_BOOK_REQUEST' : return getsellerbooks(data);break;
+        case 'LOGG_ADDED_REQUEST' : return AddtoLoggs(data);break;
         default : alert(`you requested Action - ${action}`)
       }
     return null;

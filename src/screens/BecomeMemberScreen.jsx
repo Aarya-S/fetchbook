@@ -93,6 +93,30 @@ const MemberSignUp=()=>{
                 });
               } )
         }
+
+        const sellerNameHandler = (e) => {
+            if(e.target.value !== ''){
+                console.log(e.target.value)
+            if(isNaN(e.target.value)){
+            setsellername(e.target.value)}else{
+                alert('Enter a valid name')
+            }
+        }else{
+            setsellername('')
+        }
+        }
+
+        const sellerAddressHandler = (e) => {
+            if(e.target.value !== ''){
+                console.log(e.target.value)
+            if(isNaN(e.target.value)){
+            setaddress(e.target.value)}else{
+                alert('Enter a valid name')
+            }
+        }else{
+            setaddress('')
+        }   
+        }
         return(
             <>  
             <Link to='/'><button size="lg" className="btn btn-outline-dark back-btn"><i className="fa fa-angle-double-left"></i>Back to home</button></Link>
@@ -102,7 +126,7 @@ const MemberSignUp=()=>{
 		
 		<div className="or-seperator"></div>   
         <div className="form-group">
-        	<input type="text" class="form-control input-lg" value={sellername} name="sellername" placeholder="sellername" onChange={(e)=>{setsellername(e.target.value)}} required="required"/>
+        	<input type="text" class="form-control input-lg" value={sellername} name="sellername" placeholder="sellername" onChange={sellerNameHandler} required="required"/>
         </div>
 		<div className="form-group">
         	<input type="email" class="form-control input-lg" value={email} name="email" placeholder="Email Address" onChange={(e)=>{setemail(e.target.value)}} required="required"/>

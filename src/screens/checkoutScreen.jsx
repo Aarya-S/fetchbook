@@ -48,11 +48,15 @@ const CheckoutScreen = ()=>{
             AddorderRequest(product.list[i]);
             OrderHistoryList.AddOrderHistory(product.list[i]);
         }
+
         alert('Order Placed Successfully');
         history.push('/')
     }
     const AddorderRequest = (product)=>{
         sellerAction(SELLER_ORDER_LIST_REQUEST,product);
+    }
+    const AddLoggsRequest = (product)=>{
+        
     }
         return(
             <>

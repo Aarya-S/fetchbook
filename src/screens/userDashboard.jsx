@@ -24,6 +24,17 @@ const Dashboard = ()=>{
             });}
             history.push('/');
         }
+        const DisplaynameHandle = (e)=>{
+            if(e.target.value !== ''){
+            if(isNaN(e.target.value) ){
+                setDisplayName(e.target.value);
+            }else{
+                alert("Enter a valid name");
+            }}
+            else{
+                setDisplayName('');
+            }
+        }
         return(
             <div>
                 <Navbar2 />
@@ -32,9 +43,9 @@ const Dashboard = ()=>{
                 <h3>Dashboard</h3>
                 <hr />
                 <label for="name" className="label-dash"><b>Name:</b></label><br />
-                <input value={DisplayName} id="name" onChange={(e)=>{setDisplayName(e.target.value)}} className="text" /><br /><br />
+                <input value={DisplayName} id="name" onChange={DisplaynameHandle} required="required" className="text" /><br /><br />
                 <label for="email" className="label-dash"><b>Email ID:</b></label><br />
-                <input value={Email} id="email" onChange={(e)=>{setEmail(e.target.value)}} className="text" /><br /><br />
+                <input value={Email} id="email" onChange={(e)=>{setEmail(e.target.value)}} required="required" className="text" /><br /><br />
                 <button className="change-pwd" onClick={submitHandler}>Update profile</button><br/>
                 <Link to='/forgotpassword'><button className="change-pwd">Change Password</button></Link><br /> <br /><br />
                 </div>
