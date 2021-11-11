@@ -1,7 +1,7 @@
 import React, { useState} from "react";
 
 import { Link ,useHistory,useLocation} from "react-router-dom";
-import Navbar2 from '../components/Navbar2';
+import { Row, Col, Container } from 'react-bootstrap';
 import { storage,auth } from "../firebaseconfig";
 import {ref,uploadBytesResumable,getDownloadURL } from "firebase/storage"
 import ProductAction from "../actions/productActions";
@@ -162,66 +162,92 @@ const AddBookScreen = ()=>{
     <div>
         <div><button size="lg" className="btn btn-outline-dark back-btn" onClick={goDashboardHandler}><i className="fa fa-angle-double-left"></i>  Back to DashBoard</button></div>
         <div className="signup-form">
-            <div className="form-box">
+        <div className="form-box">
 		<h2>Add Book Details</h2>
         <hr/><br />
         <div className="form-group">
-            <input type="text" class="form-control input-lg" name="bookname" value={bookname} onChange={(e)=>{setBookname(e.target.value)}} placeholder="Book Name" required="required"/>
+            <label for="bookname" className="label-book-details">Book Name</label>
+            <input type="text" class="form-control input-lg" name="bookname" value={bookname} onChange={(e)=>{setBookname(e.target.value)}}  required="required"/>
         </div>
 		<div className="form-group">
-            <input type="text" class="form-control input-lg" name="auther" value={auther} onChange={(e)=>{setAuther(e.target.value)}} placeholder="Author" required="required"/>
+            <label for="auther" className="label-book-details">Author</label>
+            <input type="text" class="form-control input-lg" name="auther" value={auther} onChange={(e)=>{setAuther(e.target.value)}}  required="required"/>
         </div>
 		<div className="form-group">
-            <input type="text" class="form-control input-lg" name="sellername" value={sellername} onChange={(e)=>{setSellername(e.target.value)}} placeholder="Seller Name" required="required"/>
+            <label for="sellername" className="label-book-details">Seller Name</label>
+            <input type="text" class="form-control input-lg" name="sellername" value={sellername} onChange={(e)=>{setSellername(e.target.value)}}  required="required"/>
         </div>
 		<div className="form-group">
-            <input type="text" class="form-control input-lg" name="description" value={description} onChange={(e)=>{setDescription(e.target.value)}} placeholder="Description" required="required"/>
+            <label for="description" className="label-book-details">Description</label>
+            <textarea rows="6" class="form-control input-lg" name="description" value={description} onChange={(e)=>{setDescription(e.target.value)}} required="required" style={{padding: "12px"}} />
         </div>
 		<div className="form-group">
-            <input type="text" class="form-control input-lg" name="publisher" value={publisher} onChange={(e)=>{setPublisher(e.target.value)}} placeholder="Publisher" required="required"/>
+            <label for="publisher" className="label-book-details">Publisher</label>
+            <input type="text" class="form-control input-lg" name="publisher" value={publisher} onChange={(e)=>{setPublisher(e.target.value)}} required="required"/>
         </div>
 		<div className="form-group">
+            <label for="category" className="label-book-details">Category</label>
             <input type="text" class="form-control input-lg" name="category" value={category} onChange={(e)=>{setCategory(e.target.value)}} placeholder="Category" required="required"/>
         </div>
         <div className="form-group">
+            <label for="price" className="label-book-details">Price</label>
             <input type="number" class="form-control input-lg" name="price" value={price} onChange={(e)=>{setPrice(e.target.value)}} placeholder="Price(Rs)" required="required"/>
         </div>
         <div className="form-group">
+            <label for="address" className="label-book-details">Address</label>
             <input type="text" class="form-control input-lg" name="address" value={address} onChange={(e)=>{setAddress(e.target.value)}} placeholder="Seller Address" required="required"/>
         </div>
         <div className="form-group">
+            <label for="stock" className="label-book-details">Stock</label>
             <input type="number" class="form-control input-lg" name="stock" value={stock} onChange={(e)=>{setStock(e.target.value)}} placeholder="No. of products" required="required"/>
         </div>
         <br />
-        <div>
-            <input type="checkbox" name="delivery_status" checked={deliverystatus} onClick={deliveryhandle} id={"delivery_status"} className="check-box" />
-            <label for="delivery_status" className="label-check">Do you have delivery Service?</label><br />
-            <input type="checkbox" name="new_book" checked={newbook} onClick={newbookhandle} id={"new_book"} className="check-box" />
-            
-            <label for="new_book" className="label-check">New Book</label>
-            <br />
-            <input type="checkbox" name="offers" checked={offered} onClick={offeredhandle} id={"offers"} className="check-box" />
-            <label for="offers" className="label-check">On sale</label><br />
-        </div>
-        <div>
-            <label className="label-check">Book Condition?</label>
-            <select name="condition" id="condition" onChange={(e)=>{setBookcondition(e.target.value)}}  required="required" className="selection">
-                <option value="good">Good</option>
-                <option value="better">Better</option>
-                <option value="best">Best</option>
-            </select>
-        </div>
-        <div>
-            <input type="file" onChange={handleChange} className="uploader" />
-            <button disabled={!file} onClick={handleUpload} className="upload-btn">Upload</button>
-        </div>
-        {location.state?
-        <div className="form-group">
-            <button onClick={onUpdate} class="btn btn-success btn-lg btn-block signup-btn btn-end">Add Book</button>
-        </div>:
-        <div className="form-group">
-            <button onClick={onsubmit} class="btn btn-success btn-lg btn-block signup-btn btn-end">Add Book</button>
-        </div>}
+        <Container fluid>
+        <Row>
+            <Col sm={6}>
+                {/* Delivery Status */}
+                <input type="checkbox" name="delivery_status" checked={deliverystatus} onClick={deliveryhandle} id={"delivery_status"} className="check-box" />
+                <label for="delivery_status" className="label-check">Do you have delivery Service?</label><br />
+                
+                {/* New Book? */}
+                <input type="checkbox" name="new_book" checked={newbook} onClick={newbookhandle} id={"new_book"} className="check-box" />
+                <label for="new_book" className="label-check">New Book</label>
+                <br />
+            </Col>
+            <Col sm={6}>
+                {/* Offer? */}
+                <input type="checkbox" name="offers" checked={offered} onClick={offeredhandle} id={"offers"} className="check-box" />
+                <label for="offers" className="label-check">On sale</label><br />
+        
+                {/* Condition */}
+                <label className="label-check">Book Condition?</label>
+                <select name="condition" id="condition" onChange={(e)=>{setBookcondition(e.target.value)}}  required="required" className="selection">
+                    <option value="good">Good</option>
+                    <option value="better">Better</option>
+                    <option value="best">Best</option>
+                </select>
+                </Col>
+        </Row>
+        <Row>
+            <Col sm={12}>
+                <input type="file" onChange={handleChange} className="uploader" />
+                <button disabled={!file} onClick={handleUpload} className="upload-btn">Upload</button>
+            </Col>
+        </Row>
+        
+        <Row>
+            <Col sm={12}>
+            {location.state?
+                <div className="submit-btn-custom">
+                    <button onClick={onUpdate} class="btn btn-lg btn-block sign-btn">Add Book</button>
+                </div>:
+                <div className="submit-btn-custom">
+                    <button onClick={onsubmit} class="btn btn-lg btn-block sign-btn">Add Book</button>
+                </div>}
+            </Col>
+        </Row>
+        </Container>
+        
         </div>
         </div>
     </div>

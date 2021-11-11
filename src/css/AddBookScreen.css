@@ -22,3 +22,152 @@
 .btn-end {
   margin-top: 25px;
 }
+
+/* New CSS */
+
+.control-area {
+  width: 100%;
+}
+
+.label-book-details {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-size: medium;
+  font-weight: bold;
+  margin-bottom: 7px;
+  margin-top: 9px;
+}
+
+.submit-btn-custom {
+  width: 100%;
+}
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css");
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+@import url("https://code.jquery.com/jquery-3.5.1.min.js");
+@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+body {
+  background: #dfe7e9;
+  font-family: "Roboto", sans-serif;
+}
+.form-control {
+  font-size: 16px;
+  transition: all 0.4s;
+  box-shadow: none;
+}
+.form-control:focus {
+  border-color: #5cb85c;
+}
+.form-control,
+.btn {
+  border-radius: 12px;
+  outline: none !important;
+}
+.signup-form {
+  width: 1000px;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+.form-box {
+  border-radius: 5px;
+  margin-bottom: 20px;
+  background: #fff;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  padding: 40px;
+}
+
+.signup-form h2 {
+  text-align: center;
+  font-size: 34px;
+  margin: 10px 0 15px;
+}
+.signup-form .hint-text {
+  color: #999;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.signup-form .form-group {
+  margin-bottom: 20px;
+}
+.signup-form .btn {
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: bold;
+  text-align: center;
+}
+.sign-btn {
+  text-align: center;
+  border-color: red;
+  color: red;
+  transition: all 0.4s;
+}
+.sign-btn:hover {
+  background: red;
+  color: white;
+  opacity: 0.8;
+}
+.or-seperator {
+  margin: 50px 0 15px;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+}
+.or-seperator b {
+  padding: 0 10px;
+  width: 40px;
+  height: 40px;
+  font-size: 16px;
+  text-align: center;
+  line-height: 40px;
+  background: #fff;
+  display: inline-block;
+  border: 1px solid #e0e0e0;
+  border-radius: 50%;
+  position: relative;
+  top: -22px;
+  z-index: 1;
+}
+.social-btn .btn {
+  color: rgb(0, 0, 0);
+  margin: 10px 0 0 15px;
+  font-size: 15px;
+  border-radius: 50px;
+  font-weight: normal;
+  border: 2px solid black;
+  transition: all 0.4s;
+}
+.social-btn .btn:first-child {
+  margin-left: 0;
+}
+.social-btn .btn:hover {
+  opacity: 0.8;
+}
+.social-btn .btn-primary {
+  background: #ffffff;
+}
+.social-btn .btn-info {
+  background: #64ccf1;
+}
+.social-btn .btn-danger {
+  background: #df4930;
+}
+.social-btn .btn i {
+  float: left;
+  margin: 3px 5px;
+  font-size: 20px;
+}
+
+.signup-btn {
+  left: 50%;
+}
+
+.back-btn {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.text-center a {
+  color: red;
+  margin-left: 5px;
+}
