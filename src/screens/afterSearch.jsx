@@ -14,48 +14,180 @@ const AfterSearch = ({match})=>{
     
     const [render, setRender] = useState([])
     const [search, setSearch] = useState('')
-    const [condition, setCondition] = useState('')
-    const [deliveryStatus, setDeliveryStatus] = useState(false)
-    const [newBook, setNewBook] = useState(false)
-    const [offered, setOffered] = useState(false)
-    const [instock, setInstock] = useState()
+    const [goodcondition, setGoodCondition] = useState(true)
+    const [bestcondition, setBestCondition] = useState(true)
+    const [deliveryStatus, setDeliveryStatus] = useState(true)
+    const [newBook, setNewBook] = useState(true)
+    const [offered, setOffered] = useState(true)
+    const [usedBook, setusedBook] = useState(true)
     const [category, setCategory] = useState('')
-    const deliveryhandle =()=>{
-        setDeliveryStatus(!deliveryStatus)
-        console.log(deliveryStatus)
-    }
+    const [price, setPrice] = useState('')
+    const [stock, setStock] = useState(true)
+    const [ofs, setofs] = useState(true)
     let {searchedbook} = useParams();
     if(search!=searchedbook){
         setSearch(searchedbook)
+        console.log('in Search')
         setRender([])
     }
-    const offeredhandle =()=>{
-      setOffered(!offered)
-  }
-  const newhandle =()=>{
-    setNewBook(!newBook)
-}
-const deliveryStatushandle =()=>{
-  setDeliveryStatus(!deliveryStatus)
-}
-
-    const ApplyFilter = ()=>{
-      console.log(newBook)
-      if(deliveryStatus){
-        setRender(render.filter(book=>book.delivery==true))
-      }
-      if(newBook){
-        console.log(render.filter(book=>book.tag.new==true))
-        setRender(render.filter(book=>book.new==true))
+  const offeredhandle =()=>{
+      if(offered){
+        setOffered(false)
+      }else{
+        setOffered(true)
       }
       if(offered){
-        setRender(render.filter(book=>book.offer==true))
+        const FetchData = render.filter(book=>book.tag.offer==true)
+        if(FetchData === []){
+          console.log('No Data')
+        }else{
+          setRender(FetchData)
+        }
+      }
+  }
+  const newhandle =()=>{
+    if(newBook){
+        setNewBook(false)
+    }else{
+      setNewBook(true)
+    }
+    if(newBook){
+      const FetchData = render.filter(book=>book.tag.new==true)
+      if(FetchData === []){
+        console.log('No Data')
+      }else{
+        setRender(FetchData)
       }
     }
+}
+const deliveryStatushandle =()=>{
+  if(deliveryStatus){
+    setDeliveryStatus(false)
+    }else{
+    setDeliveryStatus(true)
+  }
+  if(deliveryStatus){
+    const FetchData = render.filter(book=>book.tag.delivery_status==true)
+    if(FetchData === []){
+      console.log('No Data')
+    }else{
+      setRender(FetchData)
+    }
+  }
+}
+const usedBookhandle =()=>{
+  if(usedBook){
+    setusedBook(false)
+    }else{
+    setusedBook(true)
+  }
+  if(usedBook){
+    const FetchData = render.filter(book=>book.tag.used==true)
+    if(FetchData === []){
+      console.log('No Data')
+    }else{
+      setRender(FetchData)
+    }
+  }
+}
+const priceHandle =()=>{
+  if(price){
+    console.log(render.filter(book=>book.tag.price<=price))
+    const FetchData = render.filter(book=>book.tag.price<=price)
+    if(FetchData === []){
+      console.log('No Data')
+    }else{
+      setRender(FetchData)
+    }
+  }else{
+    // setRender([])
+  }
+}
+const categoryHandle =()=>{
+  if(category){
+    const FetchData = render.filter(book=>{return book.tag.category.startsWith(category)})
+    if(FetchData === []){
+      console.log('No Data')
+    }else{
+      setRender(FetchData)
+    }
+  }
+}
+const stockHandle =()=>{
+  if(stock){
+    setStock(false)
+    }else{
+    setStock(true)
+  }
+  if(stock){
+    const FetchData = render.filter(book=>book.tag.instock>0)
+    if(FetchData === []){
+      console.log('No Data')
+    }else{
+      setRender(FetchData)
+    }
+  }
+}
+
+const outofstockHandle =()=>{
+  if(ofs){
+    setofs(false)
+    }else{  
+    setofs(true)
+  }
+  if(ofs){
+    const FetchData = render.filter(book=>book.tag.instock==0)
+    console.log(FetchData)
+    if(FetchData === []){
+      console.log('No Data')
+    }else{
+      setRender(FetchData)
+    }
+  }
+}
+
+const conditionHandle =(request)=>{
+  if(request == 'good'){
+    if(goodcondition){
+      setGoodCondition(false)
+      }else{
+      setGoodCondition(true)
+    }
+    if(goodcondition){
+      const FetchData = render.filter(book=>book.tag.condition==='good')
+      if(FetchData === []){
+        console.log('No Data')
+      }else{
+        setRender(FetchData)
+      }
+    }
+  }else{
+    if(bestcondition){
+      setBestCondition(false)
+      }else{
+      setBestCondition(true)
+    }
+    if(bestcondition){
+      const FetchData = render.filter(book=>book.tag.condition==='best')
+      if(FetchData === []){
+        console.log('No Data')
+      }else{
+        setRender(FetchData)
+      }
+    }
+  }
+}
+
+
+
+
+    
     
     if(render.length === 0 ){
         let getSearchedBooks = ProductAction('SEARCH_BOOK_REQUEST',searchedbook)
-        getSearchedBooks.then((result)=>{setRender(result);}).catch((err)=>{console.log(err)})}
+        getSearchedBooks.then((result)=>{setRender(result);}).catch((err)=>{console.log(err)})
+      console.log('in Render Method' )
+      }
         
         return(
             
@@ -80,16 +212,12 @@ const deliveryStatushandle =()=>{
       <h6 class="font-weight-bold mb-3"><u>Condition</u></h6>
 
       <div class="form-check pl-0 mb-3">
-        <input type="checkbox" class="form-check-input filled-in" id="new" defaultValue={newBook} onChange={newhandle}/>
+        <input type="checkbox" class="form-check-input filled-in" id="new" onChange={newhandle}/>
         <label class="form-check-label small text-uppercase card-link-secondary" for="new">New</label>
       </div>
       <div class="form-check pl-0 mb-3">
-        <input type="checkbox" class="form-check-input filled-in" id="used"/>
+        <input type="checkbox" class="form-check-input filled-in" id="used" onChange={usedBookhandle}/>
         <label class="form-check-label small text-uppercase card-link-secondary" for="used">Used</label>
-      </div>
-      <div class="form-check pl-0 mb-3 pb-1">
-        <input type="checkbox" class="form-check-input filled-in" id="renewed"/>
-        <label class="form-check-label small text-uppercase card-link-secondary" for="renewed">Renewed</label>
       </div>
       </div>
       </div>
@@ -99,21 +227,18 @@ const deliveryStatushandle =()=>{
       <h6 class="font-weight-bold mb-3"><u>Delivery</u></h6>
 
       <div class="form-check pl-0 mb-3">
-        <input type="checkbox" class="form-check-input filled-in" id="new"/>
-        <label class="form-check-label small text-uppercase card-link-secondary" for="new">Deliverable</label>
+        <input type="checkbox" class="form-check-input filled-in" id="delivery_status" onChange={deliveryStatushandle}/>
+        <label class="form-check-label small text-uppercase card-link-secondary" for="delivery_status">Deliverable</label>
       </div>
-      <div class="form-check pl-0 mb-3">
-        <input type="checkbox" class="form-check-input filled-in" id="used"/>
-        <label class="form-check-label small text-uppercase card-link-secondary" for="used">Not deliverable</label>
-        </div>
+      
         
     
 
       <h6 class="font-weight-bold mb-3"><u>Only Discounted Books</u></h6>
 
       <div class="form-check pl-0 mb-3">
-        <input type="checkbox" class="form-check-input filled-in" id="used"/>
-        <label class="form-check-label small text-uppercase card-link-secondary" for="used">Offers</label>
+        <input type="checkbox" class="form-check-input filled-in" id="offers" onChange={offeredhandle}/>
+        <label class="form-check-label small text-uppercase card-link-secondary" for="offers">Offers</label>
         </div>
 
     
@@ -121,42 +246,45 @@ const deliveryStatushandle =()=>{
       <h6 class="font-weight-bold mb-3"><u>Stock Status</u></h6>
 
       <div class="form-check pl-0 mb-3">
-        <input type="checkbox" class="form-check-input filled-in" id="used"/>
-        <label class="form-check-label small text-uppercase card-link-secondary" for="used">In Stock</label>
+        <input type="checkbox" class="form-check-input filled-in" id="instock" onChange={stockHandle}/>
+        <label class="form-check-label small text-uppercase card-link-secondary" for="instock" >In Stock</label>
         </div>
         <div class="form-check pl-0 mb-3">
-        <input type="checkbox" class="form-check-input filled-in" id="used"/>
-        <label class="form-check-label small text-uppercase card-link-secondary" for="used">Out of Stock</label>
+        <input type="checkbox" class="form-check-input filled-in" id="ofs" onChange={outofstockHandle}/>
+        <label class="form-check-label small text-uppercase card-link-secondary" for="ofs" >Out of Stock</label>
         </div>
+      
+      <h6 class="font-weight-bold mb-3"><u>condition</u></h6>
+      
+      <div class="form-check pl-0 mb-3">
+        <input type="checkbox" class="form-check-input filled-in" id="instock" onChange={()=>{conditionHandle('good')}}/>
+        <label class="form-check-label small text-uppercase card-link-secondary" for="instock" >good</label>
+      </div>
+      <div class="form-check pl-0 mb-3">
+        <input type="checkbox" class="form-check-input filled-in" id="instock" onChange={()=>{conditionHandle('best')}}/>
+        <label class="form-check-label small text-uppercase card-link-secondary" for="instock" >best</label>
+      </div>
 
       <h6 class="font-weight-bold mb-3"><u>Category</u></h6>
+
       <div class="form-check pl-0 mb-3">
-        <input type="checkbox" class="form-check-input filled-in" id="used"/>
-        <label class="form-check-label small text-uppercase card-link-secondary" for="used">Fiction</label>
-        </div>
-        <div class="form-check pl-0 mb-3">
-        <input type="checkbox" class="form-check-input filled-in" id="used"/>
-        <label class="form-check-label small text-uppercase card-link-secondary" for="used">Non-Fiction</label>
-        </div>
-        <div class="form-check pl-0 mb-3">
-        <input type="checkbox" class="form-check-input filled-in" id="used"/>
-        <label class="form-check-label small text-uppercase card-link-secondary" for="used">Biographies</label>
-        </div>
-        <div class="form-check pl-0 mb-3">
-        <input type="checkbox" class="form-check-input filled-in" id="used"/>
-        <label class="form-check-label small text-uppercase card-link-secondary" for="used">Kids</label>
-        </div>
-        <div class="form-check pl-0 mb-3">
-        <input type="checkbox" class="form-check-input filled-in" id="used"/>
-        <label class="form-check-label small text-uppercase card-link-secondary" for="used">Educational</label>
-        </div>
-      <div class="font-weight-bold mb-3">
-          <button onClick={ApplyFilter}>Apply</button>
+        <label>search a category</label>
+        <input type='text' class="form-check-input filled-in" id="category"  onChange={(e)=>{setCategory(e.target.value)}}/>
+        {category ===''?'':<button class="btn btn-primary btn-sm" onClick={categoryHandle}>Search</button>}
         </div>
 
-      
-      
+      <h6 class="font-weight-bold mb-3"><u>price</u></h6>
+      <div class="form-check pl-0 mb-3">
+        <label>max value</label>
+        <input type='text' class="form-check-input filled-in" id="price"  onChange={(e)=>{setPrice(e.target.value)}}/><br/>
+        {price===''?'':<button class="btn btn-primary btn-sm" onClick={priceHandle}>Search</button>}
         </div>
+    
+
+        </div>
+      <div class="form-check pl-0 mb-3">
+        <button onClick={(e)=>{setRender([])}}>remove Applied Filters</button>
+      </div>
     </section>
     </div> 
     
