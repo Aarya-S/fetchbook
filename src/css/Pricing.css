@@ -42,6 +42,7 @@
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   font-size: 15px;
   color: rgb(184, 126, 0);
+  line-height: 35px;
 }
 
 .card-col:hover {
