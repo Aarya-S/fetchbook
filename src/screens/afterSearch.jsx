@@ -257,12 +257,12 @@ const conditionHandle =(request)=>{
       <h6 class="font-weight-bold mb-3"><u>Condition</u></h6>
       
       <div class="form-check pl-0 mb-3">
-        <input type="checkbox" class="form-check-input filled-in" id="instock" onChange={()=>{conditionHandle('good')}}/>
-        <label class="form-check-label small text-uppercase card-link-secondary" for="instock" >Good</label>
+        <input type="checkbox" class="form-check-input filled-in" id="good" onChange={()=>{conditionHandle('good')}}/>
+        <label class="form-check-label small text-uppercase card-link-secondary" for="good" >Good</label>
       </div>
       <div class="form-check pl-0 mb-3">
-        <input type="checkbox" class="form-check-input filled-in" id="instock" onChange={()=>{conditionHandle('best')}}/>
-        <label class="form-check-label small text-uppercase card-link-secondary" for="instock" >Best</label>
+        <input type="checkbox" class="form-check-input filled-in" id="best" onChange={()=>{conditionHandle('best')}}/>
+        <label class="form-check-label small text-uppercase card-link-secondary" for="best" >Best</label>
       </div>
 
       <h6 class="font-weight-bold mb-3"><u>Category</u></h6>
