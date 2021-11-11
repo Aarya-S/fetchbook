@@ -254,36 +254,36 @@ const conditionHandle =(request)=>{
         <label class="form-check-label small text-uppercase card-link-secondary" for="ofs" >Out of Stock</label>
         </div>
       
-      <h6 class="font-weight-bold mb-3"><u>condition</u></h6>
+      <h6 class="font-weight-bold mb-3"><u>Condition</u></h6>
       
       <div class="form-check pl-0 mb-3">
         <input type="checkbox" class="form-check-input filled-in" id="instock" onChange={()=>{conditionHandle('good')}}/>
-        <label class="form-check-label small text-uppercase card-link-secondary" for="instock" >good</label>
+        <label class="form-check-label small text-uppercase card-link-secondary" for="instock" >Good</label>
       </div>
       <div class="form-check pl-0 mb-3">
         <input type="checkbox" class="form-check-input filled-in" id="instock" onChange={()=>{conditionHandle('best')}}/>
-        <label class="form-check-label small text-uppercase card-link-secondary" for="instock" >best</label>
+        <label class="form-check-label small text-uppercase card-link-secondary" for="instock" >Best</label>
       </div>
 
       <h6 class="font-weight-bold mb-3"><u>Category</u></h6>
 
-      <div class="form-check pl-0 mb-3">
-        <label>search a category</label>
-        <input type='text' class="form-check-input filled-in" id="category"  onChange={(e)=>{setCategory(e.target.value)}}/>
+      <div>
+        <label class="form-check-label small text-uppercase card-link-secondary" >Search a Category</label>
+        <input type='textfield'  id="category"  onChange={(e)=>{setCategory(e.target.value)}}/>
         {category ===''?'':<button class="btn btn-primary btn-sm" onClick={categoryHandle}>Search</button>}
         </div>
 
-      <h6 class="font-weight-bold mb-3"><u>price</u></h6>
-      <div class="form-check pl-0 mb-3">
-        <label>max value</label>
-        <input type='text' class="form-check-input filled-in" id="price"  onChange={(e)=>{setPrice(e.target.value)}}/><br/>
+      <h6 class="font-weight-bold mb-3"><u>Price</u></h6>
+      <div>
+        <label class="form-check-label small text-uppercase card-link-secondary" >Max Value</label>
+        <input type='text' id="price"  onChange={(e)=>{setPrice(e.target.value)}}/><br/>
         {price===''?'':<button class="btn btn-primary btn-sm" onClick={priceHandle}>Search</button>}
         </div>
     
 
         </div>
       <div class="form-check pl-0 mb-3">
-        <button onClick={(e)=>{setRender([])}}>remove Applied Filters</button>
+        <button className="checkout-btn" onClick={(e)=>{setRender([])}}>Remove Applied Filters</button>
       </div>
     </section>
     </div> 
