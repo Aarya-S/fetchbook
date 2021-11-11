@@ -126,13 +126,13 @@ const MemberSignUp=()=>{
 		
 		<div className="or-seperator"></div>   
         <div className="form-group">
-        	<input type="text" class="form-control input-lg" value={sellername} name="sellername" placeholder="sellername" onChange={sellerNameHandler} required="required"/>
+        	<input type="text" class="form-control input-lg" value={sellername} name="sellername" placeholder="Seller Name" onChange={sellerNameHandler} required="required"/>
         </div>
 		<div className="form-group">
         	<input type="email" class="form-control input-lg" value={email} name="email" placeholder="Email Address" onChange={(e)=>{setemail(e.target.value)}} required="required"/>
         </div>
         <div className="form-group">
-            <input type="number" class="form-control input-lg" value={phoneno} name="phone number" placeholder="phone number" onChange={(e)=>{setphoneno(e.target.value)}} required="required"/>
+            <input type="number" class="form-control input-lg" value={phoneno} name="phone number" placeholder="Phone Number" onChange={(e)=>{setphoneno(e.target.value)}} required="required"/>
         </div> 
         <div className="form-group">
             <input type="number" class="form-control input-lg" value={exp} name="Experience " onChange={(e)=>{setexp(e.target.value)}} placeholder="Experience in selling (years)"/>

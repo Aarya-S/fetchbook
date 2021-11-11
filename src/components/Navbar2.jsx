@@ -18,7 +18,7 @@ function Navbar2() {
     const check = async ()=>{
         try{if(auth.currentUser){
             await logout()
-            setloginicon('login')
+            setloginicon('Login')
             setCheckSeller(false)
             history.push('/')
         }}
@@ -97,7 +97,7 @@ function Navbar2() {
                     <NavDropdown.Divider />
                     <NavDropdown.Item onClick={check}>Logout</NavDropdown.Item>
                 </NavDropdown>
-                :<LinkContainer to="/login" ><Nav.Link className="nav-links-custom"><nobr><i className="fa fa-user"></i>{" "}{loginicon}</nobr></Nav.Link></LinkContainer>}
+                :<LinkContainer to="/Login" ><Nav.Link className="nav-links-custom"><nobr><i className="fa fa-user"></i>{" "}{loginicon}</nobr></Nav.Link></LinkContainer>}
                 </Nav>
             </Navbar>
         </>

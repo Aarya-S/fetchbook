@@ -54,9 +54,10 @@ const Details =()=>{
               
             <div className="span-row-5"> 
                 <br/>
+                <br/><br/>
                 <h1 style={{fontFamily:"Bahnschrift SemiBold"}}>{product.bookname}</h1>
                 <hr/>
-                <div className="text">
+                <div className="textfield">
                 <h4> <span  className="span">Seller</span> : {product.sellername}</h4><hr style={{height:"5px"}} />
                 <h4><span className="span">Description</span> : <br/>{product.description}</h4><hr style={{height:"5px" }} />
                 <h4><span className="span">Author</span> : {product.auther}</h4>

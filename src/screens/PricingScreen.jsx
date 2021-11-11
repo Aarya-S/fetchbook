@@ -22,88 +22,82 @@ const PricingScreen = () => {
                 <Row>
                     <Col className="card-col">
                         <Card border="dark" style={{height: "auto", margin: "40px 12px 20px 12px", padding: "25px 18px"}}>
-                            <Card.Title align="center" className="plan-name">Plan Name</Card.Title>
-                            <Card.Subtitle align="left" className="plan-desc">A brief description about the plan spanning atleast two lines aaaaaaaaaaa</Card.Subtitle>
+                            <Card.Title align="center" className="plan-name">BRONZE PLAN 🥉</Card.Title>
+
                             <br />
                             <hr width="85%" style={{ margin:"0px 7% 25px 7%" }} />
                             <Card.Text className="perks">
                                 <h5>Perks of the plan</h5>
                                 <ul>
-                                    <li>Perk 1 aaaaaaaa</li>
-                                    <li>Perk 1 aaaaaaaaaaa</li>
-                                    <li>Perk 1 aaaaaaaaaa</li>
-                                    <li>Perk 1 aaaaaaaaaaaaa</li>
+                                    <li> 1 month membership</li>
+                                    <li> Get 5 days free</li>
+                                    <li> ₹100</li>
                                 </ul>
                             </Card.Text>
                             <br />
                             <Card.Text align="center">
-                                <h3><i className="fa fa-inr"></i><span style={{marginLeft: "8px"}}>123 /-</span></h3>
+                                <h3><i className="fa fa-inr"></i><span style={{marginLeft: "8px"}}>100 /-</span></h3>
                             </Card.Text>
                         </Card>
                     </Col>
 
                     <Col className="card-col">
                         <Card border="dark" style={{height: "auto", margin: "40px 12px 20px 12px", padding: "25px 18px"}}>
-                            <Card.Title align="center" className="plan-name">Plan Name</Card.Title>
-                            <Card.Subtitle align="left" className="plan-desc">A brief description about the plan spanning atleast two lines aaaaaaaaaaa</Card.Subtitle>
+                            <Card.Title align="center" className="plan-name">SILVER PLAN 🥈</Card.Title>
                             <br />
                             <hr width="85%" style={{ margin:"0px 7% 25px 7%" }} />
                             <Card.Text className="perks">
                                 <h5>Perks of the plan</h5>
                                 <ul>
-                                    <li>Perk 1 aaaaaaaa</li>
-                                    <li>Perk 1 aaaaaaaaaaa</li>
-                                    <li>Perk 1 aaaaaaaaaa</li>
-                                    <li>Perk 1 aaaaaaaaaaaaa</li>
+                                    <li>3 months membership</li>
+                                    <li>Get 15 days free</li>
+                                    <li>₹270</li>
                                 </ul>
                             </Card.Text>
                             <br />
                             <Card.Text align="center">
-                                <h3><i className="fa fa-inr"></i><span style={{marginLeft: "8px"}}>123 /-</span></h3>
+                                <h3><i className="fa fa-inr"></i><span style={{marginLeft: "8px"}}>270 /-</span></h3>
                             </Card.Text>
                         </Card>
                     </Col>
 
                     <Col className="card-col">
                         <Card border="dark" style={{height: "auto", margin: "40px 12px 20px 12px", padding: "25px 18px"}}>
-                            <Card.Title align="center" className="plan-name">Plan Name</Card.Title>
-                            <Card.Subtitle align="left" className="plan-desc">A brief description about the plan spanning atleast two lines aaaaaaaaaaa</Card.Subtitle>
+                            <Card.Title align="center" className="plan-name">GOLD PLAN 🥇</Card.Title>
                             <br />
                             <hr width="85%" style={{ margin:"0px 7% 25px 7%" }} />
                             <Card.Text className="perks">
                                 <h5>Perks of the plan</h5>
                                 <ul>
-                                    <li>Perk 1 aaaaaaaa</li>
-                                    <li>Perk 1 aaaaaaaaaaa</li>
-                                    <li>Perk 1 aaaaaaaaaa</li>
-                                    <li>Perk 1 aaaaaaaaaaaaa</li>
+                                    <li> 6 month membership</li>
+                                    <li> Get 30 days free</li>
+                                    <li> ₹550</li>
                                 </ul>
                             </Card.Text>
                             <br />
                             <Card.Text align="center">
-                                <h3><i className="fa fa-inr"></i><span style={{marginLeft: "8px"}}>123 /-</span></h3>
+                                <h3><i className="fa fa-inr"></i><span style={{marginLeft: "8px"}}>550 /-</span></h3>
                             </Card.Text>
                         </Card>
                     </Col>
 
                     <Col className="card-col">
                         <Card border="dark" style={{height: "auto", margin: "40px 12px 20px 12px", padding: "25px 18px"}}>
-                            <Card.Title align="center" className="plan-name">Plan Name</Card.Title>
-                            <Card.Subtitle align="left" className="plan-desc">A brief description about the plan spanning atleast two lines aaaaaaaaaaa</Card.Subtitle>
+                            <Card.Title align="center" className="plan-name">PLATINUM PLAN 💎</Card.Title>
                             <br />
                             <hr width="85%" style={{ margin:"0px 7% 25px 7%" }} />
                             <Card.Text className="perks">
                                 <h6>Perks of the plan</h6>
                                 <ul>
-                                    <li>Perk 1 aaaaaaaa</li>
-                                    <li>Perk 1 aaaaaaaaaaa</li>
-                                    <li>Perk 1 aaaaaaaaaa</li>
-                                    <li>Perk 1 aaaaaaaaaaaaa</li>
+                                    <li> 1 year membership</li>
+                                    <li> Get 60 days free</li>
+                                    <li> ₹1000</li>
+                                    
                                 </ul>
                             </Card.Text>
                             <br />
                             <Card.Text align="center">
-                                <h3><i className="fa fa-inr"></i><span style={{marginLeft: "8px"}}>123 /-</span></h3>
+                                <h3><i className="fa fa-inr"></i><span style={{marginLeft: "8px"}}>1000 /-</span></h3>
                             </Card.Text>
                         </Card>
                     </Col>
