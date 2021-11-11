@@ -141,8 +141,7 @@ const SellerScreen = ()=>{
                 <Container>
                     <Row style={{padding: "12px 5px"}}>
                         <Col sm={7}>
-                            {Seller.certificates!=="no certificate added"? <button onClick={()=>{window.open(Seller.certificates)}}>Check Certificates</button>:<b>Shop Verification Documents Not Provided</b>}
-                            <br/>
+                            
                             <label className="label-dash"><b>Name:</b> </label><br />
                             <input value={sellername} className="textfield" onChange={(e)=>{setSellername(e.target.value)}} /><br /><br />
                             <label className="label-dash"><b>Seller Address: </b></label><br />
@@ -159,7 +158,7 @@ const SellerScreen = ()=>{
                         </Col>
 
                         <Col sm={5}>
-                            <button style={{width:"100%", height:"12%" , margin:"5%",marginTop:"15%"}} className="change-pwd" onClick={()=>{history.push('/AddBookScreen')}}>Add Book</button><br />
+                            <button style={{width:"100%", height:"12%" , margin:"5%",marginTop:"8%"}} className="change-pwd" onClick={()=>{history.push('/AddBookScreen')}}>Add Book</button><br />
                             <button style={{width:"100%", height:"12%",margin:"5%"}}className="change-pwd" onClick={()=>{history.push('/sellerui/getaddedBooks')}}>Get added books</button><br />
                             <button style={{width:"100%", height:"12%",margin:"5%"}}className="change-pwd">Refresh Orders</button><br />
                             <Link to='/forgotpassword'>
