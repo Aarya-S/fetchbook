@@ -7,6 +7,7 @@ import BookCard from "../components/Bookcard";
 import RenderBook from "../components/BookRenderer";
 import Navbar2 from '../components/Navbar2';
 import '../css/AfterSearch.css'
+import { Card } from 'react-bootstrap';
 
 
 
@@ -199,10 +200,8 @@ const conditionHandle =(request)=>{
 <div class="parent">
 <div className="div1"> 
                 
-<section>
- 
-
-    <h5><b> Filters</b></h5>
+<Card style={{width: "100%", padding: "15px"}}>
+    <h5><b>Filters</b></h5><br />
     
     <div className="container">
             <div className="row">
@@ -220,7 +219,7 @@ const conditionHandle =(request)=>{
         <label class="form-check-label small text-uppercase card-link-secondary" for="used">Used</label>
       </div>
       </div>
-      </div>
+      </div><br />
       
 
 
@@ -229,7 +228,7 @@ const conditionHandle =(request)=>{
       <div class="form-check pl-0 mb-3">
         <input type="checkbox" class="form-check-input filled-in" id="delivery_status" onChange={deliveryStatushandle}/>
         <label class="form-check-label small text-uppercase card-link-secondary" for="delivery_status">Deliverable</label>
-      </div>
+      </div><br />
       
         
     
@@ -239,7 +238,7 @@ const conditionHandle =(request)=>{
       <div class="form-check pl-0 mb-3">
         <input type="checkbox" class="form-check-input filled-in" id="offers" onChange={offeredhandle}/>
         <label class="form-check-label small text-uppercase card-link-secondary" for="offers">Offers</label>
-        </div>
+        </div><br />
 
     
 
@@ -252,7 +251,7 @@ const conditionHandle =(request)=>{
         <div class="form-check pl-0 mb-3">
         <input type="checkbox" class="form-check-input filled-in" id="ofs" onChange={outofstockHandle}/>
         <label class="form-check-label small text-uppercase card-link-secondary" for="ofs" >Out of Stock</label>
-        </div>
+        </div><br />
       
       <h6 class="font-weight-bold mb-3"><u>Condition</u></h6>
       
@@ -271,7 +270,7 @@ const conditionHandle =(request)=>{
         <label class="form-check-label small text-uppercase card-link-secondary" >Search a Category</label>
         <input type='textfield'  id="category"  onChange={(e)=>{setCategory(e.target.value)}}/>
         {category ===''?'':<button class="btn btn-primary btn-sm" onClick={categoryHandle}>Search</button>}
-        </div>
+        </div><br />
 
       <h6 class="font-weight-bold mb-3"><u>Price</u></h6>
       <div>
@@ -282,10 +281,12 @@ const conditionHandle =(request)=>{
     
 
         </div>
-      <div class="form-check pl-0 mb-3">
-        <button className="checkout-btn" onClick={(e)=>{setRender([])}}>Remove Applied Filters</button>
-      </div>
-    </section>
+
+        <div class="form-check">
+          <button className="checkout-btn" onClick={(e)=>{setRender([])}}>Remove Applied Filters</button>
+        </div>
+      
+    </Card>
     </div> 
     
     
