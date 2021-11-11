@@ -119,13 +119,13 @@ const CheckoutScreen = ()=>{
                                 <text className="bill-heading">BILL DETAILS</text>
                                 <hr /><br />
                                 <Card.Subtitle style={{marginBottom: "40px", fontSize: "large"}}>
-                                    <b>No. of items in cart: </b> <text style={{marginLeft: "45%", fontWeight: "bold"}}> {product.productCount}</text>
+                                    <b>No. of items in cart: </b> <text style={{marginLeft: "40%", fontWeight: "bold"}}> {product.productCount}</text>
                                 </Card.Subtitle>
                                 <Card.Subtitle style={{marginBottom: "28px"}}>
-                                    Subtotal <text style={{marginLeft: "60%"}}><i className="fa fa-inr"></i> {(product.total).toFixed(2)}</text>
+                                    Subtotal <text style={{marginLeft: "58%"}}><i className="fa fa-inr"></i> {(product.total).toFixed(2)}</text>
                                 </Card.Subtitle>
                                 <Card.Subtitle style={{marginBottom: "28px"}}>
-                                    Processing fee @ 2% <text style={{textAlign:"right"}}><i className="fa fa-inr"></i> {(product.total*0.02).toFixed(2)}</text>
+                                    Processing fee @ 2% <text style={{marginLeft: "37%"}}><i className="fa fa-inr"></i> {(product.total*0.02).toFixed(2)}</text>
                                 </Card.Subtitle>
                                 
                                 {/* 

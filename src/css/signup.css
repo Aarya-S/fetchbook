@@ -18,7 +18,7 @@ body {
 }
 .form-control,
 .btn {
-  border-radius: 50px;
+  border-radius: 12px;
   outline: none !important;
 }
 .signup-form {
@@ -58,6 +58,7 @@ body {
   border-color: red;
   color: red;
   transition: all 0.4s;
+  width: 100%;
 }
 .sign-btn:hover {
   background: red;
