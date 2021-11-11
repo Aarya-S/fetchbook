@@ -140,7 +140,7 @@ const MemberSignUp=()=>{
         
          
         <div className="form-group">
-            <input type="" class="form-control input-lg" value={address} name="Address " onChange={(e)=>{setaddress(e.target.value)}} placeholder="Seller Address"/>
+            <input type="" class="form-control input-lg" value={address} name="Address " onChange={sellerAddressHandler} placeholder="Seller Address"/>
         </div>
         <div className="form-group">
             <input type="password" class="form-control input-lg" value={password} name="password" onChange={(e)=>{setpassword(e.target.value)}} placeholder="Password" required="required"/>

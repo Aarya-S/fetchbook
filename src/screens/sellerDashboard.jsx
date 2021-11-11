@@ -141,7 +141,7 @@ const SellerScreen = ()=>{
                 <Container>
                     <Row style={{padding: "12px 5px"}}>
                         <Col sm={7}>
-                            {Seller.certificates!=="no certificate added"? <button onClick={()=>{history.push(Seller.certificates)}}>Check Certificates</button>:<b>Shop Verification Documents Not Provided</b>}
+                            {Seller.certificates!=="no certificate added"? <button onClick={()=>{window.open(Seller.certificates)}}>Check Certificates</button>:<b>Shop Verification Documents Not Provided</b>}
                             <br/>
                             <label className="label-dash"><b>Name:</b> </label><br />
                             <input value={sellername} className="textfield" onChange={(e)=>{setSellername(e.target.value)}} /><br /><br />
