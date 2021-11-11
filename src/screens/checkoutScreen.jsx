@@ -3,7 +3,6 @@ import { useLocation ,useHistory } from "react-router";
 import Navbar2 from '../components/Navbar2';
 import '../css/CheckoutScreen.css'
 import { Form, Col, Row, Button, Card, Container } from 'react-bootstrap'
-import { CardActionArea } from "@material-ui/core";
 import { auth } from "../firebaseconfig";
 import sellerAction from "../actions/sellerAction";
 import { SELLER_ORDER_LIST_REQUEST } from "../constant/sellerconstant";

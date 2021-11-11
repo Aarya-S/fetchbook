@@ -19,6 +19,7 @@ import Dashboard from './screens/userDashboard';
 import AddBookScreen from './screens/AddbookScreen';
 import PricingScreen from './screens/PricingScreen';
 import SellerAddedBooks from './screens/SellerAddedBooks';
+import receiptPage from './screens/receiptPage';
 
 
 function App() {
@@ -41,7 +42,8 @@ function App() {
         <Route component={Dashboard} path='/userDashboard' exact/>
         <Route component={AddBookScreen} path='/AddBookScreen' exact/>
         <Route component={PricingScreen} path='/pricing' exact />
-        <Route component={SellerAddedBooks} path='/sellerui/getaddedBooks' exact/>
+        <Route component={SellerAddedBooks} path='/sellerui/getaddedBooks' exact />
+        <Route component={receiptPage} path="/receipt" exact />
       </Switch>
       </div>
     
