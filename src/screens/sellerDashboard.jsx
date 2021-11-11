@@ -153,7 +153,9 @@ const SellerScreen = ()=>{
                             <input value={phone} className="textfield" onChange={(e)=>{setPhone(e.target.value)}}/><br /><br />
                             <label className="label-dash"><b>Email: </b></label><br />
                             <input value={email} className="textfield" onChange={(e)=>{setEmail(e.target.value)}}/><br /><br />
-                            <button className="change-pwd" onClick={handler}><b>Update Profile</b></button><br />
+                            <button style={{marginLeft:"20px" , width:"280px"}} className="change-pwd" onClick={handler}><b>Update Profile</b></button>
+                            {Seller.certificates!=="no certificate added"? <button style={{marginLeft:'30px', width:"280px"}} className="change-pwd" onClick={()=>{history.push(Seller.certificates)}}><b>Check Certificates</b></button>:<b>Shop Verification Documents Not Provided</b>}
+                            <br/>
                         </Col>
 
                         <Col sm={5}>
