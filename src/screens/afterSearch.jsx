@@ -83,7 +83,7 @@ const usedBookhandle =()=>{
     setusedBook(true)
   }
   if(usedBook){
-    const FetchData = render.filter(book=>book.tag.used==true)
+    const FetchData = render.filter(book=>book.tag.new==false)
     if(FetchData === []){
       console.log('No Data')
     }else{
