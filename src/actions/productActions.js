@@ -69,6 +69,7 @@ const search = async (data)=>{
 
 const AddtoLoggs = async (data)=>{
     let res = null;
+    console.log(data)
     await axios.post(`${BASE_URL}/logs/insertone`,
         data
     ).then((responce)=>{responce.status === 200 ?res='LOGG_ADDED':res='LOGG_ADD_FAIL'})
@@ -100,7 +101,7 @@ const ProductAction=(action,data)=>{
         case 'SEARCH_BOOK_REQUEST' : return search(data); break;
         case 'GET_BOOK_REQUEST': return getbookbyid(data);break;
         case 'SELLER_BOOK_REQUEST' : return getsellerbooks(data);break;
-        case 'LOGG_ADDED_REQUEST' : return AddtoLoggs(data);break;
+        case 'LOG_ADDED_REQUEST' : return AddtoLoggs(data);break;
         default : alert(`you requested Action - ${action}`)
       }
     return null;

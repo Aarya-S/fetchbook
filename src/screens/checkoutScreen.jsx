@@ -7,6 +7,7 @@ import { auth } from "../firebaseconfig";
 import sellerAction from "../actions/sellerAction";
 import { SELLER_ORDER_LIST_REQUEST } from "../constant/sellerconstant";
 import OrderHistoryList from "../helper/OrderHistoryList";
+import ProductAction from "../actions/productActions";
 
 const CheckoutScreen = ()=>{   
     let history = useHistory();
@@ -30,7 +31,7 @@ const CheckoutScreen = ()=>{
             delete product.list[i].tag.instock;
             delete product.list[i].tag.new;
             delete product.list[i].tag.address;
-            product.list[i].buyerName = auth.currentUser.displayName;
+            product.list[i].buyerName = auth.currentUser.displayName || auth.currentUser.email;
             product.list[i].buyerid = auth.currentUser.email;
             product.list[i].orderid = Math.random().toString(36).substr(2, 9);
             product.list[i].orderTime = new Date().toLocaleString();
@@ -45,6 +46,7 @@ const CheckoutScreen = ()=>{
             var date = new Date();
             product.list[i].delivery_date = date.addDays(3).toLocaleString();
             AddorderRequest(product.list[i]);
+            AddLoggsRequest(product.list[i]);
             OrderHistoryList.AddOrderHistory(product.list[i]);
         }
 
@@ -55,7 +57,10 @@ const CheckoutScreen = ()=>{
         sellerAction(SELLER_ORDER_LIST_REQUEST,product);
     }
     const AddLoggsRequest = (product)=>{
-        
+        delete product._id;
+        console.log(product);
+
+        ProductAction('LOG_ADDED_REQUEST',product);
     }
         return(
             <>
