@@ -204,22 +204,22 @@ const conditionHandle =(request)=>{
     <h5><b>Filters</b></h5><br />
     
     <div className="container">
-            <div className="row">
-                {/* Column1 */}
-                <div className="col">
+      <div className="row">
+          {/* Column1 */}
+          <div className="col">
 
-      <h6 class="font-weight-bold mb-3"><u>Condition</u></h6>
+          <h6 class="font-weight-bold mb-3"><u>Condition</u></h6>
 
-      <div class="form-check pl-0 mb-3">
-        <input type="checkbox" class="form-check-input filled-in" id="new" onChange={newhandle}/>
-        <label class="form-check-label small text-uppercase card-link-secondary" for="new">New</label>
-      </div>
-      <div class="form-check pl-0 mb-3">
-        <input type="checkbox" class="form-check-input filled-in" id="used" onChange={usedBookhandle}/>
-        <label class="form-check-label small text-uppercase card-link-secondary" for="used">Used</label>
-      </div>
-      </div>
-      </div><br />
+          <div class="form-check pl-0 mb-3">
+            <input type="radio" name="new-used" class="form-check-input filled-in" id="new" onChange={newhandle}/>
+            <label class="form-check-label small text-uppercase card-link-secondary" for="new">New</label>
+          </div>
+          <div class="form-check pl-0 mb-3">
+            <input type="radio" name="new-used" class="form-check-input filled-in" id="used" onChange={usedBookhandle}/>
+            <label class="form-check-label small text-uppercase card-link-secondary" for="used">Used</label>
+          </div>
+          </div>
+          </div><br />
       
 
 
@@ -247,10 +247,6 @@ const conditionHandle =(request)=>{
       <div class="form-check pl-0 mb-3">
         <input type="checkbox" class="form-check-input filled-in" id="instock" onChange={stockHandle}/>
         <label class="form-check-label small text-uppercase card-link-secondary" for="instock" >In Stock</label>
-        </div>
-        <div class="form-check pl-0 mb-3">
-        <input type="checkbox" class="form-check-input filled-in" id="ofs" onChange={outofstockHandle}/>
-        <label class="form-check-label small text-uppercase card-link-secondary" for="ofs" >Out of Stock</label>
         </div><br />
       
       <h6 class="font-weight-bold mb-3"><u>Condition</u></h6>
@@ -258,8 +254,6 @@ const conditionHandle =(request)=>{
       <div class="form-check pl-0 mb-3">
         <input type="checkbox" class="form-check-input filled-in" id="good" onChange={()=>{conditionHandle('good')}}/>
         <label class="form-check-label small text-uppercase card-link-secondary" for="good" >Good</label>
-      </div>
-      <div class="form-check pl-0 mb-3">
         <input type="checkbox" class="form-check-input filled-in" id="best" onChange={()=>{conditionHandle('best')}}/>
         <label class="form-check-label small text-uppercase card-link-secondary" for="best" >Best</label>
       </div>
@@ -270,7 +264,7 @@ const conditionHandle =(request)=>{
         <label class="form-check-label small text-uppercase card-link-secondary" >Search a Category</label>
         <input type='textfield'  id="category"  onChange={(e)=>{setCategory(e.target.value)}}/>
         {category ===''?'':<button class="btn btn-primary btn-sm" onClick={categoryHandle}>Search</button>}
-        </div><br />
+      </div><br />
 
       <h6 class="font-weight-bold mb-3"><u>Price</u></h6>
       <div>
