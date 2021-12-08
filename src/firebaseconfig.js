@@ -6,7 +6,14 @@ import { getAuth,updateProfile,updateEmail,GoogleAuthProvider,signOut,signInWith
 
 
 // Your web app's Firebase configuration
-const firebaseConfig = /* ADD CONFIG DETAILS HERE */
+const firebaseConfig = {
+  apiKey: "AIzaSyAVoEO85JaiECGTca5OmgIXapyd_RvRSkY",
+  authDomain: "fetchbook-99357.firebaseapp.com",
+  projectId: "fetchbook-99357",
+  storageBucket: "fetchbook-99357.appspot.com",
+  messagingSenderId: "265483738954",
+  appId: "1:265483738954:web:80c047f283cf74ad1eabb3"
+};
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app)
